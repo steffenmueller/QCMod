@@ -1,0 +1,126 @@
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "divisor_heights.m"
+Loading "qc_init_g2.m"
+Loading "mws_qc.m"
+Loading "howe_zhu.m"
+Compute the rational points on  Hyperelliptic Curve defined by y^2 = 1881*x^6 - 
+    3328*x^5 + 2418*x^4 - 926*x^3 + 197*x^2 - 22*x + 1 over Rational Field
+The Jacobian is absolutely simple
+Small points:  {@ (0 : -1 : 1), (0 : 1 : 1), (1 : -1 : 2), (1 : 1 : 2) @}
+2 2
+2 2
+2 2
+2 2
+
+Start computation of local height at 7 between first pair of divisors
+Time: 4.270
+Time for first height
+Start computation of local height at 7 between second pair of divisors
+Time: 2.730
+Time for second height
+Start computation of local height at 7 between third pair of divisors
+Time: 4.360
+Time for third height
+local heights [ 128236*7 + O(7^8), -309880*7 + O(7^8), -271808*7 + O(7^8) ]
+
+Starting quadratic Chabauty for p = 7.
+
+ Using the base point [ 0, -1 ].
+
+Computing Hodge filtration for correspondence 1.
+Computing Frobenius structure for correspondence 1.
+
+ Sanity check at rational points for correspondence 1.  
+Sanity checks passed.
+
+There are additional solutions that don't look rational.
+Time: 1.260
+
+Use the Mordell-Weil sieve to show that the additional solutions aren't 
+rational.
+generating cosets
+Time: 0.000
+number of cosets 8
+adding information modulo 1045
+Time: 51.680
+number of cosets 8736200
+starting Mordell Weil sieve
+  6437200 cosets eliminated at v = 3
+        2299000 cosets remaining after v=3
+  1724250 cosets eliminated at v = 5
+        574750 cosets remaining after v=5
+  482790 cosets eliminated at v = 19
+        91960 cosets remaining after v=19
+  16720 cosets eliminated at v = 29
+        75240 cosets remaining after v=29
+  73080 cosets eliminated at v = 31
+        2160 cosets remaining after v=31
+  1440 cosets eliminated at v = 67
+        720 cosets remaining after v=67
+  120 cosets eliminated at v = 263
+        600 cosets remaining after v=263
+  160 cosets eliminated at v = 281
+        440 cosets remaining after v=281
+  112 cosets eliminated at v = 283
+        328 cosets remaining after v=283
+  88 cosets eliminated at v = 769
+        240 cosets remaining after v=769
+  152 cosets eliminated at v = 1151
+        88 cosets remaining after v=1151
+  70 cosets eliminated at v = 2377
+        18 cosets remaining after v=2377
+  6 cosets eliminated at v = 3847
+        12 cosets remaining after v=3847
+  8 cosets eliminated at v = 4957
+        4 cosets remaining after v=4957
+  4 cosets eliminated at v = 67217
+        0 cosets remaining after v=67217
+Time: 189.490
+done with the MW sieve? true
+No additional solutions are rational
+
+Use the Mordell-Weil sieve to show that there are no rational points in bad or 
+infinite disks
+auxiliary integer = 60
+  42379200 cosets eliminated at v = 7
+number of cosets 392400
+starting MW-sieve to exclude rational points in bad and infinite disks at p=7
+        392400 cosets remaining after v=7
+  348800 cosets eliminated at v = 11
+        43600 cosets remaining after v=11
+  8720 cosets eliminated at v = 19
+        34880 cosets remaining after v=19
+  13080 cosets eliminated at v = 233
+        21800 cosets remaining after v=233
+  12208 cosets eliminated at v = 283
+        9592 cosets remaining after v=283
+  8552 cosets eliminated at v = 331
+        1040 cosets remaining after v=331
+  80 cosets eliminated at v = 467
+        960 cosets remaining after v=467
+  112 cosets eliminated at v = 983
+        848 cosets remaining after v=983
+  796 cosets eliminated at v = 1049
+        52 cosets remaining after v=1049
+  32 cosets eliminated at v = 1667
+        20 cosets remaining after v=1667
+  14 cosets eliminated at v = 10861
+        6 cosets remaining after v=10861
+  6 cosets eliminated at v = 25771
+        0 cosets remaining after v=25771
+Time: 56.180
+There are no rational points in bad or infinite disks for p=7

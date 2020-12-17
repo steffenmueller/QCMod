@@ -1,0 +1,2 @@
+174,0
+S,MordellWeilGroupGenus2,"Given the Jacobian J of a genus 2 curve over the rationals, this attempts to compute the Mordell-Weil group J(Q). It returns an abstract abelian group G and a map from G to J(Q). The third value is a flag that indicates whether the result is proved to be correct. The fourth value is another flag that indicates whether the subgroup found could be shown to be of finite index,",0,1,0,0,0,0,0,0,0,152,,107,175,36,36,-38,-38

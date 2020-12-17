@@ -1,0 +1,192 @@
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "qc_init_g2.m"
+Loading "mws_qc.m"
+Compute the rational points of the curve with affine model  y^2 - x^5 + x^4 - x^3 - x^2 + 2*x - 1
+Computing a symplectic basis of H^1
+Computing the cup product matrix
+Computing Coleman data at p=3.
+Computed Coleman data at p=3.
+
+ Good affine rational points: [
+    [ 1, 1 ],
+    [ 1, -1 ],
+    [ 2, 5 ],
+    [ 2, -5 ],
+    [ 0, 1 ],
+    [ 0, -1 ],
+    [ 4, 29 ],
+    [ 4, -29 ],
+    [ -1, 1 ],
+    [ -1, -1 ]
+]
+
+ Bad affine rational points: []
+
+ Using the base point [ 1, 1 ].
+Computing correspondence
+
+Hecke operator at 3 acting on H^1:
+[   2   -1    0  1/2]
+[  -1    1 -1/2    0]
+[   0    0    2   -1]
+[   0    0   -1    1]
+Hecke correspondences:
+[
+[ 0  2 -2  4]
+[-2  0  4  2]
+[ 2 -4  0  0]
+[-4 -2  0  0]
+]
+
+
+Computing Hodge filtration.
+eta =  Matrix with 1 row and 0 columns.
+beta_fil  =  (0 0).
+gamma_fil =  (-4*x + 4        0).
+
+Computing Frobenius structure.
+
+Using point [ 1, -1 ] to generate the tangent space.
+Using point [ 2, 5 ] to fit the height pairing.
+Using point [ 0, 1 ] to fit the height pairing.
+Using point [ 4, 29 ] to fit the height pairing.
+
+Sanity check: Does the quadratic Chabauty function map the known good affine 
+rational points into the appropriate set?.
+ Sanity check passed
+The quadratic Chabauty set in this affine patch is 
+ [
+[ 9050*3 + O(3^10), 13190 + O(3^10) ],
+[ O(3^10), -1 + O(3^10) ],
+[ 9050*3 + O(3^10), -13190 + O(3^10) ],
+[ O(3^10), 1 + O(3^10) ],
+[ -1 + O(3^10), -1 + O(3^10) ],
+[ 11348 + O(3^10), -4654 + O(3^10) ],
+[ -24079 + O(3^10), 21485 + O(3^10) ],
+[ 2 + O(3^10), 5 + O(3^10) ],
+[ -1 + O(3^10), 1 + O(3^10) ],
+[ 11348 + O(3^10), 4654 + O(3^10) ],
+[ -24079 + O(3^10), -21485 + O(3^10) ],
+[ 2 + O(3^10), -5 + O(3^10) ],
+[ 6532 + O(3^10), 28661 + O(3^10) ],
+[ 1 + O(3^10), -1 + O(3^10) ],
+[ 4 + O(3^10), 29 + O(3^10) ],
+[ 6532 + O(3^10), -28661 + O(3^10) ],
+[ 1 + O(3^10), 1 + O(3^10) ],
+[ 4 + O(3^10), -29 + O(3^10) ]
+] 
+
+ Now look at the affine patch Z=0 (actually we only care about the disk at 
+infinity).
+Affine patch= y^2 - x^6 + 2*x^5 - x^4 - x^3 + x^2 - x
+Computing a symplectic basis of H^1
+Computing the cup product matrix
+Computing Coleman data at p=3.
+Computed Coleman data at p=3.
+genus = 2.
+Picard number = 2.
+The number of nice correspondences we're using is 1.
+
+ Good affine rational points on second patch: [
+    [ 1, 1 ],
+    [ 1, -1 ],
+    [ 1/2, 5/8 ],
+    [ 1/2, -5/8 ],
+    [ -1, 1 ],
+    [ -1, -1 ],
+    [ 1/4, 29/64 ],
+    [ 1/4, -29/64 ]
+]
+
+ Bad affine rational points on second patch: [
+    [ 0, 0 ]
+]
+
+ Using the base point [ 1, 1 ].
+Computing correspondence
+
+Hecke operator at 3 acting on H^1:
+[   1   -1    0 -1/2]
+[  -1    2  1/2    0]
+[   0    0    1   -1]
+[   0    0   -1    2]
+Hecke correspondences:
+[
+[ 0 -2  2  4]
+[ 2  0  4 -2]
+[-2 -4  0  0]
+[-4  2  0  0]
+]
+Computing Hodge filtration.
+eta =  (0).
+beta_fil  =  (0 0).
+gamma_fil =  (-4*x + 4        0).
+
+Computing Frobenius structure.
+
+Using point [ 1, -1 ] to generate the tangent space.
+Using point [ 1/2, 5/8 ] to fit the height pairing.
+Using point [ -1, 1 ] to fit the height pairing.
+Using point [ 1/4, 29/64 ] to fit the height pairing.
+To deal with the Weierstrass disk, we change the base point and use Coleman 
+integration.
+Time: 22.260
+
+Sanity check: Does the quadratic Chabauty function map the known good affine 
+rational points into the appropriate set?.
+ Sanity check passed
+
+Sanity check: Does the quadratic Chabauty function map the bad affine rational 
+point into the appropriate set?.
+ Sanity check passed
+The quadratic Chabauty set in the second affine patch is 
+ [
+[ -560*3^2 + O(3^10), -4828*3 + O(3^10) ],
+[ O(3^10), O(3^10) ],
+[ -1 + O(3^10), -1 + O(3^10) ],
+[ -12889 + O(3^10), 11600 + O(3^10) ],
+[ 20180 + O(3^10), -2239 + O(3^10) ],
+[ -29524 + O(3^10), -22144 + O(3^10) ],
+[ -1 + O(3^10), 1 + O(3^10) ],
+[ -12889 + O(3^10), -11600 + O(3^10) ],
+[ 20180 + O(3^10), 2239 + O(3^10) ],
+[ -29524 + O(3^10), 22144 + O(3^10) ],
+[ 25339 + O(3^10), -11713 + O(3^10) ],
+[ 1 + O(3^10), -1 + O(3^10) ],
+[ 19645 + O(3^10), -28861 + O(3^10) ],
+[ -14762 + O(3^10), -19375 + O(3^10) ],
+[ 25339 + O(3^10), 11713 + O(3^10) ],
+[ 1 + O(3^10), 1 + O(3^10) ],
+[ 19645 + O(3^10), 28861 + O(3^10) ],
+[ -14762 + O(3^10), 19375 + O(3^10) ]
+] 
+
+Sanity check: Do the additional solutions on the affine patches correspond to 
+each other?
+Sanity check passed
+
+Run the Mordell-Weil sieve to show there are no additional rational points in 
+affine disks.
+Use independent points [ (x^2 - x, 2*x - 1, 2), (x^2 - 5*x + 4, -28/3*x + 25/3, 
+2) ]
+number of residue classes 9
+Start the Mordell-Weil sieve
+  9 cosets eliminated at v = 43
+        0 cosets remaining after v=43
+Time: 0.030
+done with the Mordell-Weil sieve? true
+For sieving used the prime(s) [ 43 ]
+
+Total time: 28.160 seconds, Total memory usage: 110.50MB

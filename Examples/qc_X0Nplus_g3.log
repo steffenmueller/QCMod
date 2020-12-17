@@ -1,0 +1,315 @@
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "models_X0Nplus_g2g3.m"
+Loading "howe_zhu.m"
+
+In file "qc_X0Nplus_g3.m", line 13, column 32:
+>>   X := ProjectiveClosure(Curve(A2, Q));
+                                  ^
+User error: Identifier 'A2' has not been declared or assigned
+
+Total time: 0.110 seconds, Total memory usage: 32.09MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "models_X0Nplus_g2g3.m"
+Loading "howe_zhu.m"
+
+In file "qc_X0Nplus_g3.m", line 13, column 32:
+>>   X := ProjectiveClosure(Curve(A2, Q));
+                                  ^
+User error: Identifier 'A2' has not been declared or assigned
+> curve;
+function(Q) ... end function
+> curve(Q);
+
+>> curve(Q);
+         ^
+User error: Identifier 'Q' has not been declared or assigned
+> curve(Q_97);
+Curve over Rational Field defined by
+-X1^3*Y1 - X1^2*Y1^2 + X1^3*Z1 - X1^2*Y1*Z1 + X1*Y1^2*Z1 + Y1^3*Z1 + X1^2*Z1^2 - Y1*Z1^3
+-X^3*Y + X^3 - X^2*Y^2 - X^2*Y + X^2 + X*Y^2 + Y^3 - Y
+
+Total time: 0.120 seconds, Total memory usage: 32.09MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "models_X0Nplus_g2g3.m"
+Loading "howe_zhu.m"
+
+*** Compute the rational points on  X0(97)+ ***
+
+ The Jacobian is absolutely simple.
+
+The rank of J0(97)+ is 3.
+Starting quadratic Chabauty for X0(97)+.
+Time: 29.420
+Finished quadratic Chabauty computation for X0(97)+.
+Defining equation of first affine patch: 
+y^3 + (-x^2 + x)*y^2 + (-x^3 - x^2 - 1)*y + x^3 + x^2.
+Defining equation of second affine patch: 
+y^4 + (-6*x + 7)*y^3 + (10*x^2 - 20*x - 8)*y^2 + (-4*x^3 + 8*x^2 + 24*x + 4)*y -
+8*x^2 - 8*x.
+Rational points: 
+[ (3/2 : 5/2 : 1), (0 : 1 : 1), (0 : 0 : 1), (0 : -1 : 1), (-1 : 0 : 1), (1 : -2
+: 1), (-1 : 1 : 0), (0 : 1 : 0), (1 : 0 : 0) ]
+Prime used: 5
+
+
+*** Compute the rational points on  X0(109)+ ***
+
+ The Jacobian is absolutely simple.
+
+The rank of J0(109)+ is 3.
+Starting quadratic Chabauty for X0(109)+.
+
+[Interrupted]
+
+Total time: 36.000 seconds, Total memory usage: 93.62MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "models_X0Nplus_g2g3.m"
+Loading "howe_zhu.m"
+
+*** Compute the rational points on  X0(97)+ ***
+
+J0(%o)+ is absolutely simple. 97
+
+The rank of J0(97)+ is 3.
+Starting quadratic Chabauty for X0(97)+.
+
+[Interrupted]
+
+Total time: 2.049 seconds, Total memory usage: 32.09MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "models_X0Nplus_g2g3.m"
+Loading "howe_zhu.m"
+
+*** Compute the rational points on  X0(97)+ ***
+
+J0(97)+ is absolutely simple.
+The rank of J0(97)+ is 3.
+Starting quadratic Chabauty for X0(97)+.
+Time: 29.180
+Finished quadratic Chabauty computation for X0(97)+.
+Defining equation of first affine patch: 
+y^3 + (-x^2 + x)*y^2 + (-x^3 - x^2 - 1)*y + x^3 + x^2.
+Defining equation of second affine patch: 
+y^4 + (-6*x + 7)*y^3 + (10*x^2 - 20*x - 8)*y^2 + (-4*x^3 + 8*x^2 + 24*x + 4)*y -
+8*x^2 - 8*x.
+Rational points: 
+[ (3/2 : 5/2 : 1), (0 : 1 : 1), (0 : 0 : 1), (0 : -1 : 1), (-1 : 0 : 1), (1 : -2
+: 1), (-1 : 1 : 0), (0 : 1 : 0), (1 : 0 : 0) ]
+Prime used: 5
+
+
+*** Compute the rational points on  X0(109)+ ***
+
+J0(109)+ is absolutely simple.
+The rank of J0(109)+ is 3.
+Starting quadratic Chabauty for X0(109)+.
+Time: 47.050
+Finished quadratic Chabauty computation for X0(109)+.
+Defining equation of first affine patch: 
+y^4 + x*y^3 + (-4*x + 2)*y^2 + (-4*x^2 - 2*x + 3)*y - x^3 - x^2 + x.
+Defining equation of second affine patch: 
+y^4 + (13*x - 4)*y^3 + (66*x^2 - 30*x - 30)*y^2 + (108*x^3 + 36*x^2 - 216*x - 
+36)*y + 216*x^3 - 216*x^2 - 216*x.
+Rational points: 
+[ (0 : 0 : 1), (0 : -1 : 1), (-3 : 1 : 1), (2 : -2 : 1), (-3/2 : 1/2 : 1), (1 : 
+-1 : 1), (2 : -1 : 1), (-1 : 1 : 0), (1 : 0 : 0) ]
+Prime used: 7
+
+
+*** Compute the rational points on  X0(113)+ ***
+
+J0(113)+ is absolutely simple.
+The rank of J0(113)+ is 3.
+Starting quadratic Chabauty for X0(113)+.
+Time: 83.930
+Finished quadratic Chabauty computation for X0(113)+.
+Defining equation of first affine patch: 
+y^4 + (x + 2)*y^3 + (-3*x^2 + 3*x + 2)*y^2 + (x^3 - 4*x^2 + 3*x + 1)*y - 2*x^2 +
+x.
+Defining equation of second affine patch: 
+y^4 + (-7*x + 1)*y^3 + (10*x^2 + 7*x - 3)*y^2 + (-5*x^3 - 10*x^2 - x + 1)*y + 
+x^4 + 3*x^3 + 2*x^2.
+Rational points: 
+[ (0 : 0 : 1), (0 : -1 : 1), (1/2 : 0 : 1), (-2 : -2 : 1), (1 : 1 : 0), (1 : 0 :
+0) ]
+Prime used: 7
+
+
+*** Compute the rational points on  X0(127)+ ***
+
+J0(127)+ is absolutely simple.
+The rank of J0(127)+ is 3.
+Starting quadratic Chabauty for X0(127)+.
+Time: 145.460
+Finished quadratic Chabauty computation for X0(127)+.
+Defining equation of first affine patch: 
+y^4 + (9*x + 4)*y^3 + (4*x^2 + 18*x + 6)*y^2 + (20*x^3 - 20*x^2 + 20*x + 4)*y + 
+24*x^3 - 32*x^2 + 16*x.
+Defining equation of second affine patch: 
+y^4 + (4*x + 9)*y^3 + (6*x^2 + 18*x + 4)*y^2 + (4*x^3 + 20*x^2 - 20*x + 20)*y + 
+16*x^3 - 32*x^2 + 24*x.
+Rational points: 
+[ (1 : -1 : 1), (3/4 : -3/4 : 1), (2/3 : -2/3 : 1), (0 : 0 : 1), (0 : -2 : 1), 
+(5/7 : -6/7 : 1), (1/2 : -1 : 1), (1 : 0 : 0) ]
+Prime used: 11
+
+
+*** Compute the rational points on  X0(139)+ ***
+
+J0(139)+ is absolutely simple.
+The rank of J0(139)+ is 3.
+Starting quadratic Chabauty for X0(139)+.
+Time: 116.810
+Finished quadratic Chabauty computation for X0(139)+.
+Defining equation of first affine patch: 
+y^4 + (-x + 1)*y^3 + (-x^2 - 2*x + 1)*y^2 + (x^2 - 3*x + 1)*y + x^3 - x.
+Defining equation of second affine patch: 
+y^4 + (-3*x - 4)*y^3 + (4*x^2 + 12*x - 6)*y^2 + (-24*x^2 + 16*x + 4)*y + 8*x^3 -
+8*x.
+Rational points: 
+[ (0 : 0 : 1), (0 : -1 : 1), (-1 : 0 : 1), (1 : 0 : 1), (1 : -1 : 1), (4 : -3 : 
+1), (1 : 0 : 0) ]
+Prime used: 13
+
+
+*** Compute the rational points on  X0(149)+ ***
+
+J0(149)+ is absolutely simple.
+The rank of J0(149)+ is 3.
+Starting quadratic Chabauty for X0(149)+.
+Time: 130.890
+Finished quadratic Chabauty computation for X0(149)+.
+Defining equation of first affine patch: 
+y^4 + (-x - 1)*y^3 + (x^2 - x - 1)*y^2 + (2*x + 1)*y - x^3 + x.
+Defining equation of second affine patch: 
+y^4 + 5*x*y^3 + (7*x^2 + 3*x - 2)*y^2 + (2*x^3 + 5*x^2 - 3*x - 1)*y + x^3 - x.
+Rational points: 
+[ (-1 : 0 : 1), (2 : 2 : 1), (1 : 0 : 1), (1 : 0 : 0), (0 : 1 : 1), (0 : -1 : 1)
+]
+Prime used: 11
+
+
+*** Compute the rational points on  X0(151)+ ***
+
+J0(151)+ is absolutely simple.
+The rank of J0(151)+ is 3.
+Starting quadratic Chabauty for X0(151)+.
+Time: 320.290
+Finished quadratic Chabauty computation for X0(151)+.
+Defining equation of first affine patch: 
+y^4 + (8*x + 1)*y^3 + (22*x^2 + 6*x - 6)*y^2 + (20*x^3 + 20*x^2 - 32*x + 4)*y + 
+24*x^3 - 40*x^2 + 16*x.
+Defining equation of second affine patch: 
+y^4 + (x + 9)*y^3 + (-6*x^2 - 6*x + 22)*y^2 + (4*x^3 - 20*x^2 - 32*x + 12)*y + 
+16*x^3 + 8*x^2 - 8*x.
+Rational points: 
+[ (0 : 1 : 1), (0 : 0 : 1), (3/2 : -2 : 1), (1 : 0 : 1), (1 : -3 : 1), (2/3 : 0 
+: 1), (1 : 0 : 0), (-1/2 : 1 : 0) ]
+Prime used: 19
+
+
+*** Compute the rational points on  X0(179)+ ***
+
+J0(179)+ is absolutely simple.
+The rank of J0(179)+ is 3.
+Starting quadratic Chabauty for X0(179)+.
+Time: 387.470
+Finished quadratic Chabauty computation for X0(179)+.
+Defining equation of first affine patch: 
+y^4 + (3*x + 4)*y^3 + (x^2 + 3*x + 4)*y^2 + (2*x^3 + x^2 - x + 1)*y + x^3 - x.
+Defining equation of second affine patch: 
+y^4 + (4*x + 3)*y^3 + (4*x^2 + 3*x + 1)*y^2 + (x^3 - x^2 + x + 2)*y - x^3 + x.
+Rational points: 
+[ (0 : 0 : 1), (0 : -1 : 1), (-1 : 0 : 1), (1 : 0 : 1), (2/3 : -2/3 : 1), (1 : 0
+: 0) ]
+Prime used: 17
+
+
+*** Compute the rational points on  X0(239)+ ***
+
+J0(239)+ is absolutely simple.
+The rank of J0(239)+ is 3.
+Starting quadratic Chabauty for X0(239)+.
+Time: 360.070
+Finished quadratic Chabauty computation for X0(239)+.
+Defining equation of first affine patch: 
+y^4 + (-x + 3)*y^3 + (-x^2 - x + 2)*y^2 + (x^2 - x + 1)*y + x^3 + x^2.
+Defining equation of second affine patch: 
+y^4 + (10*x - 3)*y^3 + (35*x^2 - 21*x + 7)*y^2 + (49*x^3 - 49*x^2 + 147*x + 
+49)*y + 343*x^2 + 343*x.
+Rational points: 
+[ (1 : -1 : 1), (1 : -2 : 1), (0 : 0 : 1), (-1 : 0 : 1), (1 : 0 : 0) ]
+Prime used: 19
+
+
+Total time: 1629.839 seconds, Total memory usage: 371.00MB

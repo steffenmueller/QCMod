@@ -1,0 +1,90 @@
+Loading "qc_init_g2.m"
+Loading "mws_qc.m"
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "divisor_heights.m"
+Loading "howe_zhu.m"
+Compute the rational points on  Hyperelliptic Curve defined by y^2 = -3*x^6 - 
+    4*x^5 - 2*x^4 + 2*x^3 + 5*x^2 + 2*x + 1 over Rational Field
+The Jacobian is absolutely simple
+Small points:  {@ (-1 : -1 : 1), (-1 : 1 : 1), (0 : -1 : 1), (0 : 1 : 1), (1 : 
+-1 : 1), (1 : 1 : 1) @}
+The rank is 2.
+2 2
+2 2
+2 2
+
+Start computation of local height at 61 between first pair of divisors
+Time: 776.140
+Time for first height
+Start computation of local height at 61 between second pair of divisors
+Time: 350.050
+Time for second height
+Start computation of local height at 61 between third pair of divisors
+Time: 770.140
+Time for third height
+local heights [ -398893205*61 + O(61^6), -755044*61 + O(61^6), 28284805*61 + 
+O(61^6) ]
+
+Starting quadratic Chabauty for p = 61.
+
+ Using the base point [ -1, -1 ].
+
+Computing Hodge filtration for correspondence 1.
+Computing Frobenius structure for correspondence 1.
+
+ Sanity check at rational points for correspondence 1.  
+Sanity checks passed.
+
+There are additional solutions that don't look rational.
+Time: 6.650
+
+Use the Mordell-Weil sieve to show that the additional solutions aren't 
+rational.
+generating cosets
+Time: 0.000
+number of cosets 82
+starting MW-sieve
+  22 cosets eliminated at v = 73
+        60 cosets remaining after v=73
+  60 cosets eliminated at v = 229
+        0 cosets remaining after v=229
+Time: 0.380
+No additional solutions are rational
+Use the Mordell-Weil sieve to show that there are no rational points in bad 
+disks
+auxiliary integer = 2
+  87590872 cosets eliminated at v = 61
+number of cosets 56172
+starting MW-sieve to exclude rational points in bad and infinite disks at p=61
+  37448 cosets eliminated at v = 41
+        18724 cosets remaining after v=41
+  1208 cosets eliminated at v = 71
+        17516 cosets remaining after v=71
+  15080 cosets eliminated at v = 83
+        2436 cosets remaining after v=83
+  84 cosets eliminated at v = 641
+        2352 cosets remaining after v=641
+  1848 cosets eliminated at v = 1697
+        504 cosets remaining after v=1697
+  360 cosets eliminated at v = 4057
+        144 cosets remaining after v=4057
+  24 cosets eliminated at v = 6367
+        120 cosets remaining after v=6367
+  120 cosets eliminated at v = 10853
+        0 cosets remaining after v=10853
+Time: 17.890
+There are no rational points in bad or infinite disks for p=61

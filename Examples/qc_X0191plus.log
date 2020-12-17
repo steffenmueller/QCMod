@@ -1,0 +1,79 @@
+Loading "qc_init_g2.m"
+Loading "mws_qc.m"
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "divisor_heights.m"
+Loading "howe_zhu.m"
+Compute the rational points on  Hyperelliptic Curve defined by y^2 = 13*x^6 - 
+    24*x^5 + 26*x^4 - 26*x^3 + 17*x^2 - 6*x + 1 over Rational Field
+The Jacobian is absolutely simple
+Small points:  {@ (0 : -1 : 1), (0 : 1 : 1), (1 : -1 : 1), (1 : 1 : 1), (1 : -11
+: 3), (1 : 11 : 3) @}
+2 2
+2 2
+2 2
+
+Start computation of local height at 31 between first pair of divisors
+Time: 122.930
+Time for first height
+Start computation of local height at 31 between second pair of divisors
+Time: 44.300
+Time for second height
+Start computation of local height at 31 between third pair of divisors
+Time: 122.640
+Time for third height
+local heights [ 13111921*31 + O(31^6), -7371915*31 + O(31^6), -9691879*31 + 
+O(31^6) ]
+
+Starting quadratic Chabauty for p = 31.
+
+ Using the base point [ 0, -1 ].
+
+Computing Hodge filtration for correspondence 1.
+Computing Frobenius structure for correspondence 1.
+
+ Sanity check at rational points for correspondence 1.  
+Sanity checks passed.
+
+There are additional solutions that don't look rational.
+Time: 2.650
+
+Use the Mordell-Weil sieve to show that the additional solutions aren't 
+rational.
+generating cosets
+Time: 0.000
+number of cosets 30
+starting MW-sieve
+  20 cosets eliminated at v = 11
+        10 cosets remaining after v=11
+  2 cosets eliminated at v = 83
+        8 cosets remaining after v=83
+  4 cosets eliminated at v = 2971
+        4 cosets remaining after v=2971
+  4 cosets eliminated at v = 76963
+        0 cosets remaining after v=76963
+Time: 81.670
+No additional solutions are rational
+Use the Mordell-Weil sieve to show that there are no rational points in bad 
+disks
+  1342122 cosets eliminated at v = 31
+number of cosets 1159
+starting MW-sieve to exclude rational points in bad and infinite disks at p=31
+        1159 cosets remaining after v=31
+  1159 cosets eliminated at v = 61
+        0 cosets remaining after v=61
+Time: 0.030
+There are no rational points in bad or infinite disks for p=31

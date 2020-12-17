@@ -1,0 +1,158 @@
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "qc_init_g2.m"
+Loading "mws_qc.m"
+Compute the rational points of the curve with affine model  y^2 - x^6 - 2*x^4 - 6*x^3 - 17*x^2 - 18*x - 5
+Computing a symplectic basis of H^1
+Computing the cup product matrix
+Computing Coleman data at p=29.
+Computed Coleman data at p=29.
+
+ Good affine rational points: [
+    [ 1/4, 209/64 ],
+    [ 1/4, -209/64 ],
+    [ 1, 7 ],
+    [ 1, -7 ],
+    [ 1/2, 35/8 ],
+    [ 1/2, -35/8 ],
+    [ -1, 1 ],
+    [ -1, -1 ]
+]
+
+ Bad affine rational points: []
+
+ Using the base point [ 1/4, 209/64 ].
+Computing correspondence
+
+Hecke operator at 29 acting on H^1:
+[ 5  4  0  2]
+[ 4  1 -2  0]
+[ 0  0  5  4]
+[ 0  0  4  1]
+Hecke correspondences:
+[
+[  0   8  -8 -16]
+[ -8   0 -16   8]
+[  8  16   0   0]
+[ 16  -8   0   0]
+]
+Computing Hodge filtration.
+eta =  (0).
+beta_fil  =  (0 0).
+gamma_fil =  (16*x - 4        0).
+
+Computing Frobenius structure.
+
+Using point [ 1/4, -209/64 ] to generate the tangent space.
+Using point [ 1, 7 ] to fit the height pairing.
+Using point [ 1/2, 35/8 ] to fit the height pairing.
+Using point [ -1, 1 ] to fit the height pairing.
+
+Sanity check: Does the quadratic Chabauty function map the known good affine 
+rational points into the appropriate set?.
+ Sanity check passed
+ Now look at the affine patch Z=0 (actually we only care about the disk at 
+infinity).
+Affine patch= y^2 - 5*x^6 - 18*x^5 - 17*x^4 - 6*x^3 - 2*x^2 - 1
+Computing a symplectic basis of H^1
+Computing the cup product matrix
+Computing Coleman data at p=29.
+Computed Coleman data at p=29.
+genus = 2.
+Picard number = 2.
+The number of nice correspondences we're using is 1.
+
+ Good affine rational points: [
+    [ 0, 1 ],
+    [ 0, -1 ],
+    [ -1, 1 ],
+    [ -1, -1 ],
+    [ 4, 209 ],
+    [ 4, -209 ],
+    [ 1, 7 ],
+    [ 1, -7 ],
+    [ 2, 35 ],
+    [ 2, -35 ]
+]
+
+ Bad affine rational points: []
+
+ Using the base point [ 4, 209 ].
+Computing correspondence
+
+Hecke operator at 29 acting on H^1:
+[    1     4     0 -2/25]
+[    4     5  2/25     0]
+[    0     0     1     4]
+[    0     0     4     5]
+Hecke correspondences:
+[
+[    0 -8/25     8   -16]
+[ 8/25     0   -16    -8]
+[   -8    16     0     0]
+[   16     8     0     0]
+]
+Computing Hodge filtration.
+eta =  (0).
+beta_fil  =  (0 0).
+gamma_fil =  (16*x - 64         0).
+
+Computing Frobenius structure.
+
+Using point [ 0, 1 ] to generate the tangent space.
+Using point [ 0, 1 ] to fit the height pairing.
+Using point [ -1, 1 ] to fit the height pairing.
+Using point [ 1, 7 ] to fit the height pairing.
+
+Sanity check: Does the quadratic Chabauty function map the known good affine 
+rational points into the appropriate set?.
+ Sanity check passed
+Sanity check: Do the additional solutions on the affine patches correspond to 
+each other?
+Sanity check passed
+
+Run the Mordell-Weil sieve to show there are no additional rational points in 
+affine disks.
+Use independent points [ (x^2 - 1, -4*x - 3, 2), (x^2 - 3/4*x + 1/8, -71/16*x - 
+    69/32, 2) ]
+adding information mod N=4
+Time: 0.010
+number of cosets 1216
+Start the Mordell-Weil sieve
+  152 cosets eliminated at v = 199
+        1064 cosets remaining after v=199
+  1042 cosets eliminated at v = 373
+        22 cosets remaining after v=373
+  22 cosets eliminated at v = 463
+        0 cosets remaining after v=463
+Time: 0.470
+done with the Mordell-Weil sieve? true
+For sieving used the prime(s) [ 199, 373, 463 ]
+
+Still need to look at infinite disks
+Use independent points [ (x^2 - 1, -3*x - 4, 2), (x^2 - 6*x + 8, -87*x + 139, 2)
+]
+number of cosets 10
+Start the Mordell-Weil sieve to show there are no additional rational points in 
+disks at infinity.
+        10 cosets remaining after v=199
+  6 cosets eliminated at v = 373
+        4 cosets remaining after v=373
+  4 cosets eliminated at v = 463
+        0 cosets remaining after v=463
+Time: 0.470
+done with the Mordell-Weil sieve? true
+For sieving used the prime(s) [ 199, 373, 463 ]
+
+Total time: 45.270 seconds, Total memory usage: 117.19MB

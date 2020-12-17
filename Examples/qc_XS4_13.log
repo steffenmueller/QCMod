@@ -1,0 +1,58 @@
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+
+ Using the base point [ -1, 4 ].
+
+Computing Hodge filtration for correspondence 1.
+Computing Frobenius structure for correspondence 1.
+
+Computing Hodge filtration for correspondence 2.
+Computing Frobenius structure for correspondence 2.
+
+ Sanity check at rational points for correspondence 1.  
+ Sanity check at rational points for correspondence 2.  
+Sanity checks passed.
+
+The curve has only the known rational points outside the bad residue disks and 
+disks at infinity
+
+ Using the base point [ 0, 0 ].
+
+Computing Hodge filtration for correspondence 1.
+Computing Frobenius structure for correspondence 1.
+
+Computing Hodge filtration for correspondence 2.
+Computing Frobenius structure for correspondence 2.
+
+ Sanity check at rational points for correspondence 1.  
+ Sanity check at rational points for correspondence 2.  
+Sanity checks passed.
+
+The curve has only the known rational points outside the bad residue disks and 
+disks at infinity
+Small points {@ (-1/6 : 1 : 0), (-1 : 4 : 1), (0 : 0 : 1), (-1 : 0 : 1) @}
+Good affine points on first patch [
+    [ -1, 4 ],
+    [ -1, 0 ],
+    [ 0, 0 ]
+]
+Good affine points on second patch [
+    [ 0, 0 ],
+    [ 0, -4 ],
+    [ 1, -6 ]
+]
+
+Total time: 116.290 seconds, Total memory usage: 93.62MB

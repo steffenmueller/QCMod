@@ -1,0 +1,66 @@
+Loading "qc_init_g2.m"
+Loading "mws_qc.m"
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "divisor_heights.m"
+Loading "howe_zhu.m"
+The Jacobian is absolutely simple
+Small points:  {@ (0 : -5 : 1), (0 : 5 : 1) @}
+2 2
+2 2
+2 2
+Start computation of local height at 71 between first pair of divisors
+Time: 1146.620
+Time for first height
+Start computation of local height at 71 between second pair of divisors
+Time: 571.560
+Time for second height
+Start computation of local height at 71 between third pair of divisors
+Time: 1145.590
+Time for third height
+local heights [ 14872375*71 + O(71^6), -899498389*71 + O(71^6), -883954634*71 + 
+O(71^6) ]
+Starting quadratic Chabauty at p= 71.
+Time: 7.840
+
+Use the Mordell-Weil sieve to show that the additional solutions aren't 
+rational.
+generating cosets
+Time: 0.000
+number of cosets 78
+  68 cosets eliminated at v = 7
+        10 cosets remaining after v=7
+  4 cosets eliminated at v = 83
+        6 cosets remaining after v=83
+  4 cosets eliminated at v = 101
+        2 cosets remaining after v=101
+  2 cosets eliminated at v = 1399
+        0 cosets remaining after v=1399
+Time: 1.570
+No additional solutions are rational
+  36042010 cosets eliminated at v = 71
+number of cosets 18015
+starting MW-sieve to exclude rational points in bad and infinite disks at p=71
+  7206 cosets eliminated at v = 31
+        10809 cosets remaining after v=31
+  3603 cosets eliminated at v = 109
+        7206 cosets remaining after v=109
+  7206 cosets eliminated at v = 8111
+        0 cosets remaining after v=8111
+Time: 6.200
+There are no rational points in bad or infinite disks for p=71
+
+Total time: 2990.030 seconds, Total memory usage: 128.31MB

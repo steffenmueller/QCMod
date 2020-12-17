@@ -1,0 +1,66 @@
+Loading "qc_init_g2.m"
+Loading "mws_qc.m"
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "applications.m"
+Loading "misc.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "divisor_heights.m"
+Loading "howe_zhu.m"
+The Jacobian is absolutely simple
+Small points:  {@ (1 : -5 : 1), (1 : 5 : 1) @}
+2 2
+2 2
+2 2
+Start computation of local height at 61 between first pair of divisors
+Time: 775.350
+Time for first height
+Start computation of local height at 61 between second pair of divisors
+Time: 351.260
+Time for second height
+Start computation of local height at 61 between third pair of divisors
+Time: 770.470
+Time for third height
+local heights [ -394691426*61 + O(61^6), 413584355*61 + O(61^6), -292320897*61 +
+O(61^6) ]
+Starting quadratic Chabauty at p= 61.
+Time: 8.130
+
+Use the Mordell-Weil sieve to show that the additional solutions aren't 
+rational.
+generating cosets
+Time: 0.000
+number of cosets 62
+starting MW-sieve
+  48 cosets eliminated at v = 7
+        14 cosets remaining after v=7
+  10 cosets eliminated at v = 29
+        4 cosets remaining after v=29
+  2 cosets eliminated at v = 257
+        2 cosets remaining after v=257
+  2 cosets eliminated at v = 3457
+        0 cosets remaining after v=3457
+Time: 3.120
+No additional solutions are rational
+Use the Mordell-Weil sieve to show that there are no rational points in bad 
+disks
+  2294720 cosets eliminated at v = 61
+number of cosets 505
+starting MW-sieve to exclude rational points in bad and infinite disks at p=61
+  404 cosets eliminated at v = 31
+        101 cosets remaining after v=31
+        101 cosets remaining after v=61
+  101 cosets eliminated at v = 191
+        0 cosets remaining after v=191
+Time: 0.090
+There are no rational points in bad or infinite disks for p=61
