@@ -111,7 +111,6 @@ end function;
 
 function has_odd_degree_model_at_p(C, p : N := 20)
   // Find an odd degree model over Qp if one exists.
-  // Tricky because of precision issues
   Qp := pAdicField(p, N);
   Cp := ChangeRing(C, Qp);
   g := Genus(Cp);
