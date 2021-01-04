@@ -151,8 +151,8 @@ function xy_coordinates(P, data)
   W0invx0 := Evaluate(W0^(-1), x0);
   K := Universe(P`b);
   b_vector := Matrix(K, d, 1, P`b);
-  y_powers := W0invx0*b_vector;
-  y0 := y_powers[2,1];
+  ypowers := W0invx0*ChangeRing(b_vector,Parent(W0invx0[1,1]));
+  y0 := ypowers[2,1];
   return [x0,y0];
 end function;
 
@@ -469,7 +469,7 @@ frobenius_pt:=function(P,data);
     
     W0invx0:=Transpose(Evaluate(W0^(-1),x0));
 
-    ypowers:=Vector(b)*W0invx0;
+    ypowers:=Vector(b)*ChangeRing(W0invx0,Parent(b[1]));
     y0:=ypowers[2];
   
     C:=Coefficients(Q);
@@ -604,7 +604,7 @@ teichmueller_pt:=function(P,data)
   x0new:=K!TeichmuellerLift(FiniteField(p)!x0,pAdicQuotientRing(p,N)); 
   b:=P`b; 
   W0invx0:=Transpose(Evaluate(W0^(-1),x0));
-  ypowers:=Vector(b)*W0invx0;
+  ypowers:=Vector(b)*ChangeRing(W0invx0,Parent(b[1]));
   y0:=ypowers[2];
   
   C:=Coefficients(Q);
@@ -623,7 +623,7 @@ teichmueller_pt:=function(P,data)
   y0newpowers:=Vector(y0newpowers);
 
   W0x0new:=Transpose(Evaluate(W0,x0new));
-  b:=Eltseq(y0newpowers*W0x0new);
+  b:=Eltseq(y0newpowers*ChangeRing(W0x0new,K));
 
   P`x:=x0new;
   P`b:=b;
@@ -967,7 +967,7 @@ local_coord:=function(P,prec,data);
     xt:=t+x0;
 
     W0invx0:=Transpose(Evaluate(W0^(-1),x0));
-    ypowers:=Vector(b)*W0invx0;
+    ypowers:=Vector(b)*ChangeRing(W0invx0,Parent(b[1]));
     y0:=ypowers[2];
 
     C:=Coefficients(Q);
