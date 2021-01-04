@@ -279,7 +279,6 @@ Qp_points:=function(data:points:=[]);
             ypowers:=Vector(ypowers);
 
             W0x:=Transpose(Evaluate(W0,x));
-            b:=Eltseq(ypowers*W0x);
             b:=Eltseq(ypowers*ChangeRing(W0x,Parent(ypowers[1])));
           else // bad point
             for j:=1 to d do

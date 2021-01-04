@@ -469,8 +469,7 @@ frobenius_pt:=function(P,data);
     
     W0invx0:=Transpose(Evaluate(W0^(-1),x0));
 
-    ypowers:=Vector(b)*ChangeRing(W0invx0,Parent(b[1]));
-    y0:=ypowers[2];
+    y0:=(Vector(b)*ChangeRing(W0invx0,Parent(b[1])))[2];
   
     C:=Coefficients(Q);
     D:=[];
@@ -1974,7 +1973,7 @@ coleman_integral:=function(P1,P2,dif,data:e:=1,IP1P2:=0,NIP1P2:=0);
   G0:=data`G0; Ginf:=data`Ginf; red_list_fin:=data`red_list_fin; red_list_inf:=data`red_list_inf;
   basis:=data`basis; integrals:= data`integrals; quo_map:=data`quo_map;
 
-  coefs,f0,finf,fend:=reduce_with_fs(dif,Q,p,N,Nmax,r,W0,Winf,G0,Ginf,red_list_fin,red_list_inf,basis,integrals,quo_map); // TODO: handle precision here
+  coefs,f0,finf,fend:=reduce_with_fs(dif,Q,p,N,Nmax,r,W0,Winf,G0,Ginf,red_list_fin,red_list_inf,basis,integrals,quo_map); 
 
   if NIP1P2 eq 0 then 
     IP1P2,NIP1P2:=coleman_integrals_on_basis(P1,P2,data:e:=e);
