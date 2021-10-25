@@ -6,12 +6,13 @@ load "hodge.m";
 load "frobenius.m"; 
 load "heights.m";
 load "second_patch_quartic.m";
+load "howe_zhu.m";
 
 
 function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], basis2 := [], 
     number_of_correspondences := 2, printlevel := 0, debug := false, base_point := 0, 
     hecke_prime := 0, nice_correspondences := [], unit_root_splitting := false, eqsplit := 0,
-    height_coeffs := [], away_contributions := [0], rho := 0, use_log_basis := false);
+    height_coeffs := [], away_contributions := [0], rho := 0, use_log_basis := false, use_polys:=[]);
 
 // INPUT
 //  * Q is a bivariate polynomial with integer coefficients, defining a smooth affine plane curve
@@ -59,13 +60,15 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
 //  * eqsplit is a 2g x g matrix representing an equivariant splitting of the Hodge
 //    filtration wrt the given basis.
 //  * unit_root_splitting is true if we need to use the unit root splitting, else false.
+//  * if a list of rational polynomials [f1,...,fd] is given in use_polys, then the nice correspondences will be 2*g*fi(Tq)-Trace(fi(Tq)),
+//    where Tq is the Hecke operator at q = hecke_prime (q=p by default)
 //
 //  OUTPUT:
-//  ** good_affine_rat_pts_xy, bool, bad_affine_rat_pts_xy, data, fake_rat_pts, bad_Qppoints **
+//  ** good_rat_pts_xy, bool, bad_affine_rat_pts_xy, data, fake_rat_pts, bad_Qppoints **
 //  where
-//  * good_affine_rat_pts_xy is a list of rational points (x,y) such that Q(x,y)=0 living
+//  * good_rat_pts_xy is a list of rational points (x,y) such that Q(x,y)=0 living
 //    in good residue disks (terminology as in Balakrishnan-Tuitman, Explicit Coleman integration for curves 
-//  * bool is true iff the computation proves that good_affine_rat_pts_xy is the complete
+//  * bool is true iff the computation proves that good_rat_pts_xy is the complete
 //    list of affine rational points in good residue disks
 //  * bad_affine_rat_pts_xy is a list of bad rational points (x,y) such that Q(x,y)=0. 
 //  * data is the Coleman data at p used in the algorithm.
@@ -125,12 +128,11 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
   // ===               SYMPLECTIC BASIS                  ===
   // ==========================================================
 
-  if pl gt 1 then print "Computing a symplectic basis of H^1"; end if;
   h1basis, g, r, W0 := h1_basis(Q,p,N);  
   if #basis0*#basis1 gt 0 then // Use the given basis
     h1basis := basis0 cat basis1;
   end if;
-  if pl gt 1 then printf "genus = %o.\n", g; end if;
+  if pl gt 2 then printf "genus = %o.\n", g; end if;
   if IsZero(rho) then 
     rho := g;       //If not given, we assume that the Picard number is equal to the genus
   end if;
@@ -142,12 +144,14 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
   // h1basis is a basis of H^1 such that the first g elements span the regular
   // differentials. Construct a symplectic basis by changing the last g elements of h1basis.
   //
+  //
+  if pl gt 3 then print "Computing a symplectic basis of H^1"; end if;
   standard_sympl_mat := ZeroMatrix(Rationals(),2*g,2*g);
   for i in [1..g] do
     standard_sympl_mat[i,g+i] := 1; standard_sympl_mat[g+i,i] := -1;
   end for;
 
-  if pl gt 2 then print "Computing the cup product matrix"; end if;
+  if pl gt 3 then print "Computing the cup product matrix"; end if;
   cpm_prec := 2*g;
   if assigned cpm then delete cpm; end if;
   repeat 
@@ -163,14 +167,16 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
     new_complementary_basis := [&+[coefficients[i,j]*h1basis[j] : j in [1..2*g]] : i in [1..g]];
     sympl_basis := [h1basis[i] : i in [1..g]] cat new_complementary_basis;
     if not &and[&and[Valuation(c, p) ge 0 : c in Coefficients(w[1])] : w in sympl_basis] then
-      error "The computed symplectic basis is not integral. Please try a different prime or a different basis.";
+      error "The computed symplectic basis is not integral.";
     end if; 
-    if pl gt 2 then print "Symplectic basis of H^1", sympl_basis; end if;
     basis0 := [[sympl_basis[i,j] : j in [1..Degree(Q)]] : i in [1..g]]; // basis of regular differentials
     basis1 := [[sympl_basis[i,j] : j in [1..Degree(Q)]] : i in [g+1..2*g]];  // basis of complementary subspace
   end if;
+  if pl gt 1 then print "Symplectic basis of H^1", basis0 cat basis1; end if;
+
+  if pl gt 3 then printf "Computed Coleman data at p=%o.\n", p; end if;
   data := coleman_data(Q,p,N : useU:=true,  basis0 := basis0, basis1 := basis1, basis2 := basis2);
-  if pl gt 1 then printf "Computed Coleman data at p=%o.\n", p; end if;
+  if pl gt 2 then printf "Computed Coleman data at p=%o.\n", p; end if;
   
 
   // ==========================================================
@@ -178,7 +184,16 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
   // ==========================================================
   bound := 1000;
   Qpoints  := Q_points(data,bound); // small Q-rational points
-  Qppoints := Qp_points(data); // One Q_p-point for every residue disk.
+  Nfactor := 1.5; // Additional precision for root finding in Qp_points
+  precision_error := false;
+  repeat 
+    try 
+      Qppoints := Qp_points(data : Nfactor := Nfactor); // One Q_p-point for every residue disk.
+    catch e; 
+      precision_error := true; 
+      Nfactor +:= 0.5;
+    end try;
+  until not precision_error;
   Fp := FiniteField(p);
 
   // Affine points where Frobenius lift isn't defined:
@@ -195,31 +210,31 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
   // Find xy-coordinates of the small affine rational points as rational numbers.
   // Use LLL for this.
   good_coordinates := [xy_coordinates(P,data) : P in good_Qpoints];
-  good_affine_rat_pts_xy := [[lindepQp(P[1]), lindepQp(P[2])] : P in good_coordinates]; 
+  good_rat_pts_xy := [[lindepQp(P[1]), lindepQp(P[2])] : P in good_coordinates]; 
   bad_coordinates := [xy_coordinates(P,data) : P in bad_Qpoints];
   // TODO: This won't always work for very bad points
   bad_affine_rat_pts_xy := [[lindepQp(P[1]), lindepQp(P[2])] : P in bad_coordinates]; 
 
-  if pl gt 1 then 
-    print "\n Good affine rational points:", good_affine_rat_pts_xy;  
-    print "\n Bad affine rational points:", bad_affine_rat_pts_xy;  
+  if pl gt 0 then 
+    print "\n Good small rational points:", good_rat_pts_xy;  
+    print "\n Bad small affine rational points:", bad_affine_rat_pts_xy;  
   end if;
 
   if IsZero(base_point) then  // No base point given, take the first possible one.
     global_base_point_index := 1;
     bQ := good_Qpoints[global_base_point_index]; // base point as Qpoint
-    bQ_xy := good_affine_rat_pts_xy[global_base_point_index];  // xy-coordinates of base point
+    bQ_xy := good_rat_pts_xy[global_base_point_index];  // xy-coordinates of base point
   else 
     bQ := set_point(base_point[1], base_point[2], data); // base point given
     bQ_xy := base_point;
-    global_base_point_index := Index(good_affine_rat_pts_xy, base_point);
+    global_base_point_index := Index(good_rat_pts_xy, base_point);
   end if;
   local_base_point_index := FindQpointQp(bQ,Qppoints);       // Index of global base point in list of local points.
 
   FF   := fun_field(data);
   bpt   := CommonZeros([FF!x-bQ_xy[1], FF.1-bQ_xy[2]])[1]; // Base point as place on the function field
   if pl gt 0 then printf "\n Using the base point %o.\n", bQ_xy; end if;
-  good_affine_rat_pts_xy_no_bpt := Remove(good_affine_rat_pts_xy, global_base_point_index); 
+  good_rat_pts_xy_no_bpt := Remove(good_rat_pts_xy, global_base_point_index); 
 
   ks := Exclude(good_Q_Qp_indices, local_base_point_index);  // indices in Qppoints of good affine 
                                                              // rational points with base point removed
@@ -235,14 +250,14 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
   // ===                  CORRESPONDENCES                 ===
   // ==========================================================
 
-  if pl gt 1 then printf "\nComputing correspondences";  end if;
+  if pl gt 2 then printf "\n Computing correspondences";  end if;
 
   // Want rho-1 independent `nice` correspondences.
   // Construct them using powers of Hecke operator
   mat_space := KMatrixSpace(QQ, 2*g, 2*g);
   q := IsZero(hecke_prime) select p else hecke_prime;
-  correspondences, Tq := hecke_corr(data,q,N : basis0:=basis0,basis1:=basis1,printlevel:=pl);
-  if pl gt 1 then printf "\nHecke operator at %o acting on H^1:\n%o\n", q, Tq; end if;
+  correspondences, Tq := hecke_corr(data,q,N : basis0:=basis0,basis1:=basis1,printlevel:=pl,use_polys:=use_polys);
+  if pl gt 1 then printf "\n Hecke operator at %o acting on H^1:\n%o\n", q, Tq; end if;
   if IsDiagonal(Tq) or Degree(CharacteristicPolynomial(Tq)) lt 2*g then
     error "p-Adic approximation of Hecke operator does not generate the endomorphism algebra. Please pick a different prime. ";
   end if;
@@ -252,12 +267,14 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
     if q ne p then
       printf "\nWARNING: Using Hecke operator T_%o, but %o isn't our working prime %o.\n", q, q, p; 
     end if;  
-    if Dimension(sub<mat_space | correspondences>) lt rho-1 then
-      error "Powers of Hecke operator don't suffice to generate the space of nice correspondences";
+    if #use_polys eq 0 then
+      if Dimension(sub<mat_space | correspondences>) lt rho-1 then
+        error "Powers of Hecke operator don't suffice to generate the space of nice correspondences";
+      end if;
     end if;
   end if;
     
-  if pl gt 1 then printf "\nNice correspondences:\n%o\n\n", correspondences; end if;
+  if pl gt 1 then printf "\n Nice correspondences:\n%o\n", correspondences; end if;
 
   Tq_small := ExtractBlock(Tq,1,1,g,g);                // Hecke operator at q on H^0(X,Omega^1)
   char_poly_Tq := CharacteristicPolynomial(Tq_small);  
@@ -296,7 +313,7 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
   min_val_check_equiv := Min([Min([Valuation(check_equiv[i,j]) : j in [1..g]]): i in [1..2*g]]);
   assert min_val_check_equiv ge Nend/2;
   //assert IsZero(big_split*Transpose(Tq) - Transpose(Tq)*big_split);     // Test equivariance
-  if pl gt 1 then printf "\nequivariant splitting:\n%o\n", eqsplit; end if;
+  if pl gt 1 then printf "\n Equivariant splitting:\n%o\n", eqsplit; end if;
 
   F_lists := [* *]; // functions vanishing in rational points, one for each corresp
   zeroes_lists := [* *]; // zeroes of functions in F_lists; these are centered at 0, i.e. shifted 
@@ -323,7 +340,7 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
     // ===                     HODGE                       ===
     // ==========================================================
     
-    if pl gt 0 then printf  "\nComputing Hodge filtration for correspondence %o.\n", l; end if;
+    if pl gt 1 then printf  "\n Computing Hodge filtration for correspondence %o.\n", l; end if;
 
     if assigned betafil then delete betafil; end if;
     hodge_prec := 5; 
@@ -336,9 +353,9 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
     until assigned betafil;
 
     if pl gt 1 then 
-      printf  "eta =  %o.\n", eta; 
-      printf  "beta_fil  =  %o.\n", betafil; 
-      printf  "gamma_fil =  %o.\n\n", gammafil; 
+      printf  "\n eta =  %o.\n", eta; 
+      printf  " beta_fil  =  %o.\n", betafil; 
+      printf  " gamma_fil =  %o.\n\n", gammafil; 
     end if;
 
 
@@ -347,9 +364,21 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
     // ==========================================================
      
     b0 := teichmueller_pt(bQ,data); 
-    if pl gt 0 then printf  "Computing Frobenius structure for correspondence %o.\n", l; end if;
+    if pl gt 1 then printf  "\n Computing Frobenius structure for correspondence %o.\n", l; end if;
+
+    FH1U:=data`F; 
+    FH1X:=ZeroMatrix(RationalField(),2*g,2*g);
+    for i:=1 to 2*g do
+      for j:=1 to 2*g do
+        FH1X[i,j]:=FH1U[i,j];
+      end for;
+    end for;
+    if pl gt 1 then printf  "\n Frobenius on H^1: \n%o.\n", FH1X; end if;
+
     b0pt := [QQ!c : c in xy_coordinates(b0, data)]; // xy-coordinates of P
     G := frob_struc(data,Z,eta, b0pt);
+    if pl gt 3 then printf  "\n Frobenius structure on A_Z: \n%o.\n", G; end if;
+    
     G_list := [**]; // evaluations of G at Teichmuellers of all good points (0 if bad)
     for i := 1 to numberofpoints do
       if is_bad(Qppoints[i],data) then
@@ -394,7 +423,7 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
     gammafil_list := [* 0 : k in [1..numberofpoints] *]; // evaluations of gammafil at all good points (0 if bad)
     gammafil_listb_to_z := [* 0 : k in [1..numberofpoints] *]; // evaluations of gammafil at local coordinates for all points 
 
-    if pl gt 1 then printf  "Computing expansions of the filtration-respecting function gamma_fil.\n"; end if;
+    if pl gt 2 then printf  "Computing expansions of the filtration-respecting function gamma_fil.\n"; end if;
     for i := 1 to numberofpoints do
       if G_list[i] ne 0 then
         gammafil_listb_to_z[i] := expand_algebraic_function(Qppoints[i], gammafil, data, N, 200);
@@ -414,9 +443,9 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
                            // To minimize precision loss, want small valuation of
                            // determinant of change of basis matrix.
         min_val_det := N;
-        for j := 1 to #good_affine_rat_pts_xy_no_bpt do
-          // local coordinate of the jth known ratl pt
-          loc_coord := -Qppoints[ks[j]]`x + good_affine_rat_pts_xy_no_bpt[j][1]; 
+        for j := 1 to #good_rat_pts_xy_no_bpt do
+          // local coordinate of the jth small ratl pt
+          loc_coord := -Qppoints[ks[j]]`x + good_rat_pts_xy_no_bpt[j][1]; 
           PhiAZb_j := PhiAZb_to_z[ks[j]]; // Frobenius structure
           E1j := Vector(Qp,g,[Evaluate(PhiAZb_j[i+1,1], loc_coord) : i in [1..g]]);
           basisH0star_j := [];
@@ -437,8 +466,8 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
           error "No good basis for H^0(Omega^1)^* generated by powers of iota(Tq) acting on E1(P) found";
         end if;
       end if; // IsZero(E1P)
-      if pl gt 1 then printf "Using point %o at correspondence %o to generate the tangent space.\n", 
-                                    good_affine_rat_pts_xy_no_bpt[min_j],l; end if;
+      if pl gt 1 then printf "\n Using point %o at correspondence %o to generate.\n", 
+                                    good_rat_pts_xy_no_bpt[min_j],l; end if;
 
     end if; //#height_coeffs eq 0 or not use_log_basis then 
 
@@ -447,7 +476,7 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
       if #heights lt g then  // add E1_E2(P) to known subspace until dimension is g.
         i := 1;
         repeat 
-          loc_coord := - Qppoints[ks[i]]`x + good_affine_rat_pts_xy_no_bpt[i][1];
+          loc_coord := - Qppoints[ks[i]]`x + good_rat_pts_xy_no_bpt[i][1];
           // local coordinate of the ith known ratl pt P
           E1_E2_series := E1_tensor_E2(PhiAZb_to_z[ks[i]],betafil,basisH0star,data,Salpha);
           Kt := Parent(E1_E2_series);
@@ -455,7 +484,7 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
           new_E1_E2_subspace := E1_E2_subspace + sub<super_space | [super_space!Eltseq(E1_E2_P)]>;
           if Dimension(new_E1_E2_subspace) gt Dimension(E1_E2_subspace) then
             E1_E2_subspace := new_E1_E2_subspace; 
-            if pl gt 1 then printf "Using point %o at correspondence %o to fit the height pairing.\n", good_affine_rat_pts_xy_no_bpt[i],l; end if;
+            if pl gt 1 then printf " Using point %o at correspondence %o to fit the height pairing.\n", good_rat_pts_xy_no_bpt[i],l; end if;
             ht_series := height(PhiAZb_to_z[ks[i]],betafil,gammafil_listb_to_z[ks[i]],eqsplit,data); // height as power series
             Append(~heights, Evaluate(ht_series, loc_coord)); // height of A_Z(b, P)
             Append(~E1_E2_Ps, E1_E2_P);
@@ -491,7 +520,7 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
   end for; // l := 1 to number_of_correspondences 
 
   if #height_coeffs eq 0 and #heights lt g then
-    error "Not enough rational points on the curve!"; // to span the symmetric square of the Mordell-Weil group";
+    error "Not enough rational points on the curve to solve for the height pairing!"; // to span the symmetric square of the Mordell-Weil group";
   end if;
 
   if #height_coeffs eq 0 then 
@@ -587,7 +616,7 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
 
 
   for i := 1 to number_of_correspondences do
-    if pl gt 0 then printf "\n Sanity check at rational points for correspondence %o.  ", i; end if;
+    if pl gt 2 then printf "\n Sanity check at rational points for correspondence %o.  ", i; end if;
     F_list := F_lists[i]; 
     for j in [1..#good_Qpoints] do
       P := good_Qpoints[j]; 
@@ -599,12 +628,14 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
           Append(~vals,  Valuation(Qp_small!Evaluate(F_list[ind]-contrib,P`x - Pp`x))); 
         end for;
         // F_list[ind] = contrib for some away contribution contrib
-        assert exists(v){ val : val in vals | val ge Nend/2};
-        if pl gt 2 then  printf "\nThe valuations of the quadratic Chabauty function evaluated at (x,y) = %o minus the local constants coming heights away from %o are \n%o", p, good_affine_rat_pts_xy[j],  vals; end if;
+        if not  exists(v){ val : val in vals | val ge Nend/2} then
+          error "Sanity check at known rational points failed.";
+        end if;
+        if pl gt 2 then  printf "\nThe valuations of the quadratic Chabauty function evaluated at (x,y) = %o minus the local constants coming heights away from %o are \n%o", p, good_rat_pts_xy[j],  vals; end if;
       end if;
     end for;
   end for; //  i := 1 to number_of_correspondences 
-  if pl gt 0 then  printf "\nSanity checks passed."; end if;
+  if pl gt 0 then  printf "\n Sanity checks for known rational points passed.\n\n"; end if;
 
   // ==========================================================
   // ===               COMMON SOLUTIONS                  ===
@@ -639,31 +670,31 @@ function QCModAffine(Q, p : N := 20, prec := 80, basis0 := [], basis1 := [], bas
     end if;
   end for; // i in [1..#Qppoints] 
   sols := &cat[L : L in solutions | #L gt 0];
-  if pl gt 1 then printf "The common roots of the quadratic Chabauty functions in this affine patch are \n %o \n\n", sols; end if; 
+  if pl gt 2 then printf "The common roots of the quadratic Chabauty functions in this affine patch are \n%o \n\n", sols; end if; 
   if pl gt 2 then printf "The lists of zeroes are \n %o \n", zeroes_lists; end if; 
   fake_rat_pts := [* *]; 
   for i := 1 to #sols do
     P := [lindepQp(sols[i,1]), lindepQp(sols[i,2])];
-    if P notin good_affine_rat_pts_xy then
+    if P notin good_rat_pts_xy then
       if IsZero(eval_Q(Q, P[1], P[2])) then
-        Append(~good_affine_rat_pts_xy, P); 
-        if pl gt 1 then "Found rational point P", P; end if;
+        Append(~good_rat_pts_xy, P); 
+        if pl gt 0 then " Found rational point", P; end if;
       else 
         Append(~fake_rat_pts, sols[i]); 
-        if pl gt 1 then "Found (fake?) rational point P", sols[i]; end if;
+        if pl gt 0 then " Found (possibly non-rational) point", sols[i]; end if;
       end if;
     else 
-      if pl gt 1 then "Found rational point P", P; end if; 
+      if pl gt 0 then " Found rational point", P; end if; 
     end if;
   end for;
   
   if #fake_rat_pts eq 0 then
-    if pl gt 0 then 
+    if pl gt 2 then 
       "\n\nThe curve has only the known rational points outside the bad residue disks and disks at infinity"; end if;
-    return good_affine_rat_pts_xy, true, bad_affine_rat_pts_xy, data, fake_rat_pts, bad_Qppoints;
+    return good_rat_pts_xy, true, bad_affine_rat_pts_xy, data, fake_rat_pts, bad_Qppoints;
   else  
-    if pl gt 0 then "\n\nThere are additional solutions that don't look rational."; end if;
-    return good_affine_rat_pts_xy, false, bad_affine_rat_pts_xy, data, fake_rat_pts, bad_Qppoints;
+    if pl gt 2 then "\n\nThere are additional solutions that don't look rational."; end if;
+    return good_rat_pts_xy, false, bad_affine_rat_pts_xy, data, fake_rat_pts, bad_Qppoints;
   end if;
 
 end function;
@@ -679,7 +710,7 @@ end function;
 
 
 
-function QCModQuartic(Q, S : p := 5, bound := 100, N := 20, prec := 50, number_of_correspondences := 2, 
+function QCModQuartic(Q, S : p := 3, bound := 100, N := 20, prec := 50, number_of_correspondences := 2, 
                 printlevel := 0, known_pts := [], height_bd := 10^4, debug := false, base_point := 0)
 
   // S is a space of cusp forms
@@ -708,8 +739,7 @@ function QCModQuartic(Q, S : p := 5, bound := 100, N := 20, prec := 50, number_o
                  number_of_correspondences := number_of_correspondences, printlevel := printlevel, debug := debug, base_point := base_point);
         if not bool1 then continue; end if;
       catch e
-      e;
-        if pl gt 0 then printf "\n Error in qc computation at p = %o\n", p; end if;
+      if pl gt 0 then printf "\n Error in qc computation at p = %o:\n %o \n",p, e; end if;
         if pl gt 1 then e; end if;
         continue;
       end try;
@@ -719,9 +749,15 @@ function QCModQuartic(Q, S : p := 5, bound := 100, N := 20, prec := 50, number_o
       // - every affine patch contains enough rational points to fit the height pairing.
 
       if pl gt 0 then 
-        printf "\n Find a good second affine patch"; // so that the lift of Frobenius is defined for every point on at least one affine patch.";
+        printf "\n Find a good second affine patch\n"; // so that the lift of Frobenius is defined for every point on at least one affine patch.";
       end if;
-      Q_inf, A := second_affine_patch(Q, p : printlevel := printlevel, bd := 3);
+      try 
+        Q_inf, A := second_affine_patch(Q, p : printlevel := printlevel, bd := 3);
+      catch e
+        if pl gt 0 then 
+        printf "\n %o\n  at p = %o\n", e, p; end if;
+        continue;
+      end try;
       try
         if pl gt 0 then 
           printf "\n Starting quadratic Chabauty computation for the affine patch \n %o = 0\n at the prime p = %o\n", Q_inf, p;
@@ -757,7 +793,5 @@ function QCModQuartic(Q, S : p := 5, bound := 100, N := 20, prec := 50, number_o
     end if; // (not IsDivisibleBy(Level(S), p)) and hecke_operator_generates(S, p) 
 
   end while;
-  return false; 
+  return false, _, _, _; 
 end function;
-
-
