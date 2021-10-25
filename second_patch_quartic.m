@@ -159,6 +159,7 @@ function second_affine_patch(Q, p : printlevel := 0, bd:=p-1)
 
   Qs_trans := [];
   heights := [];
+  good_patch_exists := false;
   for c,a,d,b in [0..bd] do 
     try 
       bool, Ap := second_affine_patch_modp(Q, p, [a,b,c,d], rat_pts);
@@ -189,8 +190,12 @@ function second_affine_patch(Q, p : printlevel := 0, bd:=p-1)
       min_ht_Q_trans := Q_trans;
       min_A := A;
     end if;
+    good_patch_exists := true;
 
   end for; 
+  if not good_patch_exists then
+    error "No good second affine patch exists";
+  end if;
 
   return min_ht_Q_trans, min_A;
 
