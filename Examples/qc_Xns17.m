@@ -16,6 +16,7 @@ phi2 :=map<P2 -> P2 | [X,Y-Z,Z]>;
 D := phi2(phi(C));
 _<x,y> := PolynomialRing(Rationals(), 2);
 "First affine patch", Evaluate(Equation(D), [y,1,x]);
+"Second affine patch", 5/188*Evaluate(Equation(D), [1,x,y]);
 
 
 SetLogFile("qc_Xns17plus.log");
