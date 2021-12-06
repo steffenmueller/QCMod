@@ -96,7 +96,7 @@ Qp_points:=function(data:points:=[]);
   d:=Degree(Q); Fp:=FiniteField(p); 
   Qx:=RationalFunctionField(RationalField()); Qxy:=PolynomialRing(Qx);
 
-  Nwork:=Ceiling(N*1.5); // Look at this again, how much precision loss in Roots()?
+  Nwork:=Ceiling(N*2); // Look at this again, how much precision loss in Roots()?
   Qp:=pAdicField(p,Nwork); Qpy:=PolynomialRing(Qp); Zp:=pAdicRing(p,N); Zpy:=PolynomialRing(Zp);
 
   Fppts:=Fp_points(data);
