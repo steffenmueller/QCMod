@@ -236,7 +236,7 @@ E1_E2_Ps := [* *]; // E1 tensor E2 of auxiliary points
 E1_E2_P_vectors := [ ];  // E1 tensor E2 of auxiliary points and away coeffs
 
 
-// We know that local heights away from p can only be trivial at 2. We also know
+// We know that local heights away from p can only be nontrivial at 7. We also know
 // that there is some c of the form rational*log(2) such that h_2(P) = c*f(P), where f(P) is 0,1 or 2
 // depending on whether v_2(x(P)) is 0, <2 or >2. So we record f(P) for the known rational
 // points (not the base point to avoid index problems).
