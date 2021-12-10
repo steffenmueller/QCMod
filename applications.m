@@ -85,19 +85,19 @@ Fp_points:=function(data);
 end function;
 
 
-Qp_points:=function(data:points:=[]);
+Qp_points:=function(data:points:=[], Nfactor:=1.5);
 
   // For every point on the reduction mod p of the curve given by data,
   // a Qp point on the curve is returned that reduces to it. Optionally,
-  // an (incomplete) list points can be specified by the user which will
+  // an (incomplete) list of points can be specified by the user which will
   // then be completed.
-  
-  Q:=data`Q; p:=data`p; N:=data`N; r:=data`r; W0:=data`W0; Winf:=data`Winf; 
-  d:=Degree(Q); Fp:=FiniteField(p); 
+
+  Q:=data`Q; p:=data`p; N:=data`N; r:=data`r; W0:=data`W0; Winf:=data`Winf;
+  d:=Degree(Q); Fp:=FiniteField(p);
   Qx:=RationalFunctionField(RationalField()); Qxy:=PolynomialRing(Qx);
 
-  Nwork:=Ceiling(N*2); // Look at this again, how much precision loss in Roots()?
-  Qp:=pAdicField(p,Nwork); Qpy:=PolynomialRing(Qp); Zp:=pAdicRing(p,N); Zpy:=PolynomialRing(Zp);
+  Nwork:=Ceiling(N*Nfactor); // Look at this again, how much precision loss in Roots()?
+  Qp:=pAdicField(p,Nwork); Qpy:=PolynomialRing(Qp); Zp:=pAdicRing(p,Nwork); Zpy:=PolynomialRing(Zp);
 
   Fppts:=Fp_points(data);
   Qppts:=[];
