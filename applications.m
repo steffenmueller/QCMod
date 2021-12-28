@@ -1,11 +1,11 @@
-function are_equal(P, Q)
+function are_equal_records(P, Q)
   return &and[IsWeaklyEqual(P`x, Q`x), P`inf eq Q`inf,
             &and[IsWeaklyEqual(P`b[i], Q`b[i]) : i in [1..#P`b]]];
 end function;
 
 function is_teichmueller(P, data)
   Q := teichmueller_pt(P, data);
-  return are_equal(P, Q);
+  return are_equal_records(P, Q);
 end function;
 
 
@@ -91,14 +91,14 @@ Qp_points:=function(data:points:=[], Nfactor:=1.5);
   // a Qp point on the curve is returned that reduces to it. Optionally,
   // an (incomplete) list of points can be specified by the user which will
   // then be completed.
-
-  Q:=data`Q; p:=data`p; N:=data`N; r:=data`r; W0:=data`W0; Winf:=data`Winf;
-  d:=Degree(Q); Fp:=FiniteField(p);
+  
+  Q:=data`Q; p:=data`p; N:=data`N; r:=data`r; W0:=data`W0; Winf:=data`Winf; 
+  d:=Degree(Q); Fp:=FiniteField(p); 
   Qx:=RationalFunctionField(RationalField()); Qxy:=PolynomialRing(Qx);
 
   Nwork:=Ceiling(N*Nfactor); // Look at this again, how much precision loss in Roots()?
   Qp:=pAdicField(p,Nwork); Qpy:=PolynomialRing(Qp); Zp:=pAdicRing(p,Nwork); Zpy:=PolynomialRing(Zp);
-
+  
   Fppts:=Fp_points(data);
   Qppts:=[];
 
@@ -561,7 +561,7 @@ my_roots_Zpt:=function(f)
     Fproots[i]:=modproots[i][1];
   end for;
   Zproots:=[[*Zp!e,1*]:e in Fproots];
-
+//"Zproots",Zproots;
   i:=1;
   while i le #Zproots do
     z:=Zproots[i][1];
@@ -605,6 +605,26 @@ my_roots_Zpt:=function(f)
 
   return Zproots;
 
+end function;
+
+function roots_Zpt(f)
+  // Iterate my_roots_Zpt to catch a bug that causes it 
+  // to miss roots in some examples.
+  t := Parent(f).1;
+  roots := my_roots_Zpt(f);
+  all_roots := [];
+  while not (Degree(f) lt 1 or IsEmpty(roots)) do
+    for root in roots do
+      if root[1] notin [pair[1] : pair in all_roots] then
+        Append(~all_roots, root);
+      end if;
+      f := f div (t-root[1]);
+    end for;
+    if Degree(f) ge 1 then 
+      roots := my_roots_Zpt(f);
+    end if;
+  end while;
+  return all_roots;
 end function;
 
 
@@ -881,3 +901,56 @@ torsion_packet:=function(P,data:bound:=0,e:=1);
   return pointlist;
 
 end function;
+
+
+function separate(L)
+  // L is a sequence of p-adic integers.
+  // Return a sequence S of integers such that L[i] 
+  // is not congruent to any L[j] modulo p^(S[i]).
+  //assert #L eq #SequenceToSet(L); 
+  p := Prime(Universe(L));
+  min_prec := Min([Precision(Parent(l)) : l in L]);
+  ChangeUniverse(~L, pAdicField(p, min_prec));
+  return [Max([Valuation(l - m) : m in L | m ne l]) : l in L];
+end function;
+
+
+function roots_with_prec(G, N)
+  // return the integral roots of a p-adic polynomial f, and the precision
+  // to which they are known.
+  // As in Lemma 4.7, our G(t) is F(pt)
+  // We throw an error if there are multiple roots 
+  coeffsG := Coefficients(G);
+  p := Prime(Universe(coeffsG));
+  Qp := pAdicField(p,N); 
+  Qptt := PowerSeriesRing(Qp);
+  Zp := pAdicRing(p,N);
+  Zpt := PolynomialRing(Zp);
+  Qpt := PolynomialRing(Qp);
+  precG := #coeffsG;
+  min_val := Min([Valuation(c) : c in coeffsG]); // this is k in Lemma 4.7
+  max_N_index := Max([i : i in [1..precG] | Valuation(coeffsG[i]) le N]);
+  // TODO: Could lower t-adic precision according to Lemma 4,7. 
+  valG := Min(0, Valuation(G));
+  G_poly := Zpt!(p^(-min_val)*Qpt.1^valG*(Qpt![Qp!c : c in coeffsG ])); 
+  G_series := (p^(-min_val)*Qptt.1^valG*(Qptt![Qp!c : c in coeffsG ])); 
+  upper_bd_number_of_roots := count_roots_in_unit_ball(G_poly, N-min_val); 
+  if upper_bd_number_of_roots eq 0 then 
+    return [], N, G_series;
+  end if;
+  roots := roots_Zpt(G_poly);  // compute the roots.
+  assert &and[z[2] gt 0 : z in roots]; // First check that roots are simple.
+  if #roots gt 0 then 
+    root_prec := Floor((N - min_val)/#roots); // Lemma 4.7
+    vals := [Valuation(rt[1]) : rt in roots];
+    compare_vals(ValuationsOfRoots(G_poly), vals, root_prec);
+    if #roots gt 0 and root_prec le 0 then
+      error "Precision of roots too small. Rerun with higher p-adic pre (parameter N)";
+    end if;
+  else  // no root, so no precision loss.
+    root_prec := N;
+  end if;
+  return roots, root_prec, G_series;
+end function;
+
+    
