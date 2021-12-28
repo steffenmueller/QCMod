@@ -1,42 +1,38 @@
-This is Magma code to carry out quadratic Chabauty for curves of genus > 1 over the
+This is Magma code to carry out quadratic Chabauty for curves X/Q of genus > 1 over the
 rationals satisfying the following conditions
 * rank = genus
 * real multiplication
 * enough rational points on the curve to solve for the height pairing, unless the genus is 2.
+* ps is a prime of good reduction such that 
+  * the closure of Jac(X)(Q) in Jac(X)(Qp) has finite index
+  * the Hecke operator at p generates the Hecke algebra.
 
 The theory is described in `Quadratic Chabauty for modular curves: Algorithms and
 Examples` and `Explicit Chabauty-Kim for the Split Cartan Modular Curve of Level 13`
 by J.S. Balakrishnan, N. Dogra, J.S. Müller, J. Tuitman and J. Vonk.
 
-Most of the code consists of wrappers around a slightly modified earlier version, mostly
-written by Jan Tuitman and based on even earlier
-SAGE code by Netan Dogra; the latter was hardcoded for the computations
-in `Explicit Chabauty-Kim for the Split Cartan Modular Curve of Level 13`. 
-Also includes contributions by Jennifer Balakrishnan and Jan Vonk, as well as code due to
-Michael Stoll.
+Most of the code consists of wrappers around a slightly modified earlier version, mostly written by Jan Tuitman and based on even earlier SAGE code by Netan Dogra; the latter was hardcoded for the computations in `Explicit Chabauty-Kim for the Split Cartan Modular Curve of Level 13`. 
+Also includes contributions by Jennifer Balakrishnan and Jan Vonk, as well as code for the Mordell-Weil sieve based on code due to Michael Stoll.
 
 
 List of files:
 -- qc_modular.m: Contains
-   - QCModAffine: Main function, takes a plane affine curve (not necessarily
-      singular) with integer coefficients, monic in y, and a prime p and outputs the rational points 
+   - QCModAffine: Main function, takes a plane affine curve (not necessarily 
+      smooth) with integer coefficients, monic in y, and a prime p and outputs the rational points 
       in those disks where Tuitman's Frobenius lift is defined. Also outputs additional information, such 
       as additional p-adic solutions which don't look rational.
-      Includes numerous optional arguments
+      Includes numerous optional arguments.
    - QCModQuartic: takes an integer polynomial defining an affine patch of a smooth plane quartic
       and outputs the rational points.
--- divisor_heights.m: Contains the function local_cg_height, which computes the local height pairing
+-- divisor_heights.m: Contains the function local_height_divisors_p, which computes the local height pairing
     between two divisors with disjoint support on an odd degree hyperelliptic curve (with
     various restrictions) using construction of Coleman-Gross. Essentially ports earlier Sage code due to 
     Jennifer Balakrishnan, based on Balakrishnan-Besser, `Coleman-Gross height pairings and the p-adic
     sigma function`, IMRN 2012
--- MWgroupg2: Code due to Michael Stoll to compute generators for the
-    Mordell-Weil group of the Jacobian of a genus 2 curve, based on Müller-Stoll,
-    `Canonical heights on genus two Jacobians`, A&NT 2016.
-    Not needed for versions >= 2.25 of magma.
 -- mws-qc.m: Implementation of the Mordell-Weil sieve based on an earlier
     version of Magma's Mordell-Weil sieve due to Michael Stoll, adapted for use in combination
-    with quadratic Chabauty.  
+    with quadratic Chabauty. Requires version >= 2.25 of magma because of code for the Mordell-Weil group
+    of a genus 2 Jacobian. This code is also available on Michael Stoll's website.
 -- hodge.m: Computes the Hodge filtration using the algorithm described in section 4 of 
     `Explicit Chabauty-Kim for the Split Cartan Modular Curve of Level 13`
 -- frobenius.m: Computes the Frobenius structure using the algorithm described in section 4 of 
