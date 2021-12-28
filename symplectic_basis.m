@@ -4,9 +4,6 @@ function cup_product_matrix_split_places(basis, Q, g, r, W0 : prec := 15)
   d:=Degree(Q);
 
   // find the points at infinity:
-
-  Qx:=RationalFunctionField(RationalField()); Qxy:=PolynomialRing(Qx);
-
   FF:=function_field(Q); // function field of curve over the rationals
   infplaces:=InfinitePlaces(FF);
   infplacesKinf := infplaces;
@@ -31,7 +28,6 @@ function cup_product_matrix_split_places(basis, Q, g, r, W0 : prec := 15)
 
     infplacesKinf:=InfinitePlaces(FFKinf); // places at infinity all of degree 1, will be denoted by P
   until &and[IsOne(Degree(P)) : P in infplacesKinf];
-  //"Degree of extension", AbsoluteDegree(Kinf);
 
   b0funKinf:=[]; // functions b^0 (finite integral basis)
   for i:=1 to d do
@@ -67,7 +63,6 @@ function cup_product_matrix_split_places(basis, Q, g, r, W0 : prec := 15)
     for j:=1 to 2*g do
       omegaP[j]:=Expand(L[j],P : RelPrec:=prec+3)*dxdt*zinv;
     end for;
-    //"Valuations", [Valuation(omegaP[j]) : j in [1..2*g]];
     omegax:=Append(omegax,omegaP);
   end for;
   
@@ -81,13 +76,15 @@ function cup_product_matrix_split_places(basis, Q, g, r, W0 : prec := 15)
 end function;
 
 
-function cup_product_matrix(basis, Q, g, r, W0 : prec := 15)
+function cup_product_matrix(basis, Q, g, r, W0 : prec := 15, split := true)
+
+  // split determines whether we work over an extension
+  // where all places split. This is usually faster.
 
   d:=Degree(Q);
 
   // find the points at infinity:
 
-  Qx:=RationalFunctionField(RationalField()); Qxy:=PolynomialRing(Qx);
 
   FF:=function_field(Q); // function field of curve over the rationals
   infplaces:=InfinitePlaces(FF);
@@ -113,7 +110,6 @@ function cup_product_matrix(basis, Q, g, r, W0 : prec := 15)
 
     infplacesKinf:=InfinitePlaces(FFKinf); // places at infinity all of degree 1, will be denoted by P
   until &and[IsOne(Degree(P)) : P in infplacesKinf];
-  //"Degree of extension", AbsoluteDegree(Kinf);
 
 
   C := ZeroMatrix(Rationals(), 2*g, 2*g);
@@ -128,9 +124,10 @@ function cup_product_matrix(basis, Q, g, r, W0 : prec := 15)
 
 
   //if Max([Degree(P) : P in infplaces]) le 1 then
-    // Usually faster to work over extension
-  return cup_product_matrix_split_places(basis, Q, g, r, W0 : prec := prec);
-  //end if;
+  // Usually faster to work over extension
+  if split then 
+    return cup_product_matrix_split_places(basis, Q, g, r, W0 : prec := prec);
+  end if;
 
   x_expansions_inf:=[* *];  // expansions of x
 
