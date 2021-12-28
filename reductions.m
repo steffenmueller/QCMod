@@ -654,7 +654,7 @@ coho_red_inf:=function(w,Q,p,N,r,W0,Winf,Ginf,red_list_inf);
     w[i]:=reduce_mod_pN_Qttinv(t^(-m0-degr+1)*(Qttinv!wcoefs[i]),p,N);
   end for;  
 
-  return w,finf;
+  return w,finf,m0;
 end function;
 
 
@@ -697,10 +697,9 @@ reduce_with_fs:=function(dif,Q,p,N,Nmax,r,W0,Winf,G0,Ginf,red_list_fin,red_list_
     dif0:=dif;
 
     dif,f0:=coho_red_fin(dif,Q,p,Nmax,r,G0,red_list_fin); 
-    //"dif", dif;
     dif:=change_basis_b0binf(dif,p,Nmax,r,W0,Winf);
-    //"dif", dif;
-    dif,finf:=coho_red_inf(dif,Q,p,Nmax,r,W0,Winf,Ginf,red_list_inf); 
+    dif,finf,minf:=coho_red_inf(dif,Q,p,Nmax,r,W0,Winf,Ginf,red_list_inf); 
+    // minf is the bound on precision loss during reduction above 
     dif:=change_basis_binfb0(dif,W0,Winf);
 
     W:=Winf*W0^(-1);
@@ -730,6 +729,6 @@ reduce_with_fs:=function(dif,Q,p,N,Nmax,r,W0,Winf,G0,Ginf,red_list_fin,red_list_
 
     // test_reduce_with_fs(Vector(dif0),Q,p,N,Nmax,r,W0,Winf,G0,Ginf,red_list_fin,red_list_inf,basis,integrals,quo_map,coefs,f0,finf,f); 
 
-    return coefs,f0,finf,fend; 
+    return coefs,f0,finf,fend,minf; 
 
 end function;
