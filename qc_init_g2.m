@@ -1,12 +1,9 @@
 // Initialize the qc/mws computation for genus 2 curves having RM and rank 2.
-
-
-// Attach Michael Stoll's code for computing generators of genus 2 Jacobians
-// Starting with version V.2.25, this is already in Magma.
+// This requires magma version >= 2.25 for MordellWeilGroupGenus2.
 //
-Attach("MWGroupg2/myheightconstant_g2.m");
-Attach("MWGroupg2/canonical_height_g2.m");
-Attach("MWGroupg2/g2wrapper.m");
+// If your version of magma is older, use a subgroup of finite index, or find the code on
+// Stoll's webpage.
+
 load "mws_qc.m";  // Mordell-Weil sieve implementation
 
 
@@ -81,7 +78,6 @@ function is_ordinary(Q, p, g, N)
   pol_lifted := ChangeRing(pol, K);
 // curve is ordinary iff half of the roots of the char poly of Frobenius
 // are units.
-  //data`ordinary :=
   return number_of_non_unit_roots(pol_lifted) eq g;
 end function;
 
@@ -133,10 +129,8 @@ function has_odd_degree_model_at_p(C, p : N := 20)
   
   odd_fp := Polynomial(Qp, [Coefficient(odd_fp, i) : i in [0..n-1]]);
   Ep := HyperellipticCurve(odd_fp);
-  //Ep := HyperellipticCurve(MonicModel(odd_fp, 2));
   lc := LeadingCoefficient(odd_fp);
   Fp := Transformation(Ep, [lc, 0,0,1], lc^2); // monic model
-  //Roots(fp); Ep; Discriminant(Cp); Discriminant(Ep); JInvariants(Ep); JInvariants(Cp);
   
   // construct map from Cp to Ep. 
   // We prefer MapIsoSch, but due to precision issues this might not be possible.
