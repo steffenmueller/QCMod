@@ -15,23 +15,23 @@ function algdepQp(a,deg)
     N := p^m;
     
     if Valuation(a) ge m then
-    	P1 := x;
+      P1 := x;
     else
-		M:=ZeroMatrix(RR,deg+2,deg+2);
-		for j := 1 to deg+1 do 
-			M[j,j] := 1;
-			M[j,deg+2] := QQ!(a^(j-1));
-		end for;
-		M[deg+2][deg+2] := N;
-		Y,T:=LLL(M);
+      M:=ZeroMatrix(RR,deg+2,deg+2);
+      for j := 1 to deg+1 do 
+        M[j,j] := 1;
+        M[j,deg+2] := QQ!(a^(j-1));
+      end for;
+      M[deg+2][deg+2] := N;
+      Y,T:=LLL(M);
 
-		P1 := Floor(Y[2][deg+2] - Y[2][1]);
-		for j := 2 to deg+1 do
-			P1 := P1 - Floor(Y[2][j])*x^(j-1);
-		end for;
-		Fac1 := Factorisation(P1);
-		P1   := Fac1[#Fac1][1];
-	end if;
+      P1 := Floor(Y[2][deg+2] - Y[2][1]);
+      for j := 2 to deg+1 do
+        P1 := P1 - Floor(Y[2][j])*x^(j-1);
+      end for;
+      Fac1 := Factorisation(P1);
+      P1   := Fac1[#Fac1][1];
+    end if;
     
     return P1;
        
@@ -201,7 +201,7 @@ compute_F:=function(Q,W0,Winf,f0,finf,fend)
   conv:=Qxzzinvd!Evaluate(Evaluate(finf,Qxxinv.1)*Evaluate(W,Qxxinv.1),x1); // finf converted to basis b^0
   F:=f0+conv+fend;
 
-  return F;
+  return F, conv;
 end function;
 
 
@@ -334,12 +334,15 @@ function coefficients_mod_pN(fake_rat_pts, rat_pts, divisors, base_pt, splitting
   M := (Matrix(pAdicField(data`p, data`N), data`g, data`g, [basis_integrals[1,1], basis_integrals[2,1], basis_integrals[1,2], basis_integrals[2,2]]))^-1;
   index_matrix := Transpose(Matrix(splitting_indices));
 
-  if printlevel gt 1 then "compute integrals for rational points"; end if;
+  if printlevel gt 2 then "compute integrals for rational points"; end if;
 
   rat_integrals  := [coleman_integrals_on_basis_divisors([base_pt], [P], data) : P in rat_pts];
+  if printlevel gt 1 then "rational integrals", rat_integrals; end if;
+  
   rat_coeffs  := [Eltseq(ChangeRing(index_matrix*M*Matrix(2,1,[ints[1], ints[2]]), Integers())) : ints in rat_integrals];
-  if printlevel gt 1 then "compute integrals for fake rational points"; end if;
+  if printlevel gt 2 then "compute integrals for fake rational points"; end if;
   fake_integrals := [coleman_integrals_on_basis_divisors([base_pt], [P], data) : P in fake_rat_pts];
+  if printlevel gt 1 then "fake integrals", fake_integrals; end if;
   fake_coeffs := [Eltseq(ChangeRing(index_matrix*M*Matrix(2,1,[ints[1], ints[2]]), Integers())) : ints in fake_integrals];
 
   return fake_coeffs, rat_coeffs;
@@ -401,4 +404,88 @@ function rank_J0Nplus(N : Lprec := 30, printlevel := 0)
     end for; // L in Lseries
   end for; // f in ...
   return rank, errors;
+end function;
+
+
+function minprec(M)
+  try
+    min_prec := Min([AbsolutePrecision(c) : c in Eltseq(M)]);
+  catch e;
+    min_prec := Min([minprec(m) : m in M]);
+  end try;
+  return min_prec;
+end function;
+
+
+function minval(M)
+  if Type(M[1]) eq SeqEnum then
+    return Min([minval(m) : m in M]);
+  end if;
+  return Min([Valuation(c) : c in Eltseq(M)]);
+end function;
+
+
+function minvalp(M,p)
+  return Min([Valuation(c,p) : c in Eltseq(M)]);
+end function;
+
+procedure compare_vals(L1, L2, N)
+  for i in [1..#L1] do
+    if L1[i,1] gt N then 
+      L1[i,1] := N;
+    end if;
+  end for;
+  for i in [1..#L2] do
+    if L2[i] gt N then 
+      L2[i] := N;
+    end if;
+    m := #[d : d in L2 | d eq L2[i]];
+    s := &+[L1[j,2] : j in [1..#L1] | L1[j,1] eq L2[i]];
+    if s eq 0 then
+      error "Root finding returned a root with incorrect valuation";
+    end if;
+    if m gt s then
+      error "Root finding returned the wrong number of roots";
+    end if;
+
+  end for;
+end procedure;
+
+function count_roots_in_unit_ball(f, N)
+  // TODO: Deal with zero poly
+  vals := ValuationsOfRoots(f);
+  number_of_roots := 0;
+  univ := Universe(vals);
+  for pair in vals do
+    if pair[1] ge 0 then
+    // Had to include this workaround because magma's extended reals 
+    // are counterintuitive (to say the least)
+      val_root := pair[1];
+      if val_root ge N then 
+        val_root := N;
+      end if;
+      val_root := Rationals()!val_root;
+      if IsIntegral(val_root) then
+        number_of_roots +:= pair[2];     
+      end if;
+    end if;
+  end for;
+  return number_of_roots;
+end function;
+
+function are_congruent(pt1, pt2)
+  // pt1 and pt2 are two p-adic points whose parents might have 
+  // different precision. one rational point is also allowed
+  if Type(Universe(pt1)) eq FldRat then
+    min_prec := minprec(pt2);
+  elif Type(Universe(pt2)) eq FldRat then 
+    min_prec := minprec(pt1);
+  else 
+    min_prec := Min(minprec(pt1), minprec(pt2));
+  end if;
+  min_diff := Min([Valuation(d) : d in [pt1[1]-pt2[1], pt1[2]-pt2[2]]]);
+  if min_diff ge min_prec then
+    return true;
+  end if;
+  return false;
 end function;
