@@ -6,5 +6,5 @@ load "coho.m";
 load "froblift.m";
 load "reductions.m";
 load "singleintegrals.m";
-load "applications.m";
 load "misc.m";
+load "applications.m";
