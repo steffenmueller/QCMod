@@ -2,9 +2,9 @@
 // Functions for computing Hodge structures //
 //////////////////////////////////////////////
 
-// TODO analyse t-adic precision
 
-hodge_data:=function(data,Z,bpt: prec := 15)
+
+hodge_data:=function(data,Z,bpt: prec := 5)
 
   // Compute the 1-form eta, as a vector of coefficients
   // w.r.t. basis[i] for i=2g+1,...,2g+k-1 where k is the 
@@ -154,10 +154,14 @@ hodge_data:=function(data,Z,bpt: prec := 15)
 
   poleorder:=0;
   for i:=1 to #infplacesKinf do
-    val:=Valuation(gx[i]);
     for j:=1 to 2*g do
-      val:=Minimum(val,Valuation(Omegax[i][j]));
+      poleorder:=Minimum(poleorder,Valuation(Omegax[i][j]));
     end for;
+  end for;
+  poleorder_Omegax := poleorder;
+
+  for i:=1 to #infplacesKinf do
+    val:=Valuation(gx[i]);
     poleorder:=Minimum(poleorder,val);
   end for;
 
@@ -254,8 +258,12 @@ hodge_data:=function(data,Z,bpt: prec := 15)
     gamma_FF:=gamma_FF+Evaluate(gamma[i],Qx.1)*b0fun[i];
   end for;
   gamma[1]:=gamma[1]-Evaluate(gamma_FF,bpt); 
+  //"gamma_FF", gamma_FF;
+  //"gamma", gamma;
+  //Divisor(gamma_FF);
+  //b0fun;
 
 
-  return Vector(eta),Vector(beta),Vector(gamma);
+  return Vector(eta),Vector(beta),Vector(gamma),Integers()!poleorder_Omegax;
 
 end function;
