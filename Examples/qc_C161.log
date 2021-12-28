@@ -4,8 +4,8 @@ Loading "coho.m"
 Loading "froblift.m"
 Loading "reductions.m"
 Loading "singleintegrals.m"
-Loading "applications.m"
 Loading "misc.m"
+Loading "applications.m"
 Loading "symplectic_basis.m"
 Loading "hecke_correspondence.m"
 Loading "hodge.m"
@@ -14,9 +14,8 @@ Loading "heights.m"
 Loading "qc_init_g2.m"
 Loading "mws_qc.m"
 Compute the rational points of the curve with affine model  y^2 - x^6 - 2*x^4 - 6*x^3 - 17*x^2 - 18*x - 5
-Computing a symplectic basis of H^1
-Computing the cup product matrix
-Computing Coleman data at p=29.
+ Computing a symplectic basis of H^1
+ genus = 2.
 Computed Coleman data at p=29.
 
  Good affine rational points: [
@@ -33,45 +32,318 @@ Computed Coleman data at p=29.
  Bad affine rational points: []
 
  Using the base point [ 1/4, 209/64 ].
-Computing correspondence
 
+ Computing correspondences
 Hecke operator at 29 acting on H^1:
 [ 5  4  0  2]
 [ 4  1 -2  0]
 [ 0  0  5  4]
 [ 0  0  4  1]
-Hecke correspondences:
+
+ Nice correspondences:
 [
 [  0   8  -8 -16]
 [ -8   0 -16   8]
 [  8  16   0   0]
 [ 16  -8   0   0]
 ]
-Computing Hodge filtration.
-eta =  (0).
-beta_fil  =  (0 0).
-gamma_fil =  (16*x - 4        0).
 
-Computing Frobenius structure.
 
-Using point [ 1/4, -209/64 ] to generate the tangent space.
-Using point [ 1, 7 ] to fit the height pairing.
-Using point [ 1/2, 35/8 ] to fit the height pairing.
-Using point [ -1, 1 ] to fit the height pairing.
+ equivariant splitting:
+[   1    0]
+[   0    1]
+[-1/2    0]
+[   0    0]
+ Computing Hodge filtration
+ eta =  (0).
+ beta_fil  =  (0 0).
+ gamma_fil =  (16*x - 4        0).
 
-Sanity check: Does the quadratic Chabauty function map the known good affine 
-rational points into the appropriate set?.
- Sanity check passed
+ Computing Frobenius structure.
+ Using point [ 1/4, -209/64 ] to generate.
+ Using point [ 1, 7 ] to fit the height pairing.
+ Using point [ 1/2, 35/8 ] to fit the height pairing.
+ Using point [ -1, 1 ] to fit the height pairing.
+away_contributions [ 0, -9052482659088927653*29 + O(29^15), 
+9052482659088927653*29 + O(29^15) ]
+ The quadratic Chabauty function is correct to precision 29^14.
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 29^14.
+ Solution [ 1929109263760552178*29 + O(29^14), 137510679843250836351 + O(29^14) 
+] does not seem to be rational.
+ Solution [ 1621333670535914264*29 + O(29^14), -17790048673821747974 + O(29^14) 
+] does not seem to be rational.
+ Solution [ -3329187320791591883*29 + O(29^14), 14766192098801835764 + O(29^14) 
+] does not seem to be rational.
+ Solution [ -3480561714090452864*29 + O(29^14), -69223705026672760184 + O(29^14)
+] does not seem to be rational.
+ Solution [ 1929109263760552178*29 + O(29^14), -137510679843250836351 + O(29^14)
+] does not seem to be rational.
+ Solution [ 1621333670535914264*29 + O(29^14), 17790048673821747974 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -3329187320791591883*29 + O(29^14), -14766192098801835764 + O(29^14)
+] does not seem to be rational.
+ Solution [ -3480561714090452864*29 + O(29^14), 69223705026672760184 + O(29^14) 
+] does not seem to be rational.
+ Solution [ -11728214784928113674 + O(29^14), 48655189115252011522 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 55393692962594778163 + O(29^14), 35820890733540080357 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -11728214784928113674 + O(29^14), -48655189115252011522 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 55393692962594778163 + O(29^14), -35820890733540080357 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 129214545743921336071 + O(29^14), -698788685108632856 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 140937266698365863916 + O(29^14), -89376884808706683183 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 91516243328040564356 + O(29^14), 88132477130889386477 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 99333792275529042699 + O(29^14), -78092616777272098145 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 129214545743921336071 + O(29^14), 698788685108632856 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 140937266698365863916 + O(29^14), 89376884808706683183 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 91516243328040564356 + O(29^14), -88132477130889386477 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 99333792275529042699 + O(29^14), 78092616777272098145 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 40243799417224275836 + O(29^14), 47672596398932324466 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -130815036779352978743 + O(29^14), 59303875022985296436 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 26737233047896001669 + O(29^14), 39563117799106037971 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 64287682565858391398 + O(29^14), -65905769665096538964 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 12209037537140662547 + O(29^14), 51281872148874139571 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -117647860605826781759 + O(29^14), -114580574790699957577 + O(29^14)
+] does not seem to be rational.
+ Solution [ 40243799417224275836 + O(29^14), -47672596398932324466 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -130815036779352978743 + O(29^14), -59303875022985296436 + O(29^14) 
+] does not seem to be rational.
+ Solution [ 26737233047896001669 + O(29^14), -39563117799106037971 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 64287682565858391398 + O(29^14), 65905769665096538964 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 12209037537140662547 + O(29^14), -51281872148874139571 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -117647860605826781759 + O(29^14), 114580574790699957577 + O(29^14) 
+] does not seem to be rational.
+ Solution [ -147899635258766707760 + O(29^14), -87000120805622690454 + O(29^14) 
+] does not seem to be rational.
+ Recovered known rational point [ -1, -1 ]
+ Solution [ -147899635258766707760 + O(29^14), 87000120805622690454 + O(29^14) ]
+does not seem to be rational.
+ Recovered known rational point [ -1, 1 ]
+ Solution [ 110975258192879634099 + O(29^14), -15786946214066612433 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 81059424989579110433 + O(29^14), -98206270961167416672 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -36414975760620105586 + O(29^14), 116992993736697958433 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -23659007327096090697 + O(29^14), -38985137904019609503 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -76813559755399822012 + O(29^14), 38895612474433686200 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 69178537761591751930 + O(29^14), 109052075931662111044 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 110975258192879634099 + O(29^14), 15786946214066612433 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 81059424989579110433 + O(29^14), 98206270961167416672 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -36414975760620105586 + O(29^14), -116992993736697958433 + O(29^14) 
+] does not seem to be rational.
+ Solution [ -23659007327096090697 + O(29^14), 38985137904019609503 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -76813559755399822012 + O(29^14), -38895612474433686200 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 69178537761591751930 + O(29^14), -109052075931662111044 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 129941474411455169836 + O(29^14), -126402102797228328338 + O(29^14) 
+] does not seem to be rational.
+ Solution [ 108564056786082733193 + O(29^14), 101129771775373759169 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -121654508173396887144 + O(29^14), -85339462671233915805 + O(29^14) 
+] does not seem to be rational.
+ Solution [ 137263851452807255831 + O(29^14), 50538948698884449011 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 27083830902674087833 + O(29^14), -138408791400146378608 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -73335421851726429150 + O(29^14), 69474626353131633744 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 129941474411455169836 + O(29^14), 126402102797228328338 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 108564056786082733193 + O(29^14), -101129771775373759169 + O(29^14) 
+] does not seem to be rational.
+ Solution [ -121654508173396887144 + O(29^14), 85339462671233915805 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 137263851452807255831 + O(29^14), -50538948698884449011 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 27083830902674087833 + O(29^14), 138408791400146378608 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -73335421851726429150 + O(29^14), -69474626353131633744 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -85809369766087092441 + O(29^14), 13415744731064777706 + O(29^14) ] 
+does not seem to be rational.
+ Recovered known rational point [ 1/4, -209/64 ]
+ Solution [ -85809369766087092441 + O(29^14), -13415744731064777706 + O(29^14) ]
+does not seem to be rational.
+ Recovered known rational point [ 1/4, 209/64 ]
+ Solution [ -28750549617781005864 + O(29^14), -7750952716573311983 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 32678897516826280061 + O(29^14), 40913617928403980647 + O(29^14) ] 
+does not seem to be rational.
+ Recovered known rational point [ 1/2, -35/8 ]
+ Solution [ -14652877621090253586 + O(29^14), 48735749422331124361 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -28750549617781005864 + O(29^14), 7750952716573311983 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 32678897516826280061 + O(29^14), -40913617928403980647 + O(29^14) ] 
+does not seem to be rational.
+ Recovered known rational point [ 1/2, 35/8 ]
+ Solution [ -14652877621090253586 + O(29^14), -48735749422331124361 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 111104467861785392102 + O(29^14), -58874402845292813751 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -83371599123485836482 + O(29^14), 79851748968599085651 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 2189433270589842387 + O(29^14), 51388257344263178683 + O(29^14) ] 
+does not seem to be rational.
+ Recovered known rational point [ 1, -7 ]
+ Solution [ 91780012109127983942 + O(29^14), 54415686223637526721 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 15808747704289453870 + O(29^14), 66111215607830721519 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 111104467861785392102 + O(29^14), 58874402845292813751 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -83371599123485836482 + O(29^14), -79851748968599085651 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 2189433270589842387 + O(29^14), -51388257344263178683 + O(29^14) ] 
+does not seem to be rational.
+ Recovered known rational point [ 1, 7 ]
+ Solution [ 91780012109127983942 + O(29^14), -54415686223637526721 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 15808747704289453870 + O(29^14), -66111215607830721519 + O(29^14) ] 
+does not seem to be rational.
+
+Run the Mordell-Weil sieve to show there are no additional rational points in 
+affine disks.
+Use independent points [ (x^2 - 1, -4*x - 3, 2), (x^2 - 3/4*x + 1/8, -71/16*x - 
+    69/32, 2) ]
+compute basis integrals
+compute integrals for rational points
+rat_integrals [
+    (O(29^4) O(29^4) O(29^4) O(29^4)),
+    (-6128*29 + O(29^4) 1420*29 + O(29^4) 185947 + O(29^4) 326507 + O(29^4)),
+    (-3428*29 + O(29^4) -370*29 + O(29^4) -240390 + O(29^4) -97401 + O(29^4)),
+    (-2700*29 + O(29^4) 1790*29 + O(29^4) -280944 + O(29^4) -283373 + O(29^4)),
+    (-3058*29 + O(29^4) 2688*29 + O(29^4) -325174 + O(29^4) -15219 + O(29^4)),
+    (-3070*29 + O(29^4) -1268*29 + O(29^4) -196160 + O(29^4) 341726 + O(29^4)),
+    (-3968*29 + O(29^4) -12*29 + O(29^4) -9244 + O(29^4) 217247 + O(29^4)),
+    (-2160*29 + O(29^4) 1432*29 + O(29^4) 195191 + O(29^4) 109260 + O(29^4))
+]
+compute integrals for fake rational points
+fake [
+    (-4438*29 + O(29^4) 11776*29 + O(29^4) 14671 + O(29^4) -19465 + O(29^4)),
+    (180*29 + O(29^4) -7480*29 + O(29^4) -58496 + O(29^4) 181418 + O(29^4)),
+    (4789*29 + O(29^4) 4062*29 + O(29^4) 331728 + O(29^4) 28269 + O(29^4)),
+    (4757*29 + O(29^4) 5947*29 + O(29^4) -351164 + O(29^4) 26877 + O(29^4)),
+    (-1690*29 + O(29^4) -10356*29 + O(29^4) 171276 + O(29^4) 345972 + O(29^4)),
+    (-6308*29 + O(29^4) 8900*29 + O(29^4) 244443 + O(29^4) 145089 + O(29^4)),
+    (-10917*29 + O(29^4) -2642*29 + O(29^4) -145781 + O(29^4) 298238 + O(29^4)),
+    (-10885*29 + O(29^4) -4527*29 + O(29^4) -170170 + O(29^4) 299630 + O(29^4)),
+    (3684*29 + O(29^4) 4748*29 + O(29^4) -130478 + O(29^4) -17973 + O(29^4)),
+    (9539*29 + O(29^4) 6998*29 + O(29^4) 183331 + O(29^4) -327751 + O(29^4)),
+    (-9812*29 + O(29^4) -3328*29 + O(29^4) 316425 + O(29^4) 344480 + O(29^4)),
+    (8722*29 + O(29^4) -5578*29 + O(29^4) 2616 + O(29^4) -53023 + O(29^4)),
+    (6287*29 + O(29^4) 4813*29 + O(29^4) -336430 + O(29^4) 249990 + O(29^4)),
+    (-6962*29 + O(29^4) -1761*29 + O(29^4) 128092 + O(29^4) -207659 + O(29^4)),
+    (3608*29 + O(29^4) -2788*29 + O(29^4) 277123 + O(29^4) -205223 + O(29^4)),
+    (618*29 + O(29^4) -4919*29 + O(29^4) -194475 + O(29^4) -288163 + O(29^4)),
+    (11974*29 + O(29^4) -117*29^2 + O(29^4) -6376*29 + O(29^4) 76517 + O(29^4)),
+    (834*29 + O(29^4) 3181*29 + O(29^4) 1995*29 + O(29^4) -173115 + O(29^4)),
+    (-9736*29 + O(29^4) 4208*29 + O(29^4) -3144*29 + O(29^4) -175551 + O(29^4)),
+    (-6746*29 + O(29^4) 6339*29 + O(29^4) -11271*29 + O(29^4) -92611 + O(29^4)),
+    (-9736*29 + O(29^4) -4286*29 + O(29^4) 57621 + O(29^4) 35093 + O(29^4)),
+    (-5466*29 + O(29^4) -7465*29 + O(29^4) -310012 + O(29^4) -37494 + O(29^4)),
+    (-1655*29 + O(29^4) -2512*29 + O(29^4) 287620 + O(29^4) 17925 + O(29^4)),
+    (4346*29 + O(29^4) 10104*29 + O(29^4) 353131 + O(29^4) 159648 + O(29^4)),
+    (73*29^2 + O(29^4) 2997*29 + O(29^4) -150454 + O(29^4) -345822 + O(29^4)),
+    (-10823*29 + O(29^4) -9702*29 + O(29^4) -287798 + O(29^4) 163447 + O(29^4)),
+    (3608*29 + O(29^4) 5706*29 + O(29^4) 128326 + O(29^4) 291414 + O(29^4)),
+    (-662*29 + O(29^4) 8885*29 + O(29^4) -211322 + O(29^4) -343280 + O(29^4)),
+    (-4473*29 + O(29^4) 3932*29 + O(29^4) -101673 + O(29^4) 308582 + O(29^4)),
+    (-10474*29 + O(29^4) -8684*29 + O(29^4) -167184 + O(29^4) 166859 + O(29^4)),
+    (-8245*29 + O(29^4) -1577*29 + O(29^4) 336401 + O(29^4) -34952 + O(29^4)),
+    (4695*29 + O(29^4) 11122*29 + O(29^4) -233536 + O(29^4) 163060 + O(29^4)),
+    (4400*29 + O(29^4) -10696*29 + O(29^4) -7838 + O(29^4) -170445 + O(29^4)),
+    (-10528*29 + O(29^4) 12116*29 + O(29^4) 193785 + O(29^4) -210329 + O(29^4)),
+    (4616*29 + O(29^4) 6345*29 + O(29^4) 181509 + O(29^4) -59416 + O(29^4)),
+    (8340*29 + O(29^4) -12068*29 + O(29^4) 19225 + O(29^4) 225480 + O(29^4)),
+    (-1748*29 + O(29^4) -8742*29 + O(29^4) 216309 + O(29^4) -328246 + O(29^4)),
+    (-10874*29 + O(29^4) 61*29 + O(29^4) -172001 + O(29^4) 190709 + O(29^4)),
+    (3985*29 + O(29^4) 128*29^2 + O(29^4) 14237 + O(29^4) -340078 + O(29^4)),
+    (10160*29 + O(29^4) -6477*29 + O(29^4) 342923 + O(29^4) 102462 + O(29^4)),
+    (-10744*29 + O(29^4) -4925*29 + O(29^4) 4438 + O(29^4) -321358 + O(29^4)),
+    (9921*29 + O(29^4) -10901*29 + O(29^4) 166722 + O(29^4) 101027 + O(29^4)),
+    (-4380*29 + O(29^4) 10162*29 + O(29^4) -30362 + O(29^4) -52528 + O(29^4)),
+    (4746*29 + O(29^4) 1359*29 + O(29^4) -349333 + O(29^4) 135798 + O(29^4)),
+    (-10113*29 + O(29^4) -2292*29 + O(29^4) 171710 + O(29^4) -40696 + O(29^4)),
+    (8101*29 + O(29^4) 7897*29 + O(29^4) -156976 + O(29^4) 224045 + O(29^4)),
+    (-6340*29 + O(29^4) -5295*29 + O(29^4) -223835 + O(29^4) 241718 + O(29^4)),
+    (-5155*29 + O(29^4) -4204*29 + O(29^4) -272526 + O(29^4) 194419 + O(29^4)),
+    (1210*29 + O(29^4) 9856*29 + O(29^4) -179059 + O(29^4) 157705 + O(29^4)),
+    (-11980*29 + O(29^4) -2419*29 + O(29^4) 262988 + O(29^4) -156365 + O(29^4)),
+    (10336*29 + O(29^4) -5314*29 + O(29^4) 189705 + O(29^4) 141900 + O(29^4)),
+    (1833*29 + O(29^4) 3268*29 + O(29^4) 148206 + O(29^4) 21753 + O(29^4)),
+    (212*29 + O(29^4) 6715*29 + O(29^4) -297499 + O(29^4) 84789 + O(29^4)),
+    (-973*29 + O(29^4) 5624*29 + O(29^4) -248808 + O(29^4) 132088 + O(29^4)),
+    (-7338*29 + O(29^4) -8436*29 + O(29^4) -342275 + O(29^4) 168802 + O(29^4)),
+    (5852*29 + O(29^4) 3839*29 + O(29^4) -77041 + O(29^4) -224409 + O(29^4)),
+    (7925*29 + O(29^4) 6734*29 + O(29^4) -3758 + O(29^4) 184607 + O(29^4)),
+    (-7961*29 + O(29^4) -1848*29 + O(29^4) 37741 + O(29^4) 304754 + O(29^4)),
+    (-11227*29 + O(29^4) 11767*29 + O(29^4) 118319 + O(29^4) 234693 + O(29^4)),
+    (5099*29 + O(29^4) -10347*29 + O(29^4) 2332*29 + O(29^4) 3166*29 + O(29^4)),
+    (-7578*29 + O(29^4) -8829*29 + O(29^4) -247606 + O(29^4) 43838 + O(29^4)),
+    (7824*29 + O(29^4) 2671*29 + O(29^4) -25031 + O(29^4) -178534 + O(29^4)),
+    (12045*29 + O(29^4) 10944*29 + O(29^4) 310383 + O(29^4) 180399 + O(29^4)),
+    (50*29^2 + O(29^4) 10249*29 + O(29^4) -273728 + O(29^4) 282669 + O(29^4)),
+    (10437*29 + O(29^4) -1251*29 + O(29^4) 210978 + O(29^4) -202240 + O(29^4)),
+    (6216*29 + O(29^4) -9524*29 + O(29^4) -124436 + O(29^4) 146108 + O(29^4)),
+    (-6477*29 + O(29^4) -5699*29 + O(29^4) 315731 + O(29^4) -36322 + O(29^4)),
+    (-7654*29 + O(29^4) -4440*29 + O(29^4) -113034 + O(29^4) 262581 + O(29^4)),
+    (-7110*29 + O(29^4) -10595*29 + O(29^4) 94258 + O(29^4) 118567 + O(29^4)),
+    (-10193*29 + O(29^4) 11030*29 + O(29^4) 193177 + O(29^4) -192023 + O(29^4)),
+    (-8259*29 + O(29^4) 1886*29 + O(29^4) -308378 + O(29^4) 102066 + O(29^4)),
+    (349*29 + O(29^4) 7119*29 + O(29^4) -129784 + O(29^4) -344452 + O(29^4)),
+    (1526*29 + O(29^4) 5860*29 + O(29^4) 298981 + O(29^4) 63926 + O(29^4)),
+    (982*29 + O(29^4) 12015*29 + O(29^4) 91689 + O(29^4) 207940 + O(29^4)),
+    (4065*29 + O(29^4) -9610*29 + O(29^4) -7230 + O(29^4) -188751 + O(29^4)),
+    (2131*29 + O(29^4) -466*29 + O(29^4) -212956 + O(29^4) 224441 + O(29^4))
+]
+adding information mod n=4
+Time: 0.010
+number of cosets 1216
+Start the Mordell-Weil sieve
+  152 cosets eliminated at v = 199
+        1064 cosets remaining after v=199
+  1042 cosets eliminated at v = 373
+        22 cosets remaining after v=373
+  22 cosets eliminated at v = 463
+        0 cosets remaining after v=463
+Time: 0.540
+done with the Mordell-Weil sieve? true
+For sieving used the prime(s) [ 199, 373, 463 ]
  Now look at the affine patch Z=0 (actually we only care about the disk at 
 infinity).
 Affine patch= y^2 - 5*x^6 - 18*x^5 - 17*x^4 - 6*x^3 - 2*x^2 - 1
-Computing a symplectic basis of H^1
-Computing the cup product matrix
-Computing Coleman data at p=29.
+ Computing a symplectic basis of H^1
+ genus = 2.
 Computed Coleman data at p=29.
-genus = 2.
-Picard number = 2.
-The number of nice correspondences we're using is 1.
 
  Good affine rational points: [
     [ 0, 1 ],
@@ -89,59 +361,263 @@ The number of nice correspondences we're using is 1.
  Bad affine rational points: []
 
  Using the base point [ 4, 209 ].
-Computing correspondence
 
+ Computing correspondences
 Hecke operator at 29 acting on H^1:
 [    1     4     0 -2/25]
 [    4     5  2/25     0]
 [    0     0     1     4]
 [    0     0     4     5]
-Hecke correspondences:
+
+ Nice correspondences:
 [
 [    0 -8/25     8   -16]
 [ 8/25     0   -16    -8]
 [   -8    16     0     0]
 [   16     8     0     0]
 ]
-Computing Hodge filtration.
-eta =  (0).
-beta_fil  =  (0 0).
-gamma_fil =  (16*x - 64         0).
 
-Computing Frobenius structure.
 
-Using point [ 0, 1 ] to generate the tangent space.
-Using point [ 0, 1 ] to fit the height pairing.
-Using point [ -1, 1 ] to fit the height pairing.
-Using point [ 1, 7 ] to fit the height pairing.
+ equivariant splitting:
+[   1    0]
+[   0    1]
+[1/50    0]
+[   0    0]
+ Computing Hodge filtration
+ eta =  (0).
+ beta_fil  =  (0 0).
+ gamma_fil =  (16*x - 64         0).
 
-Sanity check: Does the quadratic Chabauty function map the known good affine 
-rational points into the appropriate set?.
- Sanity check passed
+ Computing Frobenius structure.
+ Using point [ 0, 1 ] to generate.
+ Using point [ 0, 1 ] to fit the height pairing.
+ Using point [ -1, 1 ] to fit the height pairing.
+ Using point [ 1, 7 ] to fit the height pairing.
+away_contributions [ 0, -9052482659088927653*29 + O(29^15), 
+9052482659088927653*29 + O(29^15) ]
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 29^14.
+ Solution [ -1015111846247228755*29 + O(29^14), -236625846766113504462 + 
+O(29^15) ] does not seem to be rational.
+ Recovered known rational point [ 0, -1 ]
+ Solution [ -2300256264796474048*29 + O(29^14), 576488151209328717351 + O(29^15)
+] does not seem to be rational.
+ Solution [ -1909370243365253224*29 + O(29^14), 2059085712816233968136 + 
+O(29^15) ] does not seem to be rational.
+ Solution [ -2590429440107470581*29 + O(29^14), -334222235296980483655 + 
+O(29^15) ] does not seem to be rational.
+ Solution [ -425158487633924760*29 + O(29^14), -341014833482751385430 + O(29^15)
+] does not seem to be rational.
+ Solution [ -1015111846247228755*29 + O(29^14), 236625846766113504462 + O(29^15)
+] does not seem to be rational.
+ Recovered known rational point [ 0, 1 ]
+ Solution [ -2300256264796474048*29 + O(29^14), -576488151209328717351 + 
+O(29^15) ] does not seem to be rational.
+ Solution [ -1909370243365253224*29 + O(29^14), -2059085712816233968136 + 
+O(29^15) ] does not seem to be rational.
+ Solution [ -2590429440107470581*29 + O(29^14), 334222235296980483655 + O(29^15)
+] does not seem to be rational.
+ Solution [ -425158487633924760*29 + O(29^14), 341014833482751385430 + O(29^15) 
+] does not seem to be rational.
+ Solution [ 15758023564749286773 + O(29^14), -60032601332404088330 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 87482916688547765007 + O(29^14), 110945616244055536172 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 53014203428917413959 + O(29^14), -90270807044165979787 + O(29^14) ] 
+does not seem to be rational.
+ Recovered known rational point [ 2, -35 ]
+ Solution [ 15758023564749286773 + O(29^14), 60032601332404088330 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 87482916688547765007 + O(29^14), -110945616244055536172 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 53014203428917413959 + O(29^14), 90270807044165979787 + O(29^14) ] 
+does not seem to be rational.
+ Recovered known rational point [ 2, 35 ]
+ Solution [ -121515457641230582322 + O(29^14), 60782357375160085311 + O(29^14) ]
+does not seem to be rational.
+ Recovered known rational point [ 4, -209 ]
+ Solution [ -121515457641230582322 + O(29^14), -60782357375160085311 + O(29^14) 
+] does not seem to be rational.
+ Recovered known rational point [ 4, 209 ]
+ Solution [ -28292276537561603911 + O(29^14), 143656012125073142190 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -127157824264383816740 + O(29^14), -60377340497231245997 + O(29^14) 
+] does not seem to be rational.
+ Solution [ -142623777686034534435 + O(29^14), 81010942537915278956 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 142317332901256713560 + O(29^14), 26387198039348396285 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 44426523899359501508 + O(29^14), -146275720142243919701 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 142582488468876304869 + O(29^14), -6440588184191404471 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -28292276537561603911 + O(29^14), -143656012125073142190 + O(29^14) 
+] does not seem to be rational.
+ Solution [ -127157824264383816740 + O(29^14), 60377340497231245997 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -142623777686034534435 + O(29^14), -81010942537915278956 + O(29^14) 
+] does not seem to be rational.
+ Solution [ 142317332901256713560 + O(29^14), -26387198039348396285 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 44426523899359501508 + O(29^14), 146275720142243919701 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 142582488468876304869 + O(29^14), 6440588184191404471 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -38523741940366851250 + O(29^14), 73837734738463140748 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -55936245224576642237 + O(29^14), 118188537794709515020 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -144244824460422617531 + O(29^14), -137211988123033066135 + O(29^14)
+] does not seem to be rational.
+ Solution [ 90887549776698305479 + O(29^14), -18717936222107051759 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 134432855966869275459 + O(29^14), -62859904397201839385 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 45964539997519300457 + O(29^14), 4776654045461590442 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -38523741940366851250 + O(29^14), -73837734738463140748 + O(29^14) ]
+does not seem to be rational.
+ Solution [ -55936245224576642237 + O(29^14), -118188537794709515020 + O(29^14) 
+] does not seem to be rational.
+ Solution [ -144244824460422617531 + O(29^14), 137211988123033066135 + O(29^14) 
+] does not seem to be rational.
+ Solution [ 90887549776698305479 + O(29^14), 18717936222107051759 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 134432855966869275459 + O(29^14), 62859904397201839385 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 45964539997519300457 + O(29^14), -4776654045461590442 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -39615605535203471919 + O(29^14), -84358725231288492772 + O(29^14) ]
+does not seem to be rational.
+ Recovered known rational point [ -1, -1 ]
+ Solution [ -39615605535203471919 + O(29^14), 84358725231288492772 + O(29^14) ] 
+does not seem to be rational.
+ Recovered known rational point [ -1, 1 ]
+ Solution [ 30995063813332656587 + O(29^14), 2351283649024110961293 + O(29^15) ]
+does not seem to be rational.
+ Solution [ 17248146275864501691 + O(29^14), -2819261362032041622619 + O(29^15) 
+] does not seem to be rational.
+ Solution [ 27777063095601719109 + O(29^14), 1285057508619672090001 + O(29^15) ]
+does not seem to be rational.
+ Solution [ 90073027083540342484 + O(29^14), -3071960557353181715438 + O(29^15) 
+] does not seem to be rational.
+ Solution [ 30960215288233179800 + O(29^14), 2624637787651723506127 + O(29^15) ]
+does not seem to be rational.
+ Solution [ -35438644551086528081 + O(29^14), -4093271438187227275752 + O(29^15)
+] does not seem to be rational.
+ Solution [ 30995063813332656587 + O(29^14), -2351283649024110961293 + O(29^15) 
+] does not seem to be rational.
+ Solution [ 17248146275864501691 + O(29^14), 2819261362032041622619 + O(29^15) ]
+does not seem to be rational.
+ Solution [ 27777063095601719109 + O(29^14), -1285057508619672090001 + O(29^15) 
+] does not seem to be rational.
+ Solution [ 90073027083540342484 + O(29^14), 3071960557353181715438 + O(29^15) ]
+does not seem to be rational.
+ Solution [ 30960215288233179800 + O(29^14), -2624637787651723506127 + O(29^15) 
+] does not seem to be rational.
+ Solution [ -35438644551086528081 + O(29^14), 4093271438187227275752 + O(29^15) 
+] does not seem to be rational.
+ Solution [ 58353977596620628559 + O(29^14), 91777395828247101333 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -59589451572719003092 + O(29^14), 25844703258608465776 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 5033010586012040530 + O(29^14), -109706368405172135206 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 19891812995661239735 + O(29^14), 125324911866494601238 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 58353977596620628559 + O(29^14), -91777395828247101333 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -59589451572719003092 + O(29^14), -25844703258608465776 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 5033010586012040530 + O(29^14), 109706368405172135206 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 19891812995661239735 + O(29^14), -125324911866494601238 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 8795083614791219707 + O(29^14), -2932513580617465305972 + O(29^15) ]
+does not seem to be rational.
+ Solution [ -146673117351464163664 + O(29^14), -3504573389484379701172 + 
+O(29^15) ] does not seem to be rational.
+ Solution [ 8795083614791219707 + O(29^14), 2932513580617465305972 + O(29^15) ] 
+does not seem to be rational.
+ Solution [ -146673117351464163664 + O(29^14), 3504573389484379701172 + O(29^15)
+] does not seem to be rational.
+ Solution [ 148686290744845365871 + O(29^14), 82801787336048814294 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 22288845239533293541 + O(29^14), -49005561738703895353 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -74341604968860524871 + O(29^14), -29171246165703212362 + O(29^14) ]
+does not seem to be rational.
+ Recovered known rational point [ 1, -7 ]
+ Solution [ -97213527311994345742 + O(29^14), 97363748600334015676 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 118764111089378391343 + O(29^14), 26391935326388926190 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ 148686290744845365871 + O(29^14), -82801787336048814294 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 22288845239533293541 + O(29^14), 49005561738703895353 + O(29^14) ] 
+does not seem to be rational.
+ Solution [ -74341604968860524871 + O(29^14), 29171246165703212362 + O(29^14) ] 
+does not seem to be rational.
+ Recovered known rational point [ 1, 7 ]
+ Solution [ -97213527311994345742 + O(29^14), -97363748600334015676 + O(29^14) ]
+does not seem to be rational.
+ Solution [ 118764111089378391343 + O(29^14), -26391935326388926190 + O(29^14) ]
+does not seem to be rational.
 Sanity check: Do the additional solutions on the affine patches correspond to 
 each other?
 Sanity check passed
 
 Run the Mordell-Weil sieve to show there are no additional rational points in 
 affine disks.
-Use independent points [ (x^2 - 1, -4*x - 3, 2), (x^2 - 3/4*x + 1/8, -71/16*x - 
-    69/32, 2) ]
-adding information mod N=4
-Time: 0.010
-number of cosets 1216
-Start the Mordell-Weil sieve
-  152 cosets eliminated at v = 199
-        1064 cosets remaining after v=199
-  1042 cosets eliminated at v = 373
-        22 cosets remaining after v=373
-  22 cosets eliminated at v = 463
-        0 cosets remaining after v=463
-Time: 0.470
-done with the Mordell-Weil sieve? true
-For sieving used the prime(s) [ 199, 373, 463 ]
 
 Still need to look at infinite disks
 Use independent points [ (x^2 - 1, -3*x - 4, 2), (x^2 - 6*x + 8, -87*x + 139, 2)
+]
+compute basis integrals
+compute integrals for rational points
+rat_integrals [
+    (4945554591431819*29 + O(29^12) 5642061912379860*29 + O(29^12) 
+        167169944096001762 + O(29^12) 169851843067844191 + O(29^12)),
+    (1441811320090085*29 + O(29^12) -992772630732586*29 + O(29^12) 
+        19191503762866903 + O(29^12) 139108414785439474 + O(29^12)),
+    (-5193023223022361*29 + O(29^12) 1069159320519063*29 + O(29^12) 
+        154430967384082107 + O(29^12) 26105378244262531 + O(29^12)),
+    (-620120631161564*29 + O(29^12) 3580129961128211*29 + O(29^12) 
+        31930480474786558 + O(29^12) -70959903596447907 + O(29^12)),
+    (O(29^12) O(29^12) O(29^12) O(29^12)),
+    (-5813143854183925*29 + O(29^12) 4649289281647274*29 + O(29^12) 
+        -167453335346600376 + O(29^12) -44854525352185376 + O(29^12)),
+    (-2371992266832431*29 + O(29^12) 262712689571988*29 + O(29^12) 
+        -6677261371233968 + O(29^12) -157094574378744074 + O(29^12)),
+    (-3441151587351494*29 + O(29^12) 4386576592075286*29 + O(29^12) 
+        -160776073975366408 + O(29^12) 112240049026558698 + O(29^12)),
+    (-5006697223236850*29 + O(29^12) 2634704956404419*29 + O(29^12) 
+        -89930078639285187 + O(29^12) 18038027416352228 + O(29^12)),
+    (-806446630947075*29 + O(29^12) 2014584325242855*29 + O(29^12) 
+        -77523256707315189 + O(29^12) -62892552768537604 + O(29^12))
+]
+compute integrals for fake rational points
+fake [
+    (2807642958334*29^3 + O(29^12) -4976839111157619*29 + O(29^12) 
+        57304236827149228 + O(29^12) 69604476863660632 + O(29^12)),
+    (-2229920950611942*29 + O(29^12) -2675543962403279*29 + O(29^12) 
+        -1752073514751501 + O(29^12) -116052023530714806 + O(29^12)),
+    (811278156408016*29 + O(29^12) 948562832708858*29 + O(29^12) 
+        100337580425202487 + O(29^12) 69084402178527238 + O(29^12)),
+    (-3542468441582351*29 + O(29^12) -5196732502590562*29 + O(29^12) 
+        -5148847573341492 + O(29^12) -54345774557369559 + O(29^12)),
+    (-3114033283436858*29 + O(29^12) 5131670645783098*29 + O(29^12) 
+        -23760872608725512 + O(29^12) 176555684982320181 + O(29^12)),
+    (4026138183563010*29 + O(29^12) -2574381372900936*29 + O(29^12) 
+        129057211031719437 + O(29^12) -114459002215846008 + O(29^12)),
+    (-3583222903571983*29 + O(29^12) -4875676521655276*29 + O(29^12) 
+        -165701261831848875 + O(29^12) 71197498178529430 + O(29^12)),
+    (5576087755113888*29 + O(29^12) 3700726448938416*29 + O(29^12) 
+        86023867433666178 + O(29^12) -113938927530712614 + O(29^12)),
+    (-2270675412601574*29 + O(29^12) -2354487981467993*29 + O(29^12) 
+        -162304487773258884 + O(29^12) 9491249205184183 + O(29^12)),
+    (-93072778301623*29^2 + O(29^12) -482381364135824*29 + O(29^12) 
+        -143692462737874864 + O(29^12) 132404572870963484 + O(29^12))
 ]
 number of cosets 10
 Start the Mordell-Weil sieve to show there are no additional rational points in 
@@ -151,8 +627,8 @@ disks at infinity.
         4 cosets remaining after v=373
   4 cosets eliminated at v = 463
         0 cosets remaining after v=463
-Time: 0.470
+Time: 0.510
 done with the Mordell-Weil sieve? true
 For sieving used the prime(s) [ 199, 373, 463 ]
 
-Total time: 45.270 seconds, Total memory usage: 117.19MB
+Total time: 62.519 seconds, Total memory usage: 136.59MB

@@ -7,8 +7,8 @@ Loading "coho.m"
 Loading "froblift.m"
 Loading "reductions.m"
 Loading "singleintegrals.m"
-Loading "applications.m"
 Loading "misc.m"
+Loading "applications.m"
 Loading "symplectic_basis.m"
 Loading "hecke_correspondence.m"
 Loading "hodge.m"
@@ -22,34 +22,68 @@ Compute the rational points on  Hyperelliptic Curve defined by y^2 = 13*x^6 -
 The Jacobian is absolutely simple
 Small points:  {@ (0 : -1 : 1), (0 : 1 : 1), (1 : -1 : 1), (1 : 1 : 1), (1 : -11
 : 3), (1 : 11 : 3) @}
-2 2
-2 2
-2 2
 
 Start computation of local height at 31 between first pair of divisors
-Time: 122.930
+Time: 405.770
 Time for first height
 Start computation of local height at 31 between second pair of divisors
-Time: 44.300
+Time: 174.980
 Time for second height
 Start computation of local height at 31 between third pair of divisors
-Time: 122.640
+Time: 392.890
 Time for third height
-local heights [ 13111921*31 + O(31^6), -7371915*31 + O(31^6), -9691879*31 + 
-O(31^6) ]
+local heights [ -244550438*31 + O(31^7), 422065350*31 + O(31^7), -353241691*31 +
+O(31^7) ]
 
 Starting quadratic Chabauty for p = 31.
+ Computing Hodge filtration for correspondence 1.
+ Computing Frobenius structure for correspondence 1.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 
+31^5.
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 31^5.
 
- Using the base point [ 0, -1 ].
+ The common roots of the quadratic Chabauty function(s) in this affine patch are
+ [
+[ 39031*31 + O(31^5), -2433067 + O(31^5) ],
+[ O(31^5), -1 + O(31^5) ],
+[ 39031*31 + O(31^5), 2433067 + O(31^5) ],
+[ O(31^5), 1 + O(31^5) ],
+[ -7083652 + O(31^5), 6509365 + O(31^5) ],
+[ -12433508 + O(31^5), -8293011 + O(31^5) ],
+[ -7083652 + O(31^5), -6509365 + O(31^5) ],
+[ -12433508 + O(31^5), 8293011 + O(31^5) ],
+[ -2406821 + O(31^5), -4371504 + O(31^5) ],
+[ 12470885 + O(31^5), -2460695 + O(31^5) ],
+[ -2406821 + O(31^5), 4371504 + O(31^5) ],
+[ 12470885 + O(31^5), 2460695 + O(31^5) ],
+[ 3351333 + O(31^5), -2933444 + O(31^5) ],
+[ -12599066 + O(31^5), 6383947 + O(31^5) ],
+[ 3351333 + O(31^5), 2933444 + O(31^5) ],
+[ -12599066 + O(31^5), -6383947 + O(31^5) ],
+[ -602398 + O(31^5), -11545029 + O(31^5) ],
+[ -376997 + O(31^5), 13431857 + O(31^5) ],
+[ -602398 + O(31^5), 11545029 + O(31^5) ],
+[ -376997 + O(31^5), -13431857 + O(31^5) ],
+[ 1514969 + O(31^5), -10912539 + O(31^5) ],
+[ 4949893 + O(31^5), 2889002 + O(31^5) ],
+[ 1514969 + O(31^5), 10912539 + O(31^5) ],
+[ 4949893 + O(31^5), -2889002 + O(31^5) ],
+[ -366914 + O(31^5), 6412403 + O(31^5) ],
+[ 2682835 + O(31^5), 4672156 + O(31^5) ],
+[ -366914 + O(31^5), -6412403 + O(31^5) ],
+[ 2682835 + O(31^5), -4672156 + O(31^5) ],
+[ -9543050 + O(31^5), 8482711 + O(31^5) ],
+[ 7995231 + O(31^5), 11654414 + O(31^5) ],
+[ -9543050 + O(31^5), -8482711 + O(31^5) ],
+[ 7995231 + O(31^5), -11654414 + O(31^5) ],
+[ 568851 + O(31^5), 8118899 + O(31^5) ],
+[ 1 + O(31^5), -1 + O(31^5) ],
+[ 568851 + O(31^5), -8118899 + O(31^5) ],
+[ 1 + O(31^5), 1 + O(31^5) ]
+] 
 
-Computing Hodge filtration for correspondence 1.
-Computing Frobenius structure for correspondence 1.
-
- Sanity check at rational points for correspondence 1.  
-Sanity checks passed.
-
-There are additional solutions that don't look rational.
-Time: 2.650
+Time: 63.650
 
 Use the Mordell-Weil sieve to show that the additional solutions aren't 
 rational.
@@ -65,7 +99,7 @@ starting MW-sieve
         4 cosets remaining after v=2971
   4 cosets eliminated at v = 76963
         0 cosets remaining after v=76963
-Time: 81.670
+Time: 228.500
 No additional solutions are rational
 Use the Mordell-Weil sieve to show that there are no rational points in bad 
 disks
@@ -75,5 +109,7 @@ starting MW-sieve to exclude rational points in bad and infinite disks at p=31
         1159 cosets remaining after v=31
   1159 cosets eliminated at v = 61
         0 cosets remaining after v=61
-Time: 0.030
+Time: 0.100
 There are no rational points in bad or infinite disks for p=31
+
+Total time: 1298.690 seconds, Total memory usage: 129.53MB

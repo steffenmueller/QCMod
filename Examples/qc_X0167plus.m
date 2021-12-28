@@ -17,24 +17,21 @@ X := Transformation(X, [0,1,1,3]);
 J := Jacobian(X);
 assert HasAbsolutelyIrreducibleJacobian(X, 1000 : printlevel := 0);
 "The Jacobian is absolutely simple";
-
 N := 15;
-
 f := HyperellipticPolynomials(X); 
 gX := Genus(X);
 ptsX := Points(X:Bound:=100);
 "Small points: ", ptsX;
-
-
 // Find primes for the quadratic Chabauty computation. In particular, check whether they 
 // look promising for a combination of qc and the Mordell-Weil sieve
 //qc_primes, groups, good_primes := 
 //                find_qc_primes(X : mws_primes_bound := 500, qc_primes_bound := 100, number_of_bad_disks := 1, inf_modp_allowed := false, ordinary := false, known_rat_pts := ptsX, printlevel :=0); 
 
 // Compute generators for the full Mordell-Weil group using Stoll's MordellWeilGroupGenus2
+// This spares us the trouble of checking saturation in MW sieve computation.
 torsion_bas, torsion_orders, bas := generators(J);
 assert #bas eq 2; // rank = 2
-// This spares us the trouble of checking saturation in MW sieve computation.
+bas[2] := -bas[2]; // This works better in this particular example.
 
 primes := [7]; 
 exponents := [3];
@@ -47,27 +44,13 @@ assert hecke_operator_generates(S, p);
 
 base_pt := [ptsX[1,1]/ptsX[1,3], ptsX[1,2]/ptsX[1,3]^(gX+1)]; 
 fake_coeffs := [];
-/*
-local_CG_hts := [
-  [
-    3*7 + 6*7^2 + 7^4 + 6*7^5 + 5*7^6 + 3*7^7 + 3*7^8 + 2*7^9 + 7^10 + 5*7^12 + 4*7^13 + 7^14,
-4*7 + 6*7^2 + 4*7^3 + 5*7^4 + 5*7^5 + 7^6 + 5*7^7 + 2*7^8 + 3*7^9 + 4*7^10 + 2*7^11 + 6*7^12 + 2*7^13 + 5*7^14,
-2*7 + 6*7^2 + 3*7^3 + 5*7^4 + 5*7^5 + 4*7^6 + 4*7^7 + 7^8 + 5*7^9 + 4*7^10 + 6*7^11 + 4*7^12 + 4*7^13 + 6*7^14
-  ],
-[
- 11*17 + 2*17^2 + 4*17^3 + 14*17^4 + 6*17^5 + 8*17^6 + 6*17^7 + 14*17^8 + 12*17^9 + 9*17^10 + 9*17^11 + 15*17^12 + 12*17^14,
-8*17 + 17^2 + 15*17^3 + 10*17^4 + 16*17^5 + 17^6 + 5*17^7 + 14*17^8 + 5*17^9 + 3*17^10 + 17^11 + 12*17^12 + 14*17^13 + 14*17^14,
-15*17 + 12*17^2 + 5*17^3 + 3*17^4 + 14*17^5 + 14*17^6 + 7*17^7 + 17^8 + 11*17^9 + 14*17^10 + 16*17^11 + 4*17^12 + 8*17^13 + 17^14 
-]
-];
-*/  
 
 
 // Compute good generators and intersection data for Coleman-Gross heights
 splitting_generators, divisors, intersections, splitting_indices, odd_divisors_Qp := height_init_g2(X, p, bas: N := N, multiple_bound := 40); 
 odd_f_Qp := HyperellipticPolynomials(Curve(odd_divisors_Qp[1,1,1]));
 odd_f := ChangeRing(odd_f_Qp, Rationals());
-odd_data := coleman_data(y^2-odd_f, p, 10 : useU :=false, heights);
+odd_data := coleman_data(y^2-odd_f, p, N : useU :=false, heights);
 odd_divisors := [* [*rationalize(D[1]), rationalize(D[2])*] : D in odd_divisors_Qp *];
 
 odd_data_divisors :=  [
@@ -90,26 +73,29 @@ odd_data`ordinary := true;
 odd_data`cpm := -cup_product_matrix(odd_data`basis, odd_data`Q, 2, odd_data`r, odd_data`W0);
 
 printf "\nStart computation of local height at %o between first pair of divisors\n", p;
-time ht1, D1_data := local_cg_height(odd_data_divisors[1], odd_data_divisors_inv[1],odd_data);
+time ht1, D1_data := local_height_divisors_p(odd_data_divisors[1], odd_data_divisors_inv[1],odd_data);
 "Time for first height";
 printf "Start computation of local height at %o between second pair of divisors\n", p;
-time ht2 := local_cg_height(odd_data_divisors[1], odd_data_divisors[2],odd_data :D1_data := D1_data);
+time ht2 := local_height_divisors_p(odd_data_divisors[1], odd_data_divisors[2],odd_data :D1_data := D1_data);
 "Time for second height";
 printf "Start computation of local height at %o between third pair of divisors\n", p;
-time ht3 := local_cg_height(odd_data_divisors_inv[2], odd_data_divisors[2], odd_data);
+time ht3 := local_height_divisors_p(odd_data_divisors_inv[2], odd_data_divisors[2], odd_data);
 "Time for third height";
-local_CG_hts := [-ht1, ht2, -ht3];
+local_CG_hts := [-ht1, ht2, -ht3]; 
+// hti is known to be correct to precision Prec(hti)
+// local_CG_hts := [ 3193723114452456*61,  -3780937538333965*61 ,
+// -1947858636859455*61 ];
+//
 
-N := 8;
 "local heights", local_CG_hts;
 
-data := coleman_data(y^2-f, p, N : useU :=false);
+data := coleman_data(y^2-f, p, 15 : useU :=false);
 height_coeffs := height_coefficients(divisors, intersections, local_CG_hts, data);
 
 printf "\nStarting quadratic Chabauty for p = %o.\n", p;
 time good_affine_rat_pts_xy, no_fake_pts, bad_affine_rat_pts_xy, data, fake_rat_pts, bad_Qppoints :=
-     QCModAffine(y^2-f, p : printlevel := 1,  unit_root_splitting := true,
-          N := N, prec := 30, base_point := base_pt, height_coeffs := height_coeffs, use_log_basis := true);
+     QCModAffine(y^2-f, p : printlevel := 1, N := 20, unit_root_splitting := true,
+          base_point := base_pt, height_coeffs := height_coeffs, use_log_basis := true);
 
   // Here * good_affine_rat_pts_xy contains the found rational points in disks where the Frob lift is defined 
   //      * no_fake_pts is true iff the solutions are exactly the rational points
@@ -119,7 +105,13 @@ time good_affine_rat_pts_xy, no_fake_pts, bad_affine_rat_pts_xy, data, fake_rat_
   //      * bad_Qppoints contains the disks where Frob isn't defined
   //
   // Express the images of the solutions under Abel-Jacobi in terms of the generators mod p^N
-  fake_coeffs_mod_pN, rat_coeffs_mod_pN := coefficients_mod_pN(fake_rat_pts, good_affine_rat_pts_xy, divisors, base_pt, splitting_indices, data); 
+  //
+  for i in [1..#fake_rat_pts] do
+    fake_rat_pts[i] := [ChangePrecision(fake_rat_pts[i,j], 4) : j in [1..2]];
+    // lower precision for speed and to avoid issues in Coleman integrals.
+  end for;
+  data := coleman_data(y^2-f, p, 8 : useU :=false);
+  fake_coeffs_mod_pN, rat_coeffs_mod_pN := coefficients_mod_pN(fake_rat_pts, good_affine_rat_pts_xy, divisors, base_pt, splitting_indices, data : printlevel := 1); 
   // Check that the coefficients of the known rational points are correct.
   assert &and[&+[rat_coeffs_mod_pN[j,i] * bas[i] : i in [1..gX]] eq X!good_affine_rat_pts_xy[j] - X!base_pt : j in [1..#good_affine_rat_pts_xy]];
   Append(~fake_coeffs, [ fake_coeffs_mod_pN ]);

@@ -2,36 +2,40 @@ SetLogFile("qc_Xs13plus.log");
 load "qc_modular.m";
 load "howe_zhu.m";
 
-//X_s(13)+ is isomorphic to X0(169)+ (and to X_ns(13)+)
+// X_s(13)+ is isomorphic to X0(169)+ (and to X_ns(13)+)
 level := 169;
-printf "\n*** Compute the rational points on  X0(%o)+ ***\n", level;
+printf "\n*** Compute the rational points on X0(%o)+ ***\n", level;
+
+r, leading_taylor_coeffs := rank_J0Nplus(169); r;
+leading_taylor_coeffs;
+// We need T_p to be a generator.
+S0 := CuspidalSubspace(ModularSymbols(169, 2)); 
+S := AtkinLehnerSubspace(S0, 169, 1);
+X := X0NQuotient(169, [169]); X;
+// Need a monic model in y
+X1 := AffinePatch(X, 1);
+A2<y0, x0> := AmbientSpace(X1); Equation(X1);
+//
+Q := y^3 + y^2*x^2 + y^2*x + y^2 + y*x^3 + y*x - y + x^3 - 3*x^2 + x;
+time success, Cpts, p, Q_inf := QCModQuartic(Q, S : N := 25, printlevel := 1);
+assert success;
+"Rational points on Xns(13)+", Cpts;
+
+
+"
+  For completeness, we include the quadratic Chabauty computation as
+  described in the paper `Explicit Chabauty-Kim for the split Cartan
+  curve of level 13`, using the prime p=17 and a hard-coded basis of 
+  H^1. 
+  We leave out the computation of the rational points
+  in the bad disk, since this is somewhat harder to incorporate into
+  our main function (see qc_C188.m for an examples where this is applied).
+";
+
+
 Q := y^4 + 5*x^4 - 6*x^2*y^2 + 6*x^3 + 26*x^2*y + 10*x*y^2 - 10*y^3 - 32*x^2 -40*x*y + 24*y^2 + 32*x - 16*y; 
-assert HasAbsolutelyIrreducibleJacobian(curve(Q), 1000);
-printf "\nJ0(%o)+ is absolutely simple.", level;
-
-S0 := CuspidalSubspace(ModularSymbols(level, 2)); 
-S := AtkinLehnerSubspace(S0, level, 1);
-
-r,errors := rank_J0Nplus(level);
-assert Min([Abs(e) : e in errors]) gt 10^-2;  
-// leading coefficients of Taylor expansions should be sufficiently nonzero.
-printf "\nThe rank of J0(%o)+ is %o.", level, r;
-printf "\nStarting quadratic Chabauty for X0(%o)+.\n", level;
-
-time bool, p, Q_inf, Cpts := QCModQuartic(Q, S: p := 11, printlevel := 1);
-assert bool;
-"Points on Xs(13)+", Cpts;
-
-/*
- * For completeness, we include the quadratic Chabauty computation as
- * described in the paper `Explicit Chabauty-Kim for the split Cartan
- * curve of level 13`. We leave out the computation of the rational points
- * in the bad disk, since this is somewhat harder to incorporate into
- * our main function (see qc_C188.m for an examples where this is applied).
- */
-
 // put in a basis omega[i]dx/z for H^1(Y) by hand:
-                                       r,Delta,s := auxpolys(Q);
+r,Delta,s := auxpolys(Q);
 lc := LeadingCoefficient(Delta);
 omega := [Qxy|];
 omega[1] := 1/lc;

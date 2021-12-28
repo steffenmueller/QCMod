@@ -7,8 +7,8 @@ Loading "coho.m"
 Loading "froblift.m"
 Loading "reductions.m"
 Loading "singleintegrals.m"
-Loading "applications.m"
 Loading "misc.m"
+Loading "applications.m"
 Loading "symplectic_basis.m"
 Loading "hecke_correspondence.m"
 Loading "hodge.m"
@@ -19,22 +19,21 @@ Loading "divisor_heights.m"
 Loading "howe_zhu.m"
 The Jacobian is absolutely simple
 Small points:  {@ (0 : -5 : 1), (0 : 5 : 1) @}
-2 2
-2 2
-2 2
 Start computation of local height at 71 between first pair of divisors
-Time: 1146.620
+Time: 3465.700
 Time for first height
 Start computation of local height at 71 between second pair of divisors
-Time: 571.560
+Time: 1820.070
 Time for second height
 Start computation of local height at 71 between third pair of divisors
-Time: 1145.590
+Time: 3504.300
 Time for third height
-local heights [ 14872375*71 + O(71^6), -899498389*71 + O(71^6), -883954634*71 + 
-O(71^6) ]
+local heights [ 10840248481*71 + O(71^7), -56835840843*71 + O(71^7), 
+55047155247*71 + O(71^7) ]
 Starting quadratic Chabauty at p= 71.
-Time: 7.840
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 71^5.
+Time: 117.960
 
 Use the Mordell-Weil sieve to show that the additional solutions aren't 
 rational.
@@ -49,7 +48,7 @@ number of cosets 78
         2 cosets remaining after v=101
   2 cosets eliminated at v = 1399
         0 cosets remaining after v=1399
-Time: 1.570
+Time: 3.560
 No additional solutions are rational
   36042010 cosets eliminated at v = 71
 number of cosets 18015
@@ -60,7 +59,7 @@ starting MW-sieve to exclude rational points in bad and infinite disks at p=71
         7206 cosets remaining after v=109
   7206 cosets eliminated at v = 8111
         0 cosets remaining after v=8111
-Time: 6.200
+Time: 15.170
 There are no rational points in bad or infinite disks for p=71
 
-Total time: 2990.030 seconds, Total memory usage: 128.31MB
+Total time: 9135.250 seconds, Total memory usage: 129.53MB

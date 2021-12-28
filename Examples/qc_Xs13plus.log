@@ -5,8 +5,8 @@ Loading "coho.m"
 Loading "froblift.m"
 Loading "reductions.m"
 Loading "singleintegrals.m"
-Loading "applications.m"
 Loading "misc.m"
+Loading "applications.m"
 Loading "symplectic_basis.m"
 Loading "hecke_correspondence.m"
 Loading "hodge.m"
@@ -15,98 +15,129 @@ Loading "heights.m"
 Loading "second_patch_quartic.m"
 Loading "howe_zhu.m"
 
-*** Compute the rational points on  X0(169)+ ***
-
-J0(169)+ is absolutely simple.
-The rank of J0(169)+ is 3.
-Starting quadratic Chabauty for X0(169)+.
+*** Compute the rational points on X0(169)+ ***
+3
+[ 1.13550003379662676837731837782, 1.00608193252841146235676593604, 
+0.672484471946315117478906046905 ]
+Curve over Rational Field defined by
+x[1]^2*x[2]^2 + x[1]*x[2]^3 + x[1]^3*x[3] + x[1]^2*x[2]*x[3] + x[2]^3*x[3] + 
+    x[1]^2*x[3]^2 + x[1]*x[2]*x[3]^2 - 3*x[2]^2*x[3]^2 - x[1]*x[3]^3 + 
+    x[2]*x[3]^3
+y0^3 + y0^2*x0^2 + y0^2*x0 + y0^2 + y0*x0^3 + y0*x0 - y0 + x0^3 - 3*x0^2 + x0
 
  Starting quadratic Chabauty computation for the affine patch 
- y^4 - 10*y^3 + (-6*x^2 + 10*x + 24)*y^2 + (26*x^2 - 40*x - 16)*y + 5*x^4 + 
-6*x^3 - 32*x^2 + 32*x = 0
- at the prime p = 11
+ y^3 + (x^2 + x + 1)*y^2 + (x^3 + x - 1)*y + x^3 - 3*x^2 + x = 0
+ at the prime p = 3
 
- Using the base point [ 1/2, 1/2 ].
+ Computing Hodge filtration for correspondence 1.
+ Computing Frobenius structure for correspondence 1.
+ Computing Hodge filtration for correspondence 2.
+ Computing Frobenius structure for correspondence 2.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 
+3^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 
+3^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 3^11.
 
-Computing Hodge filtration for correspondence 1.
-Computing Frobenius structure for correspondence 1.
+ The common roots of the quadratic Chabauty function(s) in this affine patch are
+ [
+[ O(3^13), O(3^13) ],
+[ 2 + O(3^12), -2 + O(3^12) ],
+[ 797161 + O(3^13), -1 + O(3^13) ],
+[ 1 + O(3^13), -1 + O(3^13) ]
+] 
 
-Computing Hodge filtration for correspondence 2.
-Computing Frobenius structure for correspondence 2.
 
- Sanity check at rational points for correspondence 1.  
- Sanity check at rational points for correspondence 2.  
-Sanity checks passed.
-
-The curve has only the known rational points outside the bad residue disks and 
-disks at infinity
-
- Find a good second affine patch
  Starting quadratic Chabauty computation for the affine patch 
- y^4 + (-10*x + 2)*y^3 + (24*x^2 - 26*x + 12)*y^2 + (-16*x^3 + 56*x^2 - 38*x + 
-6)*y - 32*x^3 + 32*x^2 - 6*x - 5 = 0
- at the prime p = 11
+ y^4 + (x + 6)*y^3 + (-4*x^2 - 20*x)*y^2 + (-32*x^2 - 112*x - 48)*y + 64*x^3 - 
+128*x - 64 = 0
+ at the prime p = 3
 
- Using the base point [ 1, 1 ].
+ Computing Hodge filtration for correspondence 1.
+ Computing Frobenius structure for correspondence 1.
+ Computing Hodge filtration for correspondence 2.
+ Computing Frobenius structure for correspondence 2.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 
+3^12.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 
+3^12.
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 3^10.
 
-Computing Hodge filtration for correspondence 1.
-Computing Frobenius structure for correspondence 1.
+ The common roots of the quadratic Chabauty function(s) in this affine patch are
+ [
+[ O(3^12), -4 + O(3^12) ],
+[ 3 + O(3^12), -8 + O(3^12) ],
+[ O(3^12), -2 + O(3^12) ],
+[ -1 + O(3^12), O(3^12) ],
+[ -44287 + O(3^11), -2 + O(3^11) ],
+[ 88573 + O(3^11), -2 + O(3^11) ]
+] 
 
-Computing Hodge filtration for correspondence 2.
-Computing Frobenius structure for correspondence 2.
+Time: 75.740
+Rational points on Xns(13)+ [ (1 : -1 : 1), (2 : -2 : 1), (0 : 0 : 1), (-1/2 : 
+-1 : 1), (-1 : 1 : 0), (1 : 0 : 0), (0 : 1 : 0) ]
 
- Sanity check at rational points for correspondence 1.  
- Sanity check at rational points for correspondence 2.  
-Sanity checks passed.
+  For completeness, we include the quadratic Chabauty computation as
+  described in the paper `Explicit Chabauty-Kim for the split Cartan
+  curve of level 13`, using the prime p=17 and a hard-coded basis of 
+  H^1. 
+  We leave out the computation of the rational points
+  in the bad disk, since this is somewhat harder to incorporate into
+  our main function (see qc_C188.m for an examples where this is applied).
 
-The curve has only the known rational points outside the bad residue disks and 
-disks at infinity
-Time: 93.910
-Points on Xs(13)+ [ (1/2 : 1/2 : 1), (0 : 2 : 1), (0 : 0 : 1), (-3/2 : 3/2 : 1),
-(-1 : 1 : 0), (1 : 1 : 1), (1 : 1 : 0) ]
+ Computing Hodge filtration for correspondence 1.
+ Computing Frobenius structure for correspondence 1.
+ Computing Hodge filtration for correspondence 2.
+ Computing Frobenius structure for correspondence 2.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 
+17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 
+17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 17^11.
 
- Using the base point [ 1/2, 1/2 ].
+ The common roots of the quadratic Chabauty function(s) in this affine patch are
+ [
+[ O(17^13), O(17^13) ],
+[ O(17^13), 2 + O(17^13) ],
+[ -4952289016452968 + O(17^13), -4952289016452968 + O(17^13) ],
+[ 291311118614879 + O(17^12), -291311118614879 + O(17^12) ]
+] 
 
-Computing Hodge filtration for correspondence 1.
-Computing Frobenius structure for correspondence 1.
-
-Computing Hodge filtration for correspondence 2.
-Computing Frobenius structure for correspondence 2.
-
- Sanity check at rational points for correspondence 1.  
- Sanity check at rational points for correspondence 2.  
-Sanity checks passed.
-
-The curve has only the known rational points outside the bad residue disks and 
-disks at infinity
 Good affine rational points on first patch: [
-    [ 1/2, 1/2 ],
     [ 0, 2 ],
     [ 0, 0 ],
-    [ -3/2, 3/2 ]
+    [ -3/2, 3/2 ],
+    [ 1/2, 1/2 ]
 ]
 
 Compute the rational points on second affine patch
+ Computing Hodge filtration for correspondence 1.
+ Computing Frobenius structure for correspondence 1.
+ Computing Hodge filtration for correspondence 2.
+ Computing Frobenius structure for correspondence 2.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 
+17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 
+17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 17^11.
 
- Using the base point [ 0, -1 ].
+ The common roots of the quadratic Chabauty function(s) in this affine patch are
+ [
+[ O(17^13), -1 + O(17^14) ],
+[ O(17^13), 1 + O(17^13) ],
+[ -194207412409921 + O(17^12), -1 + O(17^12) ],
+[ 2 + O(17^13), 1 + O(17^13) ]
+] 
 
-Computing Hodge filtration for correspondence 1.
-Computing Frobenius structure for correspondence 1.
-
-Computing Hodge filtration for correspondence 2.
-Computing Frobenius structure for correspondence 2.
-
- Sanity check at rational points for correspondence 1.  
- Sanity check at rational points for correspondence 2.  
-Sanity checks passed.
-
-The curve has only the known rational points outside the bad residue disks and 
-disks at infinity
 Good affine rational points on second patch: [
+    [ 2, 1 ],
     [ 0, 1 ],
     [ 0, -1 ],
-    [ -2/3, -1 ],
-    [ 2, 1 ]
+    [ -2/3, -1 ]
 ]
 
-Total time: 218.990 seconds, Total memory usage: 214.53MB
+Total time: 664.970 seconds, Total memory usage: 214.53MB

@@ -31,6 +31,7 @@ ptsX := Points(X:Bound:=100);
 
 // Compute generators for the Mordell-Weil group using Stoll's MordellWeilGroupGenus2
 torsion_bas, torsion_orders, bas := generators(J);
+bas[2] := -bas[2];
 // This spares us the trouble of checking saturation in MW sieve computation.
 
 primes := [61]; 
@@ -67,13 +68,13 @@ odd_data_divisors_inv := [
 odd_data`ordinary := true;
 odd_data`cpm := -cup_product_matrix(odd_data`basis, odd_data`Q, 2, odd_data`r, odd_data`W0);
 printf "Start computation of local height at %o between first pair of divisors\n", p;
-time ht1, D1_data := local_cg_height(odd_data_divisors[1], odd_data_divisors_inv[1],odd_data);
+time ht1, D1_data := local_height_divisors_p(odd_data_divisors[1], odd_data_divisors_inv[1],odd_data);
 "Time for first height";
 printf "Start computation of local height at %o between second pair of divisors\n", p;
-time ht2 := local_cg_height(odd_data_divisors[1], odd_data_divisors[2],odd_data :D1_data := D1_data);
+time ht2 := local_height_divisors_p(odd_data_divisors[1], odd_data_divisors[2],odd_data :D1_data := D1_data);
 "Time for second height";
 printf "Start computation of local height at %o between third pair of divisors\n", p;
-time ht3 := local_cg_height(odd_data_divisors_inv[2], odd_data_divisors[2], odd_data);
+time ht3 := local_height_divisors_p(odd_data_divisors_inv[2], odd_data_divisors[2], odd_data);
 "Time for third height";
 
 local_CG_hts := [-ht1, ht2, -ht3];
@@ -86,7 +87,7 @@ local_CG_hts := [46*61 + 40*61^2 + 7*61^3 + 30*61^4 + 32*61^5 + 25*61^6 + 2*61^7
 N := 8;
 
 "local heights", local_CG_hts;
-data := coleman_data(y^2-f, p, N : useU :=false);
+data := coleman_data(y^2-f, p, 10 : useU :=false);
 height_coeffs := height_coefficients(divisors, intersections, local_CG_hts, data);
 
 
@@ -104,6 +105,11 @@ N := N, prec := 30, base_point := base_pt, height_coeffs := height_coeffs, use_l
   //      * bad_Qppoints contains the disks where Frob isn't defined
   //
   // Express the images of the solutions under Abel-Jacobi in terms of the generators mod p^N
+  for i in [1..#fake_rat_pts] do
+    fake_rat_pts[i] := [ChangePrecision(fake_rat_pts[i,j], 3) : j in [1..2]];
+    // lower precision for speed and to avoid issues in Coleman integrals.
+  end for;
+  data := coleman_data(y^2-f, p, 6 : useU :=false);
   fake_coeffs_mod_pN, rat_coeffs_mod_pN := coefficients_mod_pN(fake_rat_pts, good_affine_rat_pts_xy, divisors, base_pt, splitting_indices, data); 
   // Check that the coefficients of the known rational points are correct.
   assert &and[&+[rat_coeffs_mod_pN[j,i] * bas[i] : i in [1..gX]] eq X!good_affine_rat_pts_xy[j] - X!base_pt : j in [1..#good_affine_rat_pts_xy]];

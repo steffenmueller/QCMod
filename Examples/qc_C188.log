@@ -4,8 +4,8 @@ Loading "coho.m"
 Loading "froblift.m"
 Loading "reductions.m"
 Loading "singleintegrals.m"
-Loading "applications.m"
 Loading "misc.m"
+Loading "applications.m"
 Loading "symplectic_basis.m"
 Loading "hecke_correspondence.m"
 Loading "hodge.m"
@@ -13,11 +13,11 @@ Loading "frobenius.m"
 Loading "heights.m"
 Loading "qc_init_g2.m"
 Loading "mws_qc.m"
-Compute the rational points of the curve with affine model  y^2 - x^5 + x^4 - x^3 - x^2 + 2*x - 1
-Computing a symplectic basis of H^1
-Computing the cup product matrix
-Computing Coleman data at p=3.
-Computed Coleman data at p=3.
+Compute the rational points of the curve with affine model  y^2 - x^5 + x^4 - 
+    x^3 - x^2 + 2*x - 1
+ Computing a symplectic basis of H^1
+ genus = 2.
+ Computed Coleman data at p=3 to precision 25.
 
  Good affine rational points: [
     [ 1, 1 ],
@@ -35,71 +35,69 @@ Computed Coleman data at p=3.
  Bad affine rational points: []
 
  Using the base point [ 1, 1 ].
-Computing correspondence
 
+ Computing correspondences
 Hecke operator at 3 acting on H^1:
-[   2   -1    0  1/2]
-[  -1    1 -1/2    0]
-[   0    0    2   -1]
-[   0    0   -1    1]
-Hecke correspondences:
+[  -2    1    0 -1/2]
+[   1   -1  1/2    0]
+[   0    0   -2    1]
+[   0    0    1   -1]
+
+ Nice correspondences:
 [
-[ 0  2 -2  4]
-[-2  0  4  2]
-[ 2 -4  0  0]
-[-4 -2  0  0]
+[ 0 -2  2 -4]
+[ 2  0 -4 -2]
+[-2  4  0  0]
+[ 4  2  0  0]
 ]
 
 
-Computing Hodge filtration.
-eta =  Matrix with 1 row and 0 columns.
-beta_fil  =  (0 0).
-gamma_fil =  (-4*x + 4        0).
+ equivariant splitting:
+[  1   0]
+[  0   1]
+[1/2   0]
+[  0   0]
+ Computing Hodge filtration
+ eta =  Matrix with 1 row and 0 columns.
+ beta_fil  =  (0 0).
+ gamma_fil =  (4*x - 4       0).
 
-Computing Frobenius structure.
-
-Using point [ 1, -1 ] to generate the tangent space.
-Using point [ 2, 5 ] to fit the height pairing.
-Using point [ 0, 1 ] to fit the height pairing.
-Using point [ 4, 29 ] to fit the height pairing.
-
-Sanity check: Does the quadratic Chabauty function map the known good affine 
-rational points into the appropriate set?.
- Sanity check passed
-The quadratic Chabauty set in this affine patch is 
- [
-[ 9050*3 + O(3^10), 13190 + O(3^10) ],
-[ O(3^10), -1 + O(3^10) ],
-[ 9050*3 + O(3^10), -13190 + O(3^10) ],
-[ O(3^10), 1 + O(3^10) ],
-[ -1 + O(3^10), -1 + O(3^10) ],
-[ 11348 + O(3^10), -4654 + O(3^10) ],
-[ -24079 + O(3^10), 21485 + O(3^10) ],
-[ 2 + O(3^10), 5 + O(3^10) ],
-[ -1 + O(3^10), 1 + O(3^10) ],
-[ 11348 + O(3^10), 4654 + O(3^10) ],
-[ -24079 + O(3^10), -21485 + O(3^10) ],
-[ 2 + O(3^10), -5 + O(3^10) ],
-[ 6532 + O(3^10), 28661 + O(3^10) ],
-[ 1 + O(3^10), -1 + O(3^10) ],
-[ 4 + O(3^10), 29 + O(3^10) ],
-[ 6532 + O(3^10), -28661 + O(3^10) ],
-[ 1 + O(3^10), 1 + O(3^10) ],
-[ 4 + O(3^10), -29 + O(3^10) ]
-] 
-
+ Computing Frobenius structure.
+ Using point [ 1, -1 ] to generate.
+ Using point [ 2, 5 ] to fit the height pairing.
+ Using point [ 0, 1 ] to fit the height pairing.
+ Using point [ 4, 29 ] to fit the height pairing.
+away_contributions [ 0, 151762 + O(3^12), -227917 + O(3^12) ]
+ The quadratic Chabauty function is correct to precision 3^12.
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 3^10.
+ Solution [ 68099*3 + O(3^12), 13190 + O(3^12) ] does not seem to be rational.
+ Recovered known rational point [ 0, -1 ]
+ Solution [ 68099*3 + O(3^12), -13190 + O(3^12) ] does not seem to be rational.
+ Recovered known rational point [ 0, 1 ]
+ Recovered known rational point [ -1, -1 ]
+ Solution [ 70397 + O(3^11), -4654 + O(3^11) ] does not seem to be rational.
+ Solution [ 34970 + O(3^11), -37564 + O(3^11) ] does not seem to be rational.
+ Recovered known rational point [ 2, 5 ]
+ Recovered known rational point [ -1, 1 ]
+ Solution [ 70397 + O(3^11), 4654 + O(3^11) ] does not seem to be rational.
+ Solution [ 34970 + O(3^11), 37564 + O(3^11) ] does not seem to be rational.
+ Recovered known rational point [ 2, -5 ]
+ Solution [ 183679 + O(3^12), -89437 + O(3^12) ] does not seem to be rational.
+ Recovered known rational point [ 1, -1 ]
+ Recovered known rational point [ 4, 29 ]
+ Solution [ 196312 + O(3^12), 112394 + O(3^12) ] does not seem to be rational.
+ Solution [ 183679 + O(3^12), 89437 + O(3^12) ] does not seem to be rational.
+ Recovered known rational point [ 1, 1 ]
+ Recovered known rational point [ 4, -29 ]
+ Solution [ 196312 + O(3^12), -112394 + O(3^12) ] does not seem to be rational.
  Now look at the affine patch Z=0 (actually we only care about the disk at 
 infinity).
 Affine patch= y^2 - x^6 + 2*x^5 - x^4 - x^3 + x^2 - x
-Computing a symplectic basis of H^1
-Computing the cup product matrix
-Computing Coleman data at p=3.
-Computed Coleman data at p=3.
-genus = 2.
-Picard number = 2.
-The number of nice correspondences we're using is 1.
+ Computing a symplectic basis of H^1
+ Computed Coleman data at p=3 to precision 25.
 
- Good affine rational points on second patch: [
+ Good affine rational points: [
     [ 1, 1 ],
     [ 1, -1 ],
     [ 1/2, 5/8 ],
@@ -110,67 +108,113 @@ The number of nice correspondences we're using is 1.
     [ 1/4, -29/64 ]
 ]
 
- Bad affine rational points on second patch: [
+ Bad affine rational points: [
     [ 0, 0 ]
 ]
 
  Using the base point [ 1, 1 ].
-Computing correspondence
 
+ Computing correspondences
 Hecke operator at 3 acting on H^1:
-[   1   -1    0 -1/2]
-[  -1    2  1/2    0]
-[   0    0    1   -1]
-[   0    0   -1    2]
-Hecke correspondences:
+[  -1    1    0  1/2]
+[   1   -2 -1/2    0]
+[   0    0   -1    1]
+[   0    0    1   -2]
+
+ Nice correspondences:
 [
-[ 0 -2  2  4]
-[ 2  0  4 -2]
-[-2 -4  0  0]
-[-4  2  0  0]
+[ 0  2 -2 -4]
+[-2  0 -4  2]
+[ 2  4  0  0]
+[ 4 -2  0  0]
 ]
-Computing Hodge filtration.
-eta =  (0).
-beta_fil  =  (0 0).
-gamma_fil =  (-4*x + 4        0).
 
-Computing Frobenius structure.
 
-Using point [ 1, -1 ] to generate the tangent space.
-Using point [ 1/2, 5/8 ] to fit the height pairing.
-Using point [ -1, 1 ] to fit the height pairing.
-Using point [ 1/4, 29/64 ] to fit the height pairing.
+ equivariant splitting:
+[   1    0]
+[   0    1]
+[-1/2    0]
+[   0    0]
+ Computing Hodge filtration
+ eta =  (0).
+ beta_fil  =  (0 0).
+ gamma_fil =  (4*x - 4       0).
+
+ Computing Frobenius structure.
+ Using point [ 1, -1 ] to generate.
+ Using point [ 1/2, 5/8 ] to fit the height pairing.
+ Using point [ -1, 1 ] to fit the height pairing.
+ Using point [ 1/4, 29/64 ] to fit the height pairing.
+[21523333 + O(3^16) 21523348 + O(3^16) -2 + O(3^16)]
+[-20*3 + O(3^16) 2391482*3^2 + O(3^16) 0]
+[-86 + O(3^16) 21523324 + O(3^16) -2 + O(3^16)]
+away_contributions [ 0, -379679 + O(3^13), -759358 + O(3^13) ]
 To deal with the Weierstrass disk, we change the base point and use Coleman 
 integration.
-Time: 22.260
-
-Sanity check: Does the quadratic Chabauty function map the known good affine 
-rational points into the appropriate set?.
- Sanity check passed
-
-Sanity check: Does the quadratic Chabauty function map the bad affine rational 
-point into the appropriate set?.
- Sanity check passed
+Time: 29.180
+ The quadratic Chabauty function is correct to precision 3^13.
+i, roots 3 [ [* 248639 + O(3^13), 13 *], [* O(3^13), 13 *] ]
+i, roots 3 []
+i, roots 3 [ [* 103678 + O(3^12), 12 *], [* -235319 + O(3^12), 12 *] ]
+i, roots 4 [ [* -1 + O(3^12), 12 *], [* 172850 + O(3^12), 12 *] ]
+i, roots 4 []
+i, roots 4 [ [* 164190 + O(3^13), 13 *], [* 797161 + O(3^13), 13 *] ]
+i, roots 5 [ [* -1 + O(3^12), 12 *], [* 172850 + O(3^12), 12 *] ]
+i, roots 5 []
+i, roots 5 [ [* 164190 + O(3^13), 13 *], [* 797161 + O(3^13), 13 *] ]
+i, roots 6 [ [* -719825 + O(3^13), 13 *], [* O(3^13), 13 *] ]
+i, roots 6 []
+i, roots 6 [ [* 104963 + O(3^12), 12 *], [* 132860 + O(3^12), 12 *] ]
+i, roots 7 [ [* -719825 + O(3^13), 13 *], [* O(3^13), 13 *] ]
+i, roots 7 []
+i, roots 7 [ [* 104963 + O(3^12), 12 *], [* 132860 + O(3^12), 12 *] ]
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 3^11.
+ Solution [ 134161*3^2 + O(3^14), 248639*3 + O(3^13) ] does not seem to be 
+rational.
+ Found unknown rational point P [ 0, 0 ]
+ Solution [ 223384*3^2 + O(3^14), 103678*3 + O(3^13) ] does not seem to be 
+rational.
+ Solution [ 218284*3^2 + O(3^14), -235319*3 + O(3^13) ] does not seem to be 
+rational.
+ Recovered known rational point [ -1, -1 ]
+ Solution [ -12889 + O(3^12), -47449 + O(3^12) ] does not seem to be rational.
+ Solution [ -38869 + O(3^12), -2239 + O(3^12) ] does not seem to be rational.
+ Recovered known rational point [ 1/2, -5/8 ]
+ Recovered known rational point [ -1, 1 ]
+ Solution [ -12889 + O(3^12), 47449 + O(3^12) ] does not seem to be rational.
+ Solution [ -38869 + O(3^12), 2239 + O(3^12) ] does not seem to be rational.
+ Recovered known rational point [ 1/2, 5/8 ]
+ Solution [ -565151 + O(3^13), -247909 + O(3^13) ] does not seem to be rational.
+ Recovered known rational point [ 1, -1 ]
+ Solution [ -216551 + O(3^12), 207335 + O(3^12) ] does not seem to be rational.
+ Recovered known rational point [ 1/4, 29/64 ]
+ Solution [ -565151 + O(3^13), 247909 + O(3^13) ] does not seem to be rational.
+ Recovered known rational point [ 1, 1 ]
+ Solution [ -216551 + O(3^12), -207335 + O(3^12) ] does not seem to be rational.
+ Recovered known rational point [ 1/4, -29/64 ]
 The quadratic Chabauty set in the second affine patch is 
  [
-[ -560*3^2 + O(3^10), -4828*3 + O(3^10) ],
-[ O(3^10), O(3^10) ],
-[ -1 + O(3^10), -1 + O(3^10) ],
-[ -12889 + O(3^10), 11600 + O(3^10) ],
-[ 20180 + O(3^10), -2239 + O(3^10) ],
-[ -29524 + O(3^10), -22144 + O(3^10) ],
-[ -1 + O(3^10), 1 + O(3^10) ],
-[ -12889 + O(3^10), -11600 + O(3^10) ],
-[ 20180 + O(3^10), 2239 + O(3^10) ],
-[ -29524 + O(3^10), 22144 + O(3^10) ],
-[ 25339 + O(3^10), -11713 + O(3^10) ],
-[ 1 + O(3^10), -1 + O(3^10) ],
-[ 19645 + O(3^10), -28861 + O(3^10) ],
-[ -14762 + O(3^10), -19375 + O(3^10) ],
-[ 25339 + O(3^10), 11713 + O(3^10) ],
-[ 1 + O(3^10), 1 + O(3^10) ],
-[ 19645 + O(3^10), 28861 + O(3^10) ],
-[ -14762 + O(3^10), 19375 + O(3^10) ]
+<[ 134161*3^2 + O(3^14), 248639*3 + O(3^13) ], false>,
+<[ O(3^26), O(3^13) ], false>,
+<[ 223384*3^2 + O(3^14), 103678*3 + O(3^13) ], false>,
+<[ 218284*3^2 + O(3^14), -235319*3 + O(3^13) ], false>,
+<[ -1 + O(3^12), -1 + O(3^12) ], false>,
+<[ -12889 + O(3^12), -47449 + O(3^12) ], false>,
+<[ -38869 + O(3^12), -2239 + O(3^12) ], false>,
+<[ -265720 + O(3^12), -199291 + O(3^12) ], false>,
+<[ -1 + O(3^12), 1 + O(3^12) ], false>,
+<[ -12889 + O(3^12), 47449 + O(3^12) ], false>,
+<[ -38869 + O(3^12), 2239 + O(3^12) ], false>,
+<[ -265720 + O(3^12), 199291 + O(3^12) ], false>,
+<[ -565151 + O(3^13), -247909 + O(3^13) ], false>,
+<[ 1 + O(3^13), -1 + O(3^13) ], false>,
+<[ -216551 + O(3^12), 207335 + O(3^12) ], false>,
+<[ -132860 + O(3^12), 157772 + O(3^12) ], false>,
+<[ -565151 + O(3^13), 247909 + O(3^13) ], false>,
+<[ 1 + O(3^13), 1 + O(3^13) ], false>,
+<[ -216551 + O(3^12), -207335 + O(3^12) ], false>,
+<[ -132860 + O(3^12), -157772 + O(3^12) ], false>
 ] 
 
 Sanity check: Do the additional solutions on the affine patches correspond to 
@@ -181,12 +225,12 @@ Run the Mordell-Weil sieve to show there are no additional rational points in
 affine disks.
 Use independent points [ (x^2 - x, 2*x - 1, 2), (x^2 - 5*x + 4, -28/3*x + 25/3, 
 2) ]
-number of residue classes 9
+number of residue classes 13
 Start the Mordell-Weil sieve
-  9 cosets eliminated at v = 43
-        0 cosets remaining after v=43
-Time: 0.030
-done with the Mordell-Weil sieve? true
+  11 cosets eliminated at v = 43
+        2 cosets remaining after v=43
+Time: 0.040
+done with the Mordell-Weil sieve? false
 For sieving used the prime(s) [ 43 ]
 
-Total time: 28.160 seconds, Total memory usage: 110.50MB
+Total time: 37.759 seconds, Total memory usage: 132.59MB

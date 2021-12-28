@@ -8,35 +8,42 @@ Q_S4 := 4*x^3*y - x^3- 3*x^2*y^2 + 16*x^2*y+ 3*x^2+ 3*x*y^3 - 11*x*y^2+ 9*x*y+x+
 // We know that the Jacobian of X_S4(13) is isogenous to the Jacobian of X0(169)+, so
 // the fact that the rank is 3 and that the Jacobian is absolutely simple follow from
 // the analogous results in qc_Xs(13)plus.m
+//
+//TODO: Need to check that the Hecke operator at 11 generates. Are they in Banwait-Cremona?
 
 // Find a good affine covering. For this, we apply second_affine_patch twice.
 p := 11; 
-Q_inf := second_affine_patch(Q_S4, p : bd := 3);
-Q := second_affine_patch(Q_inf, p : bd := 3);
-good_pts_first_patch, bool1, bad_pts_first_patch, _, _, bad_disks_first_patch := 
-                            QCModAffine(Q, p : N := 10, printlevel := 2);
+Q := second_affine_patch(Q_S4, p );
+Q_inf, A := second_affine_patch(Q, p );
+good_pts1, bool1, bad_pts1, _, _, bad_disks_1 := 
+                            QCModAffine(Q, p : N := 15, printlevel := 0);
 
-good_pts_second_patch, bool2, bad_pts_second_patch, _, _, bad_disks_second_patch := 
-                            QCModAffine(Q_inf, p : N := 10, printlevel := 2);
+good_pts2, bool2, bad_pts2, _, _, bad_disks_2 := 
+                            QCModAffine(Q_inf, p : N:= 15, printlevel := 0);
 assert bool1 and bool2;
 
-"Small points", Points(curve(Q): Bound:=100);
 "Good affine points on first patch",
-good_pts_first_patch;
+good_pts1;
 "Good affine points on second patch",
-good_pts_second_patch;
+good_pts2;
+C, Qxy := curve(Q);
+P2 := Ambient(C);
+X := P2.1; Y := P2.2; Z := P2.3;
+C_inf := curve(Q_inf);
+a,b,c,d := Explode(A);
+C1 := Curve(P2, Evaluate(Equation(C), [a*X+Z+b*Y, Y, c*Z+X+d*Y]));
+pi1 := map<C1 -> C | [a*X+Z+b*Y, Y, c*Z+X+d*Y]>;
+lc := Rationals()!Coefficient(Equation(C1), Y, 4); 
+pi2 := map<C_inf -> C1 | [X, Y/lc, Z]>;
+pi := pi2*pi1;
+
+Cpts := [C!P : P in good_pts1];
+good_pts3 := [pi(C_inf!P) : P in good_pts2];
+for P in good_pts3 do
+  Include(~Cpts, P);
+end for; 
+small_pts := Points(C : Bound := 1000); 
+assert #small_pts eq #Cpts;
 
 
-// Need to check that the Hecke operator at 11 generates. Are they in Banwait-Cremona?
 
-//S0 := CuspidalSubspace(ModularSymbols(level, 2)); 
-//S := AtkinLehnerSubspace(S0, level, 1);
-
-/*
- * if we have the cuspforms, we might as well compute the rank and check abs simpl for
- * sanity
-assert HasAbsolutelyIrreducibleJacobian(curve(Q_S4), 1000);
-printf "\nJac(X_S4(13)) is absolutely simple.\n";
-*/
-
-//

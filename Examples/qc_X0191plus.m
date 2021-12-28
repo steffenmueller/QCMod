@@ -52,10 +52,9 @@ base_pt := [ptsX[1,1]/ptsX[1,3], ptsX[1,2]/ptsX[1,3]^(gX+1)];
 
 // Compute good generators and intersection data for Coleman-Gross heights
 splitting_generators, divisors, intersections, splitting_indices, odd_divisors_Qp := height_init_g2(X, p, bas: N := N, multiple_bound := 40); 
-
 odd_f_Qp := HyperellipticPolynomials(Curve(odd_divisors_Qp[1,1,1]));
 odd_f := ChangeRing(odd_f_Qp, Rationals());
-odd_data := coleman_data(y^2-odd_f, p, 8 : useU :=false, heights);
+odd_data := coleman_data(y^2-odd_f, p, 9 : useU :=false, heights);
 odd_divisors := [* [*rationalize(D[1]), rationalize(D[2])*] : D in odd_divisors_Qp *];
 
 odd_data_divisors :=  [
@@ -78,18 +77,18 @@ odd_data`ordinary := true;
 odd_data`cpm := -cup_product_matrix(odd_data`basis, odd_data`Q, 2, odd_data`r, odd_data`W0);
 
 printf "\nStart computation of local height at %o between first pair of divisors\n", p;
-time ht1, D1_data := local_cg_height(odd_data_divisors[1], odd_data_divisors_inv[1],odd_data);
+time ht1, D1_data := local_height_divisors_p(odd_data_divisors[1], odd_data_divisors_inv[1],odd_data);
 "Time for first height";
 printf "Start computation of local height at %o between second pair of divisors\n", p;
-time ht2 := local_cg_height(odd_data_divisors[1], odd_data_divisors[2],odd_data :D1_data := D1_data);
+time ht2 := local_height_divisors_p(odd_data_divisors[1], odd_data_divisors[2],odd_data :D1_data := D1_data);
 "Time for second height";
 printf "Start computation of local height at %o between third pair of divisors\n", p;
-time ht3 := local_cg_height(odd_data_divisors_inv[2], odd_data_divisors[2], odd_data);
+time ht3 := local_height_divisors_p(odd_data_divisors_inv[2], odd_data_divisors[2], odd_data);
 "Time for third height";
 local_CG_hts := [-ht1, ht2, -ht3];
-N := 6;
+N := 8;
 
-local_CG_hts := ChangeUniverse([ 13111921*31 , -7371915*31, -9691879*31], pAdicField(p, N));
+//local_CG_hts := ChangeUniverse([ 13111921*31 , -7371915*31, -9691879*31], pAdicField(p, N));
 "local heights", local_CG_hts;
 
 
@@ -98,8 +97,8 @@ height_coeffs := height_coefficients(divisors, intersections, local_CG_hts, data
 
 printf "\nStarting quadratic Chabauty for p = %o.\n", p;
 time good_affine_rat_pts_xy, no_fake_pts, bad_affine_rat_pts_xy, data, fake_rat_pts, bad_Qppoints :=
-     QCModAffine(y^2-f, p : printlevel := 2,  unit_root_splitting := true,
-          N := N, prec := 30, base_point := base_pt, height_coeffs := height_coeffs, use_log_basis := true);
+     QCModAffine(y^2-f, p : printlevel := 1,  unit_root_splitting := true,
+          N := 15, prec := 30, base_point := base_pt, height_coeffs := height_coeffs, use_log_basis := true);
 
   // Here * good_affine_rat_pts_xy contains the found rational points in disks where the Frob lift is defined 
   //      * no_fake_pts is true iff the solutions are exactly the rational points
@@ -109,6 +108,12 @@ time good_affine_rat_pts_xy, no_fake_pts, bad_affine_rat_pts_xy, data, fake_rat_
   //      * bad_Qppoints contains the disks where Frob isn't defined
   //
   // Express the images of the solutions under Abel-Jacobi in terms of the generators mod p^N
+  //
+  for i in [1..#fake_rat_pts] do
+    fake_rat_pts[i] := [ChangePrecision(fake_rat_pts[i,j], 3) : j in [1..2]];
+    // lower precision for speed and to avoid issues in Coleman integrals.
+  end for;
+  data := coleman_data(y^2-f, p, 6 : useU :=false);
   fake_coeffs_mod_pN, rat_coeffs_mod_pN := coefficients_mod_pN(fake_rat_pts, good_affine_rat_pts_xy, divisors, base_pt, splitting_indices, data); 
   // Check that the coefficients of the known rational points are correct.
   assert &and[&+[rat_coeffs_mod_pN[j,i] * bas[i] : i in [1..gX]] eq X!good_affine_rat_pts_xy[j] - X!base_pt : j in [1..#good_affine_rat_pts_xy]];

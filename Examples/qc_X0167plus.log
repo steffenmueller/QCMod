@@ -5,8 +5,8 @@ Loading "coho.m"
 Loading "froblift.m"
 Loading "reductions.m"
 Loading "singleintegrals.m"
-Loading "applications.m"
 Loading "misc.m"
+Loading "applications.m"
 Loading "symplectic_basis.m"
 Loading "hecke_correspondence.m"
 Loading "hodge.m"
@@ -21,34 +21,44 @@ Compute the rational points on  Hyperelliptic Curve defined by y^2 = 1881*x^6 -
     3328*x^5 + 2418*x^4 - 926*x^3 + 197*x^2 - 22*x + 1 over Rational Field
 The Jacobian is absolutely simple
 Small points:  {@ (0 : -1 : 1), (0 : 1 : 1), (1 : -1 : 2), (1 : 1 : 2) @}
-2 2
-2 2
-2 2
-2 2
 
 Start computation of local height at 7 between first pair of divisors
-Time: 4.270
+Time: 35.420
 Time for first height
 Start computation of local height at 7 between second pair of divisors
-Time: 2.730
+Time: 13.800
 Time for second height
 Start computation of local height at 7 between third pair of divisors
-Time: 4.360
+Time: 35.090
 Time for third height
-local heights [ 128236*7 + O(7^8), -309880*7 + O(7^8), -271808*7 + O(7^8) ]
+local heights [ 2875116849*7 + O(7^13), -4661563260*7 + O(7^13), -4045515024*7 +
+O(7^13) ]
 
 Starting quadratic Chabauty for p = 7.
+ Computing Hodge filtration for correspondence 1.
+ Computing Frobenius structure for correspondence 1.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 
+7^11.
+ All roots of the quadratic Chabauty function(s) are correct to precision at 
+least 7^9.
 
- Using the base point [ 0, -1 ].
+ The common roots of the quadratic Chabauty function(s) in this affine patch are
+ [
+[ 27920895*7 + O(7^11), -126216007 + O(7^11) ],
+[ O(7^11), -1 + O(7^11) ],
+[ 27920895*7 + O(7^11), 126216007 + O(7^11) ],
+[ O(7^11), 1 + O(7^11) ],
+[ -878895102 + O(7^11), -847000038 + O(7^11) ],
+[ -947703373 + O(7^11), -776147249 + O(7^11) ],
+[ -878895102 + O(7^11), 847000038 + O(7^11) ],
+[ -947703373 + O(7^11), 776147249 + O(7^11) ],
+[ -141237624 + O(7^10), 35309406 + O(7^10) ],
+[ -9945848 + O(7^10), -111001703 + O(7^10) ],
+[ -141237624 + O(7^10), -35309406 + O(7^10) ],
+[ -9945848 + O(7^10), 111001703 + O(7^10) ]
+] 
 
-Computing Hodge filtration for correspondence 1.
-Computing Frobenius structure for correspondence 1.
-
- Sanity check at rational points for correspondence 1.  
-Sanity checks passed.
-
-There are additional solutions that don't look rational.
-Time: 1.260
+Time: 11.360
 
 Use the Mordell-Weil sieve to show that the additional solutions aren't 
 rational.
@@ -56,7 +66,16 @@ generating cosets
 Time: 0.000
 number of cosets 8
 adding information modulo 1045
-Time: 51.680
+  4 cosets eliminated at v = 67217
+        0 cosets remaining after v=67217
+Time: 445.750
+> 
+> "done with the MW sieve?", done_fake;
+done with the MW sieve? true
+> assert done_fake;
+
+Total time: 1125.710 seconds, Total memory usage: 4128.94MB
+Time: 111.390
 number of cosets 8736200
 starting Mordell Weil sieve
   6437200 cosets eliminated at v = 3
@@ -89,7 +108,7 @@ starting Mordell Weil sieve
         4 cosets remaining after v=4957
   4 cosets eliminated at v = 67217
         0 cosets remaining after v=67217
-Time: 189.490
+Time: 422.620
 done with the MW sieve? true
 No additional solutions are rational
 
@@ -122,5 +141,7 @@ starting MW-sieve to exclude rational points in bad and infinite disks at p=7
         6 cosets remaining after v=10861
   6 cosets eliminated at v = 25771
         0 cosets remaining after v=25771
-Time: 56.180
+Time: 122.550
 There are no rational points in bad or infinite disks for p=7
+
+Total time: 977.990 seconds, Total memory usage: 2436.12MB
