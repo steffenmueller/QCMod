@@ -10,15 +10,20 @@ Current restrictions:
 - p is a prime of good reduction.
 */
 
+/* 
+ * JSM, August 21: Simplified sum_of_local_symbols to get rid of coleman_integral for
+ * easier precision analysis.
+ * 
+*/
+
+
 /*
 TODO:
-  - Maybe create data structure "Coleman divisor" or something like that: collection of points with multiplicities, but can
-    add/store attributes, such as residue differential, local interpolation?
-  - Allow more general splittings, but check for isotropicity(?). For instance, if the given basis of H^1_dR is symplectic, the corresponding complementary subspace is isotropic and is just represented the identity matrix.
+  - Create data structure "Coleman divisor" or something like that: collection of points with multiplicities, but can
+    add/store attributes, such as residue differential, local interpolation.
+  - Allow more general splittings, but check for isotropicity. For instance, if the given basis of H^1_dR is symplectic, the corresponding complementary subspace is isotropic and is just represented the identity matrix.
   - Missing cases in omega_integral
   - frob_diff_nw
-  - Test QCMWS examples
-  - Further TODOs below
 */
 
 Qx<x>:=PolynomialRing(RationalField());
@@ -29,13 +34,17 @@ function weierstrass_local_coord(P, prec, data, f)
   // Local coordinates at Weierstrass point. Unlike local_coord, this also
   // works for points defined over arbitrary finite extensions of Qp.
 
-  x0:=P`x; K:=Parent(x0); Kt<t>:=PowerSeriesRing(K,prec); 
+  x0:=P`x; K:=Parent(x0); Kt<t>:=PowerSeriesRing(K,prec+2*Prime(K)); 
   
   f_prime := Derivative(f);
   xt := x0 + t^2/Evaluate(f_prime, x0);
-  for i in [1..Floor(1+Log(2, prec))] do
+  for i in [1..Floor(1+Log(2, prec+2))] do
     xt -:= (Evaluate(f,xt)-t^2)/Evaluate(f_prime,xt);
   end for;
+  // xt is only correct up to O(t^(prec+2)),
+  // We work in a ring with larger precision, since the precision is fixed
+  // and we divide by y^2p in recip_froby.
+
   return xt, t;
 end function;
 
@@ -142,16 +151,10 @@ function sum_of_local_symbols(D, data)
 */
   g := data`g; basis := data`basis;
   IP1P2, NIP1P2 := coleman_integrals_on_basis(D[2,1],D[1,1],data);  // from D[2,1] to D[1,1]
-  symbols := [IP1P2[i] : i in [1..g]];
-  assert &and[basis[i,1] eq 0 and basis[i,2] eq x^(i-1) : i in [1..g]];
+  // basis x^i*dx/(2y)
+  assert &and[basis[i,1] eq 0 and basis[i,2] eq x^(i-1) : i in [1..2*g]];
   assert data`s eq 2*y;  
-  dif := basis[g];  // x^(g-1)dx/(2y)
-  for i := g to 2*g-1 do
-    dif[2]*:=x;  // x^(g-1+i)dx/(2y)
-    w := to_Qxzzinvd(dif, data); // put into suitable form for reduction algorithm
-    Append(~symbols, coleman_integral(D[2,1], D[1,1], w, data : IP1P2 := IP1P2, NIP1P2 := NIP1P2));
-    // from D[2,1] to D[1,1]
-  end for;
+  symbols := [IP1P2[i] : i in [1..2*g]];
   return symbols;
 end function;
 
@@ -174,7 +177,7 @@ function differential_log(D, data : subspace := 0)
   end if;
   WQp := ChangeRing(W, Qp);
   cpmQp := ChangeRing(data`cpm, Qp);
- return Eltseq(WQp^(-1)*cpmQp^(-1)*v), data; 
+  return Eltseq(WQp^(-1)*cpmQp^(-1)*v), data; 
 end function;
 
 
@@ -324,12 +327,10 @@ function diff_D(D, xt, yt, data) // : tiny := false, alpha := false)
   /*
         Writing differential with residue divisor D = (P1) - (P2) 
         in terms of local coordinates or interpolation xt, yt.
-        P1 and P2 are assumed in good and finite disks.
+        P1 and P2 are assumed in good and finite  disks.
         This is diff in the sage code
 
-        TODO: If (xt(0),yt(0)) is in the same disk as P1 or P2,
-        then get negative valuations in coefficients. Does this cause
-        problems? Does this case ever occur in practice?
+        We assume that (xt(0),yt(0)) is not in the same disk as P1 or P2,
   */
 
 
@@ -373,15 +374,16 @@ function diff_D(D, xt, yt, data) // : tiny := false, alpha := false)
   if (a cmpeq c and b cmpeq -d and is_good(P1, Z) and is_good(P2, Z) ) then
     return b*Derivative(xt)/(yt*(xt-a));
   elif P1`inf then
-      return -Derivative(xt)/(2*yt)*(yt+d)/(xt-c);
+    return -Derivative(xt)/(2*yt)*(yt+d)/(xt-c);
   elif P2`inf then
-      return -Derivative(xt)/(2*yt)*(yt+b)/(xt-a);
+    return -Derivative(xt)/(2*yt)*(yt+b)/(xt-a);
   elif a cmpeq Z[1] then
     denom := Coefficient(xt-a,1);
     forP1 := (yt+b)/(denom*t);
   elif is_good(P1, Z) then
     forP1 := (yt+b)/(xt-a);
-    if not &and[Precision(c) gt 0 or Valuation(c) ge Precision(Parent(c))  : c in Coefficients(forP1)] then
+    if not &and[Precision(c) gt 0 or Valuation(c) ge Precision(Parent(c))  
+                                           : c in Coefficients(forP1)] then
       // Some coefficients only known to non-positive precision. Rewrite forP1.  
       hP1 := diff_quot(f, xt, a);
       forP1 := hP1/(yt-b);
@@ -397,7 +399,7 @@ function diff_D(D, xt, yt, data) // : tiny := false, alpha := false)
     forP2 := (yt+d)/(xt-c);
     if not &and[Precision(c) gt 0 or Valuation(c) ge Precision(Parent(c))  : c in Coefficients(forP2)] then
       // Some coefficients only known to non-positive precision. Rewrite forP2.  
-      hP2 := diff_quot(f, xt,     c);
+      hP2 := diff_quot(f, xt, c);
       forP2 := hP2/(yt-d);
     end if;
   else
@@ -405,10 +407,10 @@ function diff_D(D, xt, yt, data) // : tiny := false, alpha := false)
     forP2 := hP2/(yt-d);
   end if;
 
-  assert &and[Precision(c) gt 0 or Valuation(c) gt 0  : c in Coefficients(forP1)]; 
-  assert &and[Precision(c) gt 0 or Valuation(c) gt 0  : c in Coefficients(forP2)]; 
+  assert &and[Precision(c) gt 0 or Valuation(c) gt 0 : c in Coefficients(forP1)]; 
+  assert &and[Precision(c) gt 0 or Valuation(c) gt 0 : c in Coefficients(forP2)]; 
   res := Derivative(xt)/(2*yt)*(forP1-forP2);
-  assert &and[Precision(c) gt 0 or Valuation(c) gt 0  : c in Coefficients(res)]; 
+  assert &and[Precision(c) gt 0 or Valuation(c) gt 0 : c in Coefficients(res)]; 
   // Check if we have a pole
   if not &and[IsWeaklyZero(Coefficient(res, i)) : i in [Valuation(res)..-1]] then
     error "pole in diff_D";
@@ -437,7 +439,6 @@ function local_coords_weierstrass_points(data, N, prec_loc_coord)
     rts := Roots(ChangeRing(factor[1], K));
     assert #rts gt 0;
     P := set_point(rts[1,1], 0, data);
-    //"Compute local coordinate for factor", factor[1];
     xt, yt := weierstrass_local_coord(P,prec_loc_coord, data, fp); 
     Append(~local_coords, [xt,yt]);
   end for;
@@ -463,7 +464,7 @@ function res_alpha_int_beta_weierstrass(D1, D2, data, N, local_coords : alphas :
   for i in [1..#local_coords] do
     xt, yt := Explode(local_coords[i]);
     if IsZero(#alphas) then // Compute alpha
-      frob_D1 := frob_diff_wstrass(D1, xt, yt, data : prec := N);
+      frob_D1 := frob_diff_wstrass(D1, xt, yt, data : prec := N-1);
       diff1 := diff_D(D1, xt, yt, data);
       alpha := frob_D1 - p*diff1;
       Append(~new_alphas, alpha);
@@ -505,8 +506,9 @@ function res_alpha_int_beta_non_weierstrass(D1, D2, data, cycl_data : N := 0, pr
   pl := printlevel;        
   f := -ConstantCoefficient(Q); // Hyperell poly
   Qp := pAdicField(p, N);
+  Nmin := N;
   P := D1[1,1]; Q := D1[2,1]; R := D2[1,1]; S := D2[2,1]; 
-  pth_rts_P,   pth_rts_Q := Explode(cycl_data);
+  pth_rts_P, pth_rts_Q := Explode(cycl_data);
   integrals := [Qp!0, Qp!0];
   xtP := 0; xtQ := 0;
   xP := P`x; xQ := Q`x; xR := R`x; xS := S`x;
@@ -514,12 +516,17 @@ function res_alpha_int_beta_non_weierstrass(D1, D2, data, cycl_data : N := 0, pr
   for triple in pth_rts_P do
     if xP ne 0 then // harder case
       xtPPp, ytPPp := Explode(triple[3]);
+      d := AbsoluteDegree(Parent(triple[1]`x));
+      tprecx, pprecx := Explode(Precision(xtPPp));
+      tprecy, pprecy := Explode(Precision(ytPPp));
+      tprec := Min(tprecx, tprecy);
+      pprec := Min(pprecx, pprecy);
       if lie_in_same_disk(P, R, data) and xR eq xS then
         betaP := Derivative(xtPPp) * (Evaluate(f,xR) - Evaluate(f,xtPPp)) /(xtPPp - xR) * 1/(yR+ytPPp)/ytPPp; // Check this if results are wrong
         int_betaP_part := Integral(betaP);
         log1 := Log(triple[1]`x - xR);
         log2 := Log(xP - xR);
-         I1 := Evaluate(int_betaP_part, 1) + (log1 -log2);
+        I1 := Evaluate(int_betaP_part, 1) + (log1 -log2);
       else 
         // Expand differential with residue divisor D2 in terms of xtPPp, ytPPp
         betaP := diff_D(D2, xtPPp, ytPPp, data); 
@@ -527,10 +534,12 @@ function res_alpha_int_beta_non_weierstrass(D1, D2, data, cycl_data : N := 0, pr
         KQp := Parent(triple[1]`x);
         int_betaP_KQp := ChangeRing(Parent(int_betaP), KQp)!int_betaP;
         I1 := Evaluate(int_betaP_KQp, 1) - Evaluate(int_betaP_KQp, 0);
-        KQp := Parent(triple[1]`x);
       end if;
 
+      NI1ext := Min([d*Precision(triple[1]`x), d*Precision(triple[1]`b[2]),
+                 pprec, Floor(tprec+1) - log(p, tprec+1)]); 
       integrals[1] +:= Trace(I1)*triple[2];
+      Nmin := Min(Nmin, Floor(NI1ext/d));
     end if; // xP ne 0
   end for;
 
@@ -538,47 +547,38 @@ function res_alpha_int_beta_non_weierstrass(D1, D2, data, cycl_data : N := 0, pr
     pth_rt_Q := triple[1];
     if lie_in_same_disk(P, Q, data) then
       error "Haven't done this case yet";  // TODO: Finish.
-      /*
-      xtPQp, ytPQp := local_analytic_interpolation_cyclotomic(P, pth_rt_Q, 3*p*N+N*g+10, data); 
-      // TODO: really pth_rt_Q, not p?
-      betaQ := diff_D(D2, xtPQp, ytPQp, data);
-      int_betaQ := Integral(betaQ);
 
-      I2 := Evaluate(int_betaQ, 1) - Evaluate(int_betaQ, 0);
-      xtPQ, ytPQ := local_analytic_interpolation(P, Q, 2*p*N+10, data);
-      fix := diff_D(D2, xtPQ, ytPQ, data); // TODO: Sometimes redundant.
-      fix := Evaluate(Integral(fix), 1);
-      xtQ, ytQ := hyperell_local_coord(Q, N, data);
-      alphaQ := frob_diff_nw(D1,xtQ,ytQ,data) - p*diff_D(D1,xtQ,ytQ,data);
-      // TODO: Why take the constant term?  Where does the multiplicity go?
-      integrals[2] :=  Trace(I2) + Coefficient(alphaQ, 0)*fix;
-      */
+    //elif xP eq xQ and yP eq -yQ then
+    //  return 2*integrals[1];
 
-    elif xP eq xQ and yP eq -yQ then
-      return 2*integrals[1];
-
-    else 
-      if xQ ne 0 then
-        xtQQp, ytQQp := Explode(triple[3]);  // local analytic interpolation from Q to pth_rt_Q
-        if lie_in_same_disk(Q, S, data) then
-          error "Haven't done this case yet";
-          // TODO: sage line 2210 - what's xcoord?
-        elif lie_in_same_disk(Q, R, data) then
-          error "Haven't done this case yet";
-        else  // Q doesn't lie in disk of R or S
-          betaQ := diff_D(D2, xtQQp, ytQQp, data);
-          int_betaQ := Integral(betaQ);
-          KQp := Parent(triple[1]`x);
-          int_betaQ_KQp := ChangeRing(Parent(int_betaQ), KQp)!int_betaQ;
-          I2 := Evaluate(int_betaQ_KQp, 1) - Evaluate(int_betaQ_KQp, 0);
-          integrals[2] +:= Trace(I2)*triple[2];
-        end if; // lie_in_same_disk(Q, S, data) 
-      end if; // xQ ne 0
     end if;  //lie_in_same_disk(P, Q, data) 
+    if xQ ne 0 then
+      xtQQp, ytQQp := Explode(triple[3]);  // local analytic interpolation from Q to pth_rt_Q
+      d := AbsoluteDegree(Parent(triple[1]`x));
+      tprecx, pprecx := Explode(Precision(xtQQp));
+      tprecy, pprecy := Explode(Precision(ytQQp));
+      tprec := Min(tprecx, tprecy);
+      pprec := Min(pprecx, pprecy);
+      if lie_in_same_disk(Q, S, data) then
+        error "Haven't done this case yet";
+      elif lie_in_same_disk(Q, R, data) then
+        error "Haven't done this case yet";
+      else  // Q doesn't lie in disk of R or S
+        betaQ := diff_D(D2, xtQQp, ytQQp, data);
+        int_betaQ := Integral(betaQ);
+        KQp := Parent(triple[1]`x);
+        int_betaQ_KQp := ChangeRing(Parent(int_betaQ), KQp)!int_betaQ;
+        I2 := Evaluate(int_betaQ_KQp, 1) - Evaluate(int_betaQ_KQp, 0);
+        NI2ext := Min([d*Precision(triple[1]`x), d*Precision(triple[1]`b[2]),
+                 pprec, Floor(tprec+1) - log(p, tprec+1)]); 
+        integrals[2] +:= Trace(I2)*triple[2];
+        Nmin := Min(Nmin, Floor(NI2ext/d));
+      end if; // lie_in_same_disk(Q, S, data) 
+    end if; // xQ ne 0
   end for;  // triple in pth_rts_Q 
   if pl gt 1 then "I1 = ",integrals[1]; end if;
   if pl gt 1 then "I2 = ",integrals[2]; end if;
-  return integrals[1] - integrals[2];
+  return integrals[1] - integrals[2], Nmin;
 end function;
  
 
@@ -594,21 +594,24 @@ function omega_integral(D1, D2, data : N := 0, wlcs := [**], alphas := [**], cyc
   P := D1[1,1]; Q := D1[2,1]; R := D2[1,1]; S := D2[2,1]; 
   pl := printlevel;
 
-
   if lie_in_same_disk(R, S, data) then
-    if pl gt 1 then printf "Points in %o lie in same disk\n", D2; end if;
+    if pl gt 1 then printf "Points in %o lie in same disk -- problem here?\n", D2; end if;
     xtSR, ytSR := local_analytic_interpolation(S,R,5*N+10,data);
     diffS := diff_D(D1, xtSR, ytSR, data);
     int_diffS := Integral(diffS);
+    if pl gt 1 then printf "omega_integral = %o\n\n", Evaluate(int_diffS, 1); end if;
     return Evaluate(int_diffS, 1), wlcs, alphas, cycl_data;
-  end if;
+  end if; 
 
   FR := frobenius_pt(R, data);
   // 
-  if pl gt 1 then printf "Compute integral from R to FR.\n"; end if;
+  if pl gt 2 then printf "Compute integral from R to FR.\n"; end if;
   R_to_FR := 0;  
+  NRFR := N;
   if R`x ne FR`x or R`b ne FR`b then
-    xtRFR, ytRFR := local_analytic_interpolation(R,FR, 2*N+10, data);
+    tadicprecR := 2*N+10;
+    tadicprecR := 2*N;
+    xtRFR, ytRFR := local_analytic_interpolation(R,FR, tadicprecR, data);
 
     if not &or[lie_in_same_disk(R,pt,data) : pt in [P,Q]] then
       // this is the case of beta having residue divisor "Q - wQ" (paper)
@@ -640,51 +643,36 @@ function omega_integral(D1, D2, data : N := 0, wlcs := [**], alphas := [**], cyc
       intpart2 := Evaluate(intpart, FR`x-R`x);
       R_to_FR := intpart2 - (intpart1 - Log(FR`x - Q`x) - Log(R`x - Q`x));
     end if;  // not &or[lie_in_same_disk(R,pt,data) : pt in [P,Q]] 
+    NRFR := Min(N, tadicprecR);
   end if;  // R`x ne FR`x or R`b ne FR`b 
   if pl gt 1 then printf "Integral from R to FR is %o.\n", R_to_FR; end if;
 
-  if pl gt 1 then printf "Compute integral from FS to S.\n"; end if;
+  if pl gt 2 then printf "Compute integral from FS to S.\n"; end if;
   FS := frobenius_pt(S, data);
   FS_to_S := 0;  
+  NFSS := N;
   if S`x ne FS`x or S`b ne FS`b then
+    tadicprecS := 2*N+10;
+    tadicprecS := 2*N;
     if not &or[lie_in_same_disk(S,pt,data) : pt in [P,Q]] then
-      xtFSS, ytFSS := local_analytic_interpolation(FS,S, 2*N+10, data);
+      xtFSS, ytFSS := local_analytic_interpolation(FS,S, tadicprecS, data);
       diffFSS := diff_D(D1, xtFSS, ytFSS, data);
       int_diffFSS := (Integral(diffFSS));
       FS_to_S := Evaluate(int_diffFSS, 1);
+      NFSS := Min(N, tadicprecS);
 
     elif P`x eq Q`x and P`b[2] eq -Q`b[2] and S`x eq R`x and S`b[2] eq -R`b[2] then
       FS_to_S := R_to_FR;
+      NFSS := NRFR;
     else
       error "This case is not implemented yet";
     end if;
   end if; // S`x ne FS`x or S`b ne FS`b then
   if pl gt 1 then printf "Integral from FS to S is %o.\n", FS_to_S; end if;
  
-  if pl gt 1 then printf "\nCompute sum of residues of alpha*int(beta) at Weierstrass points.\n"; end if;
-  // 
-  // First try with low precision, increase if insufficient
-  weierstrass_prec := 2*p*(N-1)+3*p-2;
-  insuff_prec := false;
-  repeat 
-    try 
-      if #wlcs eq 0 or insuff_prec then
-        if pl gt 1 then "Computing local coordinates at Weierstrass points"; end if;
-        wlcs := local_coords_weierstrass_points(data, N-1, weierstrass_prec);
-        // Only want N-1 digits, since res_alpha_int_beta_non_weierstrass
-        // always has precision loss, so there's no point in N digits
-      end if;
-      res_alpha_int_beta, alphas := res_alpha_int_beta_weierstrass(D1, D2, data, N-1, wlcs : alphas := alphas);
-    catch e
-      if pl gt 2 then e; end if;
-      insuff_prec := true;
-      weierstrass_prec +:= p;
-      if pl gt 1 then "insufficient_precision", weierstrass_prec-p; "Try precision", weierstrass_prec ; end if;
-    end try;
-  until assigned res_alpha_int_beta;
-  if pl gt 1 then printf "sum of residues of alpha*int(beta) at Weierstrass points = %o.\n", res_alpha_int_beta; end if;
 
-  if pl gt 1 then printf "\nCompute sum of residues of alpha*int(beta) at non-Weierstrass points.\n"; end if;
+
+  if pl gt 2 then printf "\nCompute sum of residues of alpha*int(beta) at non-Weierstrass points.\n"; end if;
   // First try with low precision, increase if insufficient
   added_prec := 0;
   if #cycl_data eq 0 then 
@@ -698,7 +686,7 @@ function omega_integral(D1, D2, data : N := 0, wlcs := [**], alphas := [**], cyc
       if pth_rts_P[1,3] eq [*0,0*] and P`x ne 0 then
         for i in [1.. #pth_rts_P] do
           //Find interpolation between P and pth_rts_P[i,1] and add to pth_rts_P
-          if pl gt 1 then printf "Find interpolation between %o and %o.\n", P, pth_rts_P[i,1]; end if;
+          if pl gt 3 then printf "Find interpolation between %o and %o.\n", P, pth_rts_P[i,1]; end if;
           d := AbsoluteDegree(Parent(pth_rts_P[i,1]`x));
           xtPPp, ytPPp := local_analytic_interpolation_cyclotomic(P, pth_rts_P[i,1], d*N + added_prec, data);
           pth_rts_P[i,3] := [*xtPPp, ytPPp*];
@@ -707,31 +695,58 @@ function omega_integral(D1, D2, data : N := 0, wlcs := [**], alphas := [**], cyc
       if pth_rts_Q[1,3] eq [*0,0*] and Q`x ne 0 then
         for i in [1.. #pth_rts_Q] do
           //Find interpolation between Q and pth_rts_Q[i,1] and add to pth_rts_Q
-          if pl gt 1 then printf "Find interpolation between %o and %o.\n", Q, pth_rts_Q[i,1]; end if;
+          if pl gt 3 then printf "Find interpolation between %o and %o.\n", Q, pth_rts_Q[i,1]; end if;
           d := AbsoluteDegree(Parent(pth_rts_Q[i,1]`x));
           xtQQp, ytQQp := local_analytic_interpolation_cyclotomic(Q, pth_rts_Q[i,1], d*N + added_prec, data);
           pth_rts_Q[i,3] := [*xtQQp, ytQQp*];
         end for;
       end if;
       cycl_data := [pth_rts_P, pth_rts_Q];
-      res_alpha_int_beta_nw := res_alpha_int_beta_non_weierstrass(D1, D2, data, cycl_data : printlevel := pl);
+      res_alpha_int_beta_nw, Nresnw := res_alpha_int_beta_non_weierstrass(D1, D2, data, cycl_data : printlevel := pl);
     catch e
-      if pl gt 2 then e; end if;
+      if pl gt 1 then e; end if;
       added_prec +:= p;
       if pl gt 1 then "insufficient_precision", d*N+added_prec-p; "Try precision", d*N+added_prec; end if;
     end try;
   until assigned res_alpha_int_beta_nw;
+  if pl gt 1 then printf "sum of residues of alpha*int(beta) at non-Weierstrass points = %o.\n", res_alpha_int_beta_nw; end if;
+  Nomega := Min([N, Nresnw, NRFR, NFSS]);
+
   if pl gt 1 then "sum of residues of alpha*int(beta) at non-Weierstrass points = %o.\n", res_alpha_int_beta_nw; end if;
+  // 
+  // Now residues at Weierstrass points
+  // First try with low precision, increase if insufficient
+  target_padic_prec := Nomega;
+  weierstrass_prec := 2*p*target_padic_prec-p-1; // BB12, Prop 6.5
+  insuff_prec := false;
+  repeat 
+    try 
+      if #wlcs eq 0 or insuff_prec then
+        if pl gt 2 then "Computing local coordinates at Weierstrass points"; end if;
+        wlcs := local_coords_weierstrass_points(data, target_padic_prec, weierstrass_prec);
+        // Only need Nomega digits.
+      end if;
+      res_alpha_int_beta, alphas := res_alpha_int_beta_weierstrass(D1, D2, data, 
+                                     target_padic_prec, wlcs : alphas := alphas);
+    catch e
+      if pl gt 1 then e; end if;
+      insuff_prec := true;
+      weierstrass_prec +:= p;
+      if pl gt 2 then "insufficient_precision", weierstrass_prec-p; "Try precision", weierstrass_prec; end if;
+    end try;
+  until assigned res_alpha_int_beta;
+  if pl gt 1 then printf "sum of residues of alpha*int(beta) at Weierstrass points = %o.\n", res_alpha_int_beta; end if;
 
   res_alpha_int_beta +:= res_alpha_int_beta_nw;
   cups := psiA_cup_psiB(D1, D2, data);
   if pl gt 1 then printf "psi(A) cup psi(B) = %o.\n", cups; end if;
   omega := 1/(1-data`p)*(cups+res_alpha_int_beta-FS_to_S-R_to_FR);
-  return omega, wlcs, alphas, cycl_data;
+  if pl gt 1 then printf "omega_integral = %o\n\n", omega; end if;
+  return omega, wlcs, alphas, cycl_data, Nomega;
 end function;
 
 
-function local_cg_height(D1, D2, data : N := 0, D1_data := 0, printlevel := 0)
+function local_height_divisors_p(D1, D2, data : N := 0, D1_data := 0, printlevel := 0)
 /*  
  * Compute the local p-adic height pairing at p between two divisors D and E with disjoint support
  * on an odd degree hyperelliptic curves over Qp.
@@ -748,17 +763,27 @@ function local_cg_height(D1, D2, data : N := 0, D1_data := 0, printlevel := 0)
  * height pairings between D1 and other divisors.
  */
 
+
+  Q := data`Q;
+  assert Degree(Q) eq 2 and IsZero(Coefficient(Q, 1)); // want equation y^2=f(x) 
+  f := -ConstantCoefficient(Q); // Hyperell poly
+  if not IsOdd(Degree(f)) then
+    error "Currently only implemented for odd degree models";
+  end if;
+  if not IsMonic(f) then
+    error "Currently only implemented for monic models";
+  end if;
   pl := printlevel;
   if IsZero(N) then  N := data`N; end if;
   p := data`p;
-  basis := data`basis; F := data`F; g := data`g;
+  basis := data`basis; g := data`g;
   if not data`ordinary then
     error "Currently only implemented for ordinary reduction.";
   end if;
   subspace := unit_root_subspace(data); 
   data`subspace := subspace;
   cpm := data`cpm;
-  ht := 0;
+  ht := 0; Nht := N;
   if D1_data cmpeq 0 then
     all_wlcs := [**];
     all_alphas := [**];
@@ -776,22 +801,25 @@ function local_cg_height(D1, D2, data : N := 0, D1_data := 0, printlevel := 0)
     alphas := IsDefined(all_alphas,i) select all_alphas[i] else [**];
     cycl_data := IsDefined(all_cycl_data,i) select all_cycl_data[i] else [**];
     for E in D2 do
-      if pl gt 1 then 
+      if pl gt 2 then 
         printf "\nComputing local Coleman-Gross height at %o between divisors\n %o\n and\n %o\n", p, D, E;
       end if;
       eta := 0; 
       // Compute the integral of the holomorphic differential eta as 
       // in Algorithm 5.9 of BB12
       if D[1,2] ne 0 or E[1,2] eq 0 then
-        col_int_E := coleman_integrals_on_basis(E[2,1], E[1,1], data);
+        col_int_E, Neta := coleman_integrals_on_basis(E[2,1], E[1,1], data);
         eta := &+[diff_log_hol_div1[i] * col_int_E[i] : i in [1..g]];
       end if;
       if pl gt 0 then print "\n eta = ", eta; end if;
-      omega, wlcs, alphas, cycl_data := omega_integral(D,E,data: N := N, wlcs := wlcs, 
-                                          alphas := alphas, cycl_data := cycl_data, printlevel := pl);
+      omega, wlcs, alphas, cycl_data, Nomega := omega_integral(D,E,data: N := N, wlcs := wlcs, 
+                            alphas := alphas, cycl_data := cycl_data, printlevel := pl);
       if pl gt 0 then print "\n omega = ", omega; end if;
 
       ht +:= (omega - eta);
+      Nht := Min([Nht, Nomega, Neta]);
+      ChangePrecision(~ht, Min(Precision(ht), Nht));
+      // So ht is correct to Nht digits
     end for;
     
     // Update data for omega_integral, so that we don't have to recompute.
@@ -800,7 +828,7 @@ function local_cg_height(D1, D2, data : N := 0, D1_data := 0, printlevel := 0)
     all_cycl_data[i] := cycl_data;
   end for;
 
-  return ht, <all_wlcs, all_alphas, all_cycl_data>;
+  return ht, <all_wlcs, all_alphas, all_cycl_data>, Nht;
 end function;
 
 
