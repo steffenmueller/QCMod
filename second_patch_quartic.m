@@ -59,11 +59,9 @@ function second_affine_patch_modp(Q, p, A, rat_pts : printlevel := 0)
       Q_modp +:= Fp!Coefficient(Coefficient(Q_dehom, Y,i), X, j)*x^j*y^i;
     end for;
   end for;
-  if pl gt 1 then "Q mod p", Q_modp; end if;
   Delta_modp := Discriminant(Q_modp);
   r_modp := Numerator(Delta_modp/GCD(Delta_modp,Derivative(Delta_modp)));
 
-  if pl gt 1 then "r mod p", r_modp; end if;
   branch_pts := [t[1] : t in Roots(r_modp)];
   branch_lifted_fact := [Factorisation(UnivariatePolynomial(Evaluate(Q_dehom, [b,Y,1]))) : b in branch_pts];
   Q_modp_hom := Homogenization(Q_dehom, Z);                                                                
@@ -75,9 +73,10 @@ function second_affine_patch_modp(Q, p, A, rat_pts : printlevel := 0)
   //ram_pts := [P : P in C_Q_pts | P[3] ne 0 and P[1] in branch_pts];
   ram_pts := [];
   for i in [1..#branch_pts] do
-    ram_pts cat:= [C_Q![branch_pts[i], -Evaluate(t[1],0),1]  : t in branch_lifted_fact[i] | t[2] gt 1];
+    ram_pts cat:= [C_Q![branch_pts[i], -Evaluate(t[1],0),1]  : t in branch_lifted_fact[i]];  
   end for; 
-
+  bad_pts := ram_pts cat inf_pts;
+  //"ram_pts", ram_pts;
   // TODO: Make sure (0:1:0) isn't on the curve
 
   Q_modp_trans_hom := Evaluate(Q_modp_hom, [a*X+Z+b*Y, Y, c*Z+X+d*Y]);
@@ -91,7 +90,7 @@ function second_affine_patch_modp(Q, p, A, rat_pts : printlevel := 0)
   pi := pi2*pi1;
   phi := Inverse(pi);
 
-  transformed_ram_pts := [phi(P) : P in ram_pts];
+  transformed_bad_pts := [phi(P) : P in bad_pts];
   transformed_rat_pts_modp := [phi(P) : P in rat_pts_modp];
 
   Q_modp_trans_dehom := Evaluate(Q_modp_trans_hom, [X,Y,1]);
@@ -102,33 +101,36 @@ function second_affine_patch_modp(Q, p, A, rat_pts : printlevel := 0)
       Q_modp_trans +:= Fp!Coefficient(Coefficient(Q_modp_trans_dehom, Y,i), X, j)*x^j*y^i;
     end for;
   end for;
-  //if pl gt 1 then "transformed Q mod p"; Q_modp_trans; end if;
+  if pl gt 2 then "transformed Q mod p"; Q_modp_trans; end if;
   
   Delta_modp_trans := Discriminant(Q_modp_trans);
   r_modp_trans := Numerator(Delta_modp_trans/GCD(Delta_modp_trans,Derivative(Delta_modp_trans)));
-  //Factorisation(r_modp_trans);
-  //  "r of transformed Q mod p", r_modp_trans;
   branch_pts_trans := [t[1] : t in Roots(r_modp_trans)];
+  //"branch_pts_trans", branch_pts_trans;
   branch_lifted_fact_trans := [Factorisation(UnivariatePolynomial(Evaluate(Q_modp_trans_hom, [b,Y,1]))) : b in branch_pts_trans];
-  //if pl gt 1 then "branch pts of transformed curve"; branch_pts_trans; end if;
   ram_pts_trans := [];
   for i in [1..#branch_pts_trans] do
-    ram_pts_trans cat:= [C_Q_trans![branch_pts_trans[i], -Evaluate(t[1],0),1]  : t in branch_lifted_fact_trans[i] | t[2] gt 1];
+    //ram_pts_trans cat:= [C_Q_trans![branch_pts_trans[i], -Evaluate(t[1],0),1]  : t in branch_lifted_fact_trans[i] | t[2] gt 1];
+    ram_pts_trans cat:= [C_Q_trans![branch_pts_trans[i], -Evaluate(t[1],0),1]  : t in branch_lifted_fact_trans[i]];
   end for; 
-  //if pl gt 1 then "ramification points get mapped to"; transformed_ram_pts; end if;
-  //if pl gt 1 then "rational points get mapped to"; transformed_rat_pts_modp; end if;
-  number_of_good_rat_pts_trans := #[P : P in transformed_rat_pts_modp | P[3] ne 0 and P notin ram_pts_trans]; 
+  if pl gt 3 then "bad points get mapped to"; transformed_bad_pts; end if;
+  if pl gt 3 then "rational points get mapped to"; transformed_rat_pts_modp; end if;
+  C_Q_pts_trans := Points(C_Q_trans);
+  inf_pts_trans := [P: P in C_Q_pts_trans | P[3] eq 0 ];
+  bad_pts_trans := ram_pts_trans cat inf_pts_trans;
+  number_of_good_rat_pts_trans := #[P : P in transformed_rat_pts_modp | P notin bad_pts_trans]; 
   assert number_of_good_rat_pts_trans ge 3;
-  //if pl gt 2 then "ramification points of transformed curve"; ram_pts_trans; end if;
-  transformed_inf_pts := [phi(P):P in inf_pts];
-  bad := [P : P in transformed_ram_pts cat transformed_inf_pts | P in ram_pts_trans];
-  bad cat:= [P : P in transformed_inf_pts | P[3] eq 0];
+  if pl gt 2 then "bad points of transformed curve"; bad_pts_trans; end if;
+  bad := [P : P in transformed_bad_pts | P in bad_pts_trans];
+  //"bad", bad;
+  //bad cat:= [P : P in transformed_inf_pts | P[3] eq 0];
   done := IsEmpty(bad);
+  //"done", done;
 
   return done, A;
 end function;
 
-function second_affine_patch(Q, p : printlevel := 0, bd:=p-1)
+function second_affine_patch(Q, p : printlevel := 0, bd:=p-1, max_inf_deg := 0)
   pl := printlevel;
   y := Parent(Q).1;
   x := BaseRing(Parent(Q)).1;
@@ -159,21 +161,21 @@ function second_affine_patch(Q, p : printlevel := 0, bd:=p-1)
 
   Qs_trans := [];
   heights := [];
-  good_patch_exists := false;
-  for c,a,d,b in [0..bd] do 
+  for c0,a0,d0,b0 in [0..bd] do 
     try 
-      bool, Ap := second_affine_patch_modp(Q, p, [a,b,c,d], rat_pts);
+      bool, Ap := second_affine_patch_modp(Q, p, [a0,b0,c0,d0], rat_pts : printlevel := pl);
       if not bool then continue; end if;
     catch e
       continue;
     end try;
-    // if we're here, we've found a good second affine patch mod p.
+    // If we're here, we've found a good second affine patch mod p.
     // Now lift.
     A := [small_lift(a,K) : a in Ap];
-    Q_trans_hom := Evaluate(Q_hom, [a*X+Z+b*Y, Y, c*Z+X+d*Y]);
-    lc := K!Coefficient(Q_trans_hom, Y, 4);  // A Tuitman model requires Q monic in y
+    a,b,c,d := Explode(A);
+    Q_trans_hom_non_monic := Evaluate(Q_hom, [a*X+Z+b*Y, Y, c*Z+X+d*Y]);
+    lc := K!Coefficient(Q_trans_hom_non_monic, Y, 4);  // A Tuitman model requires Q monic in y
     if lc eq 0 then continue; end if;
-    Q_trans_hom := lc^3*Evaluate(Q_trans_hom,[X,Y/lc,Z]);
+    Q_trans_hom := lc^3*Evaluate(Q_trans_hom_non_monic,[X,Y/lc,Z]);
     Q_trans_dehom := Evaluate(Q_trans_hom, [X,Y,1]);
     Q_trans := Parent(Q)!0;
     for i:=0 to Degree(Q_trans_dehom, Y) do
@@ -185,18 +187,53 @@ function second_affine_patch(Q, p : printlevel := 0, bd:=p-1)
     Append(~heights, height);
     Append(~Qs_trans, Q_trans);
     if height lt min_height then
-      if pl gt 1 then "\nSmallest transformation found has max coeff size ", height; ;end if;
-      min_height := height;
-      min_ht_Q_trans := Q_trans;
-      min_A := A;
-    end if;
-    good_patch_exists := true;
+      discard := false;
+      if max_inf_deg gt 0 then // want small degree places at infinity
+        FF:=function_field(Q_trans); // function field of curve over the rationals
+        infplaces:=InfinitePlaces(FF);
+        infplacesKinf := infplaces;
+        Kinf:=RationalField();
+        if #infplaces gt 1 then // TODO: Keep this?
+          repeat 
+            for i:=1 to #infplacesKinf do
+              if not IsOne(Degree(infplacesKinf[i])) then
+                Kinf:=Compositum(Kinf,(NormalClosure(ResidueClassField(infplacesKinf[i])))); // field generated by points at infinity
+              end if;
+            end for;
+            Kinfx:=RationalFunctionField(Kinf); Kinfxy:=PolynomialRing(Kinfx);
+            finf:=Kinfxy!0;
+            for i:=0 to Degree(Q_trans) do
+              for j:=0 to Degree(Coefficient(Q_trans,i)) do
+                finf:=finf+Coefficient(Coefficient(Q_trans,i),j)*Kinfxy.1^i*Kinfx.1^j;
+              end for;
+            end for;  
+            FFKinf:=FunctionField(finf); // function field of curve over Kinf
+            infplacesKinf:=InfinitePlaces(FFKinf); // places at infinity all of degree 1, will be denoted by P
+          until &and[IsOne(Degree(P)) : P in infplacesKinf];
+
+          if AbsoluteDegree(Kinf) gt max_inf_deg then
+            "Degree", AbsoluteDegree(Kinf);
+            discard := true;
+          end if;
+        else 
+          discard := true;
+        end if;
+      end if; // max_inf_deg gt 0
+      
+      if not discard then
+        if pl gt 1 then "\nSmallest transformation found has max coeff size ", height; ;end if;
+        min_height := height;
+        min_ht_Q_trans := Q_trans;
+        min_A := A;
+      end if;
+    end if; // height lt min_height
 
   end for; 
-  if not good_patch_exists then
-    error "No good second affine patch exists";
-  end if;
 
+  if not assigned min_A then
+    error "No good second affine patch found. Try a larger prime.";
+  end if;
+    
   return min_ht_Q_trans, min_A;
 
 end function;
