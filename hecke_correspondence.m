@@ -53,12 +53,16 @@ hecke_corr := function(data,q,N : basis0:=[],basis1:=[],printlevel:=1,use_polys:
 
   F := data`F;
   if q eq p then F := Submatrix(data`F,1,1,2*g,2*g); end if;// Necessary when q=p
-  Aq := Transpose(F)+q*Transpose(F)^(-1);   // Eichler-Shimura -> Hecke operator
+  Finv := Transpose(F)^(-1);
+  Aq := Transpose(F)+q*Finv;   // Eichler-Shimura -> Hecke operator
+  prec_loss_bd := Valuation(Determinant(Finv), p);
+  prec_loss_bd +:= q eq p select 1 else 0;
 
   Zs:=[]; As:=[];
   AQ := ZeroMatrix(Rationals(), 2*g, 2*g); ZQ := AQ;
 
   if #use_polys eq 0 then
+
     for i in [1..g-1] do
       A := Aq^i; // ith power of hecke operator
       Zmx := (2*g*A-Trace(A)*IdentityMatrix(Rationals(),2*g))*C^(-1);  
@@ -71,7 +75,6 @@ hecke_corr := function(data,q,N : basis0:=[],basis1:=[],printlevel:=1,use_polys:
       Zmx *:= D;
       for j in [1..2*g] do
         for k in [1..2*g] do
-          // assume that precision q^(N-1) is sufficient to recover matrices Z and 2g*Aq exactly. 
           AQ[j,k] := lindepQp(pAdicField(q, N-1)!A[j,k]);    // recognition of integer in Zp via LLL
           ZQ[j,k] := lindepQp(pAdicField(q, N-1)!Zmx[j,k]);  // dito
         end for;
@@ -114,5 +117,8 @@ hecke_corr := function(data,q,N : basis0:=[],basis1:=[],printlevel:=1,use_polys:
 
   end if; // #use_polys eq 0 
 
-  return Zs, As[1];
+  return Zs, As[1], prec_loss_bd;
 end function;
+
+
+
