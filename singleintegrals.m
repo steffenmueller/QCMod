@@ -128,11 +128,12 @@ coleman_data:=function(Q,p,N:useU:=false,basis0:=[],basis1:=[],basis2:=[],height
 
   // formatting the output into a record:
 
-  format:=recformat<Q,p,N,g,W0,Winf,r,Delta,s,G0,Ginf,e0,einf,delta,basis,quo_map,integrals,F,f0list,finflist,fendlist,Nmax,red_list_fin,red_list_inf,minpolys,cpm,subspace,ordinary>;
+  format:=recformat<Q,p,N,g,W0,Winf,r,Delta,s,G0,Ginf,e0,einf,delta,basis,quo_map,integrals,F,f0list,finflist,fendlist,Nmax,red_list_fin,red_list_inf,minpolys,cpm,subspace,ordinary,frobmatb0r>;
   out:=rec<format|>;
   out`Q:=Q; out`p:=p; out`N:=N; out`g:=g; out`W0:=W0; out`Winf:=Winf; out`r:=r; out`Delta:=Delta; out`s:=s; out`G0:=G0; out`Ginf:=Ginf; 
   out`e0:=e0; out`einf:=einf; out`delta:=delta; out`basis:=basis; out`quo_map:=quo_map; out`integrals:=integrals; out`F:=F; out`f0list:=f0list; 
   out`finflist:=finflist; out`fendlist:=fendlist; out`Nmax:=Nmax; out`red_list_fin:=red_list_fin; out`red_list_inf:=red_list_inf;
+  out`frobmatb0r:=frobmatb0r;
 
   return out;
 
@@ -194,7 +195,8 @@ set_point:=function(x0,y0,data)
   y0powers:=Vector(y0powers);
   W0x0:=Transpose(Evaluate(W0,x0));
 
-  P`b:=Eltseq(y0powers*W0x0); // the values of the b_i^0 at P
+  // the values of the b_i^0 at P
+  P`b := Eltseq(y0powers*ChangeRing(W0x0, BaseRing(y0powers)));
 
   return P;
 end function;
@@ -469,7 +471,8 @@ frobenius_pt:=function(P,data);
     
     W0invx0:=Transpose(Evaluate(W0^(-1),x0));
 
-    y0:=(Vector(b)*ChangeRing(W0invx0,Parent(b[1])))[2];
+    ypowers:=Vector(b)*ChangeRing(W0invx0,Parent(b[1]));
+    y0:=ypowers[2];
   
     C:=Coefficients(Q);
     D:=[];
@@ -489,7 +492,7 @@ frobenius_pt:=function(P,data);
 
     W0x0:=Transpose(Evaluate(W0,x0));
   
-    b:=Eltseq(y0ppowers*W0x0);
+    b := Eltseq(y0ppowers*ChangeRing(W0x0, BaseRing(y0ppowers)));
 
   elif P`inf then // infinite point
   
@@ -523,7 +526,7 @@ frobenius_pt:=function(P,data);
       done:=false;
       j:=1;
       while not done and j le #zeros do
-        if Valuation(zeros[j]-b[i]^p) gt p then // was gt 0 before 
+        if Valuation(zeros[j]-b[i]^p) gt Min(N, p) then // was gt 0 before 
           done:=true;
           b[i]:=zeros[j];
         end if;
@@ -589,16 +592,18 @@ frobenius_pt:=function(P,data);
 end function;
 
 
-teichmueller_pt:=function(P,data)
+teichmueller_pt:=function(P,data : N :=0)
 
   // Compute the Teichmueller point in the residue disk at a good point P
 
-  x0:=P`x; Q:=data`Q; p:=data`p; N:=data`N; W0:=data`W0; Winf:=data`Winf;
+  x0:=P`x; Q:=data`Q; p:=data`p; W0:=data`W0; Winf:=data`Winf;
   d:=Degree(Q); K:=Parent(x0); Ky:=PolynomialRing(K);
 
   if is_bad(P,data) then
     error "Point is bad";
   end if;
+
+  if IsZero(N) then N := data`N; end if;
 
   x0new:=K!TeichmuellerLift(FiniteField(p)!x0,pAdicQuotientRing(p,N)); 
   b:=P`b; 
@@ -1223,7 +1228,7 @@ local_coord:=function(P,prec,data);
           else
             tmodp:=bmodp[index]-Fp!b[index];
             expamodp:=mod_p_expansion(bmodp[i],place,tmodp,modpprec);
-            approxroot:=approx_root(fy,b[i],modpprec,expamodp); // bug happens here.
+            approxroot:=approx_root(fy,b[i],modpprec,expamodp);
           end if;
           bti:=hensel_lift(fy,approxroot);
           bt[i]:=bti;
@@ -1241,11 +1246,17 @@ local_coord:=function(P,prec,data);
 end function;
 
 
-tiny_integral_prec:=function(prec,e,maxpoleorder,maxdegree,mindegree,val,data);
+tiny_integral_prec:=function(prec,e,maxpoleorder,maxdegree,mindegree,val,data : N := 0);
 
-  // Determines the p-adic precision to which tiny_integrals_on_basis is correct.
+  // Determines the p-adic precision to which the tiny integrals of the 
+  // differential with maximum pole order equal to maxpoleorder etc. 
+  // is correct, where val is the valuation of the local coordinate at one point evaluated
+  // at the other point. N is the number of digits to which the differential is known to
+  // be correct.
 
-  N:=data`N; p:=data`p;
+  if IsZero(N) then N:=data`N; end if;
+
+  p:=data`p;
 
   // Precision loss from terms of positive order we do consider:
 
@@ -1400,18 +1411,20 @@ find_bad_point_in_disk:=function(P,data);
 end function;
 
 
-tadicprec:=function(data,e);
+tadicprec:=function(data,e : N := 0);
 
   // Compute the necessary t-adic precision to compute tiny integrals
 
-  p:=data`p; N:=data`N; W0:=data`W0; Winf:=data`Winf;
-  W:=Winf*W0^(-1);
+  p:=data`p; 
+
+  if IsZero(N) then N:=data`N; end if;
 
   prec:=1;
   while Floor(prec/e)+1-Floor(Log(p,prec+1)) lt N do
     prec:=prec+1;
   end while;
   prec:=Maximum([prec,100]); // 100 arbitrary, avoid problems with small precisions 
+  //prec:=Maximum([prec,50]); // 100 arbitrary, avoid problems with small precisions 
 
   return prec;
 
@@ -1639,6 +1652,48 @@ pow:=function(x,k);
 end function;
 
 
+evalfinf:=function(finf,P,data);
+
+  // Evaluate vector of functions finf at P.
+
+  x0:=P`x; b:=P`b; Q:=data`Q; W0:=data`W0; Winf:=data`Winf; N:=data`N; p:=data`p;
+  d:=Degree(Q); K:=Parent(x0); 
+
+  W:=Winf*W0^(-1); 
+
+  valfinf:=0;
+
+  if P`inf then
+    finfP:=K!0;
+    for i:=1 to d do
+      finfi:=finf[i];
+      C:=Coefficients(finfi);
+      val:=Valuation(finfi);
+      for j:=1 to #C do
+        finfP:=finfP+(K!C[j])*pow(1/x0,val+j-1)*b[i];
+        valfinf:=Minimum(valfinf,Valuation(K!C[j]));
+      end for;
+    end for;
+    NfinfP:=N*Degree(K)+p*(ord_0_mat(W)+1)*Valuation(x0)+valfinf;
+  else 
+    finf:=finf*ChangeRing(W,BaseRing(finf));
+    finfP:=K!0;
+    for i:=1 to d do
+      finfi:=finf[i];
+      C:=Coefficients(finfi);
+      val:=Valuation(finfi);
+      for j:=1 to #C do
+        finfP:=finfP+(K!C[j])*pow(x0,val+j-1)*b[i];
+        valfinf:=Minimum(valfinf,Valuation(K!C[j]));
+      end for;
+    end for;
+    NfinfP:=N*Degree(K)+valfinf;
+  end if;
+
+  return finfP, NfinfP/Degree(K);
+
+end function;
+
 evalf0:=function(f0,P,data);
 
   // Evaluate vector of functions f0 at P.
@@ -1682,7 +1737,6 @@ evalf0:=function(f0,P,data);
     Nf0P:=N*Degree(K)+(ord_inf_mat(Winv)+1)*Valuation(x0)+valf0;
 
   else
-    
 
     z0:=Evaluate(r,x0)/lcr;  
     invz0:=1/z0;
@@ -1696,7 +1750,6 @@ evalf0:=function(f0,P,data);
       x0pow[i+1]:=x0pow[i]*x0;
     end for;  
  
-    //"x0,z0,invz0pow,x0pow", x0,z0,#invz0pow,#x0pow; 
     f0P:=K!0;
     for i:=1 to d do
       f0i:=f0[i];
@@ -1919,11 +1972,23 @@ coleman_integrals_on_basis:=function(P1,P2,data:e:=1)
 
   FS1:=frobenius_pt(S1,data);
   FS2:=frobenius_pt(S2,data);
-
-  tinyS1toFS1,NS1toFS1:=tiny_integrals_on_basis(S1,FS1,data:P:=P1); 
-  tinyS2toFS2,NFS2toS2:=tiny_integrals_on_basis(S2,FS2,data:P:=P2); 
-
-  NIP1P2:=Minimum([NP1toS1,NP2toS2,NS1toFS1,NFS2toS2]);  
+  //JSB edit 03/31/21
+  if is_bad(S1,data) and not is_very_bad(S1,data) then
+    tinyP1toFS1,NP1toFS1:=tiny_integrals_on_basis(P1,FS1,data);
+    tinyS1toFS1 := tinyP1toFS1 - tinyP1toS1;
+    NS1toFS1:=Minimum([NP1toFS1,NP1toS1]);
+  else 
+    tinyS1toFS1,NS1toFS1:=tiny_integrals_on_basis(S1,FS1,data:P:=P1); 
+  end if;
+  //JSB edit 04/17/21
+  if is_bad(S2,data) and not is_very_bad(S2,data) then
+    tinyP2toFS2,NP2toFS2:=tiny_integrals_on_basis(P2,FS2,data);
+    tinyS2toFS2 := tinyP2toFS2 - tinyP2toS2;
+    NS2toFS2:=Minimum([NP2toFS2,NP2toS2]);
+  else
+      tinyS2toFS2,NS2toFS2:=tiny_integrals_on_basis(S2,FS2,data:P:=P2); 
+  end if;
+  NIP1P2:=Minimum([NP1toS1,NP2toS2,NS1toFS1,NS2toFS2]);  
 
   // Evaluate all functions.
 
@@ -2039,7 +2104,6 @@ end function;
 function coleman_integrals_on_basis_divisors(D, E, data)
   // assume D and E are zero cycles on X(Qp), currently not containing a point at infinity
   assert #D eq #E;
-  //printf "Compute integrals for D=%o,\n E=%o\n", D, E;
   D_pts := [set_point_affine(P, data) : P in D];
   E_pts := [set_point_affine(P, data) : P in E];
 
