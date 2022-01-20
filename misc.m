@@ -440,11 +440,11 @@ procedure compare_vals(L1, L2, N)
       L2[i] := N;
     end if;
     m := #[d : d in L2 | d eq L2[i]];
-    s := &+[L1[j,2] : j in [1..#L1] | L1[j,1] eq L2[i]];
-    if s eq 0 then
+    valsi := [L1[j,2] : j in [1..#L1] | L1[j,1] eq L2[i]];
+    if #valsi eq 0 then
       error "Root finding returned a root with incorrect valuation";
     end if;
-    if m gt s then
+    if m gt &+valsi then
       error "Root finding returned the wrong number of roots";
     end if;
 
