@@ -8,6 +8,9 @@ function is_teichmueller(P, data)
   return are_equal_records(P, Q);
 end function;
 
+function pos_prec(f)
+  return &and[Precision(c) gt 0 : c in Coefficients(f)];
+end function;
 
 
 Fp_points:=function(data);
@@ -522,6 +525,10 @@ my_roots_Zpt:=function(f)
   if f eq 0 then
     error "Polynomial has to be non-zero";
   end if;
+  
+  if not pos_prec(f) then
+    error "Precision loss too large to get meaningful result";
+  end if;
 
   Zps:=Parent(f);
   Zp:=BaseRing(Zps);
@@ -555,13 +562,19 @@ my_roots_Zpt:=function(f)
     zero:=true;
   end if;
 
-  modproots:=Roots(Fps!f);
+  if not pos_prec(f) then
+    error "Precision loss too large to get meaningful result";
+  end if; 
+  fmodp := Fps!f;
+  if IsZero(fmodp) then 
+    error "f*p^(-v(f)) reduces to zero. Precision loss too large?";
+  end if; 
+  modproots:=Roots(fmodp);
   Fproots:=[];
   for i:=1 to #modproots do
     Fproots[i]:=modproots[i][1];
   end for;
   Zproots:=[[*Zp!e,1*]:e in Fproots];
-//"Zproots",Zproots;
   i:=1;
   while i le #Zproots do
     z:=Zproots[i][1];
@@ -571,7 +584,11 @@ my_roots_Zpt:=function(f)
     if not (v1 gt 2*v2 and Nz ge v2+1) and (v1 lt Nf-val) then
       Zproots:=Remove(Zproots,i);
       znew:=z+p^Nz*Zps.1;
-      g:=Fps![e/p^(Nz): e in Coefficients(Evaluate(f,znew))];
+      gNz := Evaluate(f,znew);
+      if not pos_prec(gNz) then
+        error "Precision loss too large to get meaningful result";
+      end if;
+      g:=Fps![e/p^(Nz): e in Coefficients(gNz)];
       if g ne 0 then
         Fproots:=Roots(g);
       else
@@ -943,10 +960,10 @@ function roots_with_prec(G, N)
   if #roots gt 0 then 
     root_prec := Floor((N - min_val)/#roots); // Lemma 4.7
     vals := [Valuation(rt[1]) : rt in roots];
-    compare_vals(ValuationsOfRoots(G_poly), vals, root_prec);
     if #roots gt 0 and root_prec le 0 then
-      error "Precision of roots too small. Rerun with higher p-adic pre (parameter N)";
+      error "Precision of roots too small. Rerun with higher p-adic precision (increase the optional parameter N)";
     end if;
+    compare_vals(ValuationsOfRoots(G_poly), vals, root_prec);
   else  // no root, so no precision loss.
     root_prec := N;
   end if;
