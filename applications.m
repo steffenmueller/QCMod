@@ -963,6 +963,8 @@ function roots_with_prec(G, N)
     if #roots gt 0 and root_prec le 0 then
       error "Precision of roots too small. Rerun with higher p-adic precision (increase the optional parameter N)";
     end if;
+    min_coeff_prec := Min([Precision(c) : c in Coefficients(G_poly)]);
+    root_prec := Min(root_prec, min_coeff_prec);
     compare_vals(ValuationsOfRoots(G_poly), vals, root_prec);
   else  // no root, so no precision loss.
     root_prec := N;
