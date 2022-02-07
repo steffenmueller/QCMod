@@ -315,10 +315,11 @@ end for;
    
 
 
-// We know that local heights away from p can only be trivial at 2. We also know
-// that there is some c of the form rational*log(2) such that h_2(P) = c*f(P), where f(P) is 0,1 or 2
-// depending on whether v_2(x(P)) is 0, <2 or >2. So we record f(P) for the known rational
+// We know that local heights away from p can only be nontrivial at 7. We also know
+// that there is some c of the form rational*log(7) such that h_7(P) = c*f(P), where f(P) is 0,1 or -1.
+// So we record f(P) for the known rational
 // points (not the base point to avoid index problems).
+
 factors_away_known_rat_points := [0, -1,-1,1,1,0,0];
 all_factors_away := [0,-1,1];
 
@@ -1079,9 +1080,9 @@ end for;
    
 
 
-// We know that local heights away from p can only be trivial at 2. We also know
-// that there is some c of the form rational*log(2) such that h_2(P) = c*f(P), where f(P) is 0,1 or 2
-// depending on whether v_2(x(P)) is 0, <2 or >2. So we record f(P) for the known rational
+// We know that local heights away from p can only be nontrivial at 7. We also know
+// that there is some c of the form rational*log(7) such that h_7(P) = c*f(P), where f(P) is 0,1 or -1.
+// So we record f(P) for the known rational
 // points (not the base point to avoid index problems).
 factors_away_known_rat_points := [0,0,0,0,0,-1,-1,1,1];
 all_factors_away := [0,-1,1];
