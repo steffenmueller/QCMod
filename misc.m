@@ -524,15 +524,3 @@ function equivariant_splitting(Z)
         return BlockMatrix(2,1,[IdentityMatrix(Rationals(),g), -mat2]);
   
 end function;
-
-
-        // Check that this conjugates Z to a block diagonal matrix (2 blocks).
-        Znew := sol^-1 * Z * sol;
-        assert Submatrix(Znew,1,g+1,g,g) eq 0;
-        //print "This matrix should be block diagonal: ", Znew;
-
-        // We want to return a different matrix
-        return BlockMatrix(2,1,[IdentityMatrix(Rationals(),g), -mat2]);
-  
-end function;
-
