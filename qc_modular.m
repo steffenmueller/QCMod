@@ -288,7 +288,8 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
       split := Transpose(Matrix(Solution(W_lower, W_upper_minus)));
       eqsplit := BlockMatrix(2, 1, [IdentityMatrix(Rationals(),g), split]);
     else 
-      eqsplit := eq_split(Tq);
+      //eqsplit := eq_split(Tq); // Bug with X0*(303)
+      eqsplit := equivariant_splitting(Tq);
     end if; // unit_root_splitting
   end if; // IsZero(eqsplit)
 
