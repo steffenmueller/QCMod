@@ -491,7 +491,6 @@ function are_congruent(pt1, pt2)
 end function;
 
 
-function //
 function equivariant_splitting(Z)
 
         assert NumberOfColumns(Z) eq NumberOfRows(Z);
@@ -525,29 +524,7 @@ function equivariant_splitting(Z)
         return BlockMatrix(2,1,[IdentityMatrix(Rationals(),g), -mat2]);
   
 end function;
-(Z)
 
-        assert NumberOfColumns(Z) eq NumberOfRows(Z);
-        g := Integers()!(NumberOfRows(Z)/2);
-        assert Submatrix(Z,g+1,1,g,g) eq 0;
-        mxList := []; 
-        upLeft := Submatrix(Z,1,1,g,g);
-        downRight := Submatrix(Z,g+1,g+1,g,g);
-        upRight := Submatrix(Z,1,g+1,g,g);
-        for i in [g..(g^2 + g - 1)] do
-                row := i div g;
-                col := (i mod g) + 1;
-                zed := ZeroMatrix(Rationals(),g,g);
-                zed[row][col]:= 1;
-                mxList := mxList cat [Eltseq(zed * downRight - upLeft * zed)];
-        end for;
-        vecList := Eltseq(upRight);
-        mat := Matrix(mxList);
-        wec := Vector(vecList);
-        vec := Solution(mat,wec);
-        mat2 := Matrix(g,g,Eltseq(vec));
-        blocks := [IdentityMatrix(Rationals(),g), mat2,ZeroMatrix(Rationals(),g,g),IdentityMatrix(Rationals(),g)];
-        sol := BlockMatrix(2,2,blocks);
 
         // Check that this conjugates Z to a block diagonal matrix (2 blocks).
         Znew := sol^-1 * Z * sol;
