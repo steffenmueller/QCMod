@@ -190,7 +190,7 @@ end function;
 
 
 function get_lambda(L, C, phi, lb, x_coords, Qp : odd_degree := true)
-  // see the doc for height_init in qc_init_g2
+  // see the doc for height_init_g2
   lambda := lb;
   f := HyperellipticPolynomials(C);
   p := Prime(Qp);
