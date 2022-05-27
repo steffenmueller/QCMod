@@ -160,12 +160,12 @@ D := Pullback(f, &+[Place(P) : P in S]);
  * [2] handles 82, 88, 92, 93, 94, 115, 116, 129, 155, 159, 161, 215
  * [3] handles 70, 108, 135, 147
  * See below for 84, 90, 117 
- * AA... handles prime levels 137, 173, 199, 251, 311
+ * AABCCKW handles prime levels 137, 173, 199, 251, 311
  *
  * That's all for genus 4, nothing is left.
  */
 "----------------------------------";
-"Genus 3";
+"Genus 4";
 "----------------------------------";
 
 "N=84";
@@ -231,13 +231,13 @@ D := Pullback(f, &+[Place(Z!P) : P in pts_Z]);
  * [3] handles 78, 105, 175
  * [4] handles 185
  * See below for 112, 144
- * AA.. work handles prime levels  157, 181, 227, 263
+ * AABCCKW handles prime levels  157, 181, 227, 263
  *
  * That's all for genus 5, nothing is left.
  */
 
 "----------------------------------";
-"Genus 4";
+"Genus 5";
 "----------------------------------";
 
 "N=112";
@@ -273,5 +273,3 @@ S := [phi(Q) : Q in T];
 f := f1*f2*f3; // quotient map to minimal model
 D := Pullback(f, &+[Place(P) : P in S]);
 "Points in the preimages of the rational points", [RepresentativePoint(P[1]) : P in Decomposition(D) | Degree(P[1]) eq 1]; // [ (0 : 0 : 0 : 0 : 1), (0 : 0 : 1 : 0 : 1), (0 : 0 : 1 : 1 : 0), (0 : 0 : 0 : 1 : 0) ]
-
-
