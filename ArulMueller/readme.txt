@@ -1,4 +1,4 @@
-Code to accompany the paper Rational points on X0+(125) by Vishal Arul and Steffen Müller
+Code to accompany the paper "Rational points on X0+(125)" by Vishal Arul and Steffen Müller
 
 - The file qc_x0125p.m computes the rational points on X0+(125) using quadratic Chabauty. It requires the QCMod package.
 - The file x0Nplus_composite.m computes the rational points on X0+(N) for 
