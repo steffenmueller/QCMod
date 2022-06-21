@@ -948,7 +948,7 @@ function roots_with_prec(G, N)
   min_val := Min([Valuation(c) : c in coeffsG]); // this is k in Lemma 4.7
   max_N_index := Max([i : i in [1..precG] | Valuation(coeffsG[i]) le N]);
   // TODO: Could lower t-adic precision according to Lemma 4,7. 
-  valG := Min(0, Valuation(G));
+  valG := Valuation(G);
   G_poly := Zpt!(p^(-min_val)*Qpt.1^valG*(Qpt![Qp!c : c in coeffsG ])); 
   G_series := (p^(-min_val)*Qptt.1^valG*(Qptt![Qp!c : c in coeffsG ])); 
   upper_bd_number_of_roots := count_roots_in_unit_ball(G_poly, N-min_val); 
