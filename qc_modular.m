@@ -851,7 +851,7 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
     end if;
   end for;
   if number_of_known_rat_pts gt recovered_rat_pts_count then
-    error "Not all known rational points in good disks where recovered.";
+    error "Not all known rational points in good disks were recovered.";
   end if;
 
   if #fake_rat_pts gt 0 then
