@@ -300,8 +300,8 @@ end function;
 function generators(J)
   // Compute generators of the Mordell-Weil group of a genus 2 Jacobian
   // Uses Stoll's MordellWeilGroupGenus2
-  A, psi, proved, finite_index := MordellWeilGroupGenus2(J);
-  assert proved; // otherwise, more work...
+  A, psi, finite_index, proved := MordellWeilGroupGenus2(J);
+  assert proved and finite_index; // otherwise, more work...
   torsion_orders := [Order(A.i) : i in  [1..#Generators(A)] | Order(A.i) gt 0]; 
   torsion_bas := [psi(A.i) : i in [1..#torsion_orders]];
   free_gens := [psi(A.i) : i in [#torsion_bas+1..#Generators(A)]]; 
