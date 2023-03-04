@@ -29,7 +29,7 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
 //  * N is the p-adic precision used in the computations
 //  * prec is the t-adic precision used for power series computations
 //  * basis0 is a basis of the holomorphic differentials
-//  * basis1 is a set of g independent meromorphic differentials s.t. basis0 and basis0
+//  * basis1 is a set of g independent meromorphic differentials s.t. basis0 and basis1
 //     generate H^1_dR(X).
 //  * Together with basis0, basis1, the sequence basis2 forms a basis of H^1_dR(U), where 
 //    U is the affine patch we work on (bad disks removed).
