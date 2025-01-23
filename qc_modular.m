@@ -1,10 +1,9 @@
-// July 21: JSM/JB added precision estimates
-// August 21: ND added use_polys
 
 load "coleman.m";
 load "symplectic_basis.m";
 load "hecke_correspondence.m";
 load "hodge.m";
+load "hodge_nonsplit.m";
 load "frobenius.m"; 
 load "heights.m";
 load "second_patch_quartic.m";
@@ -80,7 +79,7 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
   // ===                   CHECK INPUT                      ===
   // ==========================================================
   
-
+  assert IsPrime(p);
 
 
   // ==========================================================
@@ -88,7 +87,9 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
   // ==========================================================
 
   // Increase precision if it's too small compared to p-adic precision
-  while  prec - 2*Log(p, prec) le N-5 do  // 5 comes from the constant c in the lower bound TODO: add ref.
+  while  prec - 2*Log(p, prec) le N+5 do  // Needed for root finding.
+                                          // 5 is a rough estimate, we
+                                          // check this again carefully below.
     prec +:= 1; 
   end while;
     
@@ -110,7 +111,7 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
   end if;
   if pl gt 2 then printf " genus = %o.\n", g; end if;
   if IsZero(rho) then 
-    rho := g;       //If not given, we assume that the Picard number is equal to the genus
+    rho := g; //If not given, we assume that the Picard number is equal to the genus.
   end if;
   
   if number_of_correspondences eq 0 then
@@ -150,7 +151,7 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
     basis0 := [[sympl_basis[i,j] : j in [1..Degree(Q)]] : i in [1..g]]; // basis of regular differentials
     basis1 := [[sympl_basis[i,j] : j in [1..Degree(Q)]] : i in [g+1..2*g]];  // basis of complementary subspace
   end if;
-  data := coleman_data(Q,p,N : useU:=true,  basis0 := basis0, basis1 := basis1, basis2 := basis2);
+  data := coleman_data(Q,p,N : useY:=true,  basis0 := basis0, basis1 := basis1, basis2 := basis2);
   if pl gt 1 then printf " Computed Coleman data at p=%o to precision %o.\n", p,N; end if;
 
   prec := Max(100, tadicprec(data, 1));
@@ -337,11 +338,14 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
     if pl gt 0 then printf  " Computing Hodge filtration for correspondence %o.\n", l; end if;
 
     if assigned betafil then delete betafil; end if;
-    hodge_prec := 5; 
+    hodge_prec := 10; 
     repeat
       try
         eta,betafil,gammafil,hodge_loss := hodge_data(data,Z,bpt: prec := hodge_prec);
+        eta_gen,betafil_gen,gammafil_gen,hodge_loss := hodge_data_generic(data,Z,bpt: prec := hodge_prec);
+//eta_gen:=eta; betafil_gen := betafil; gammafil_gen:=gammafil;
       catch e;
+        e;
         hodge_prec +:= 5;
       end try;
     until assigned betafil;
@@ -352,6 +356,13 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
       printf  " eta =  %o.\n", eta; 
       printf  " beta_fil  =  %o.\n", betafil; 
       printf  " gamma_fil =  %o.\n\n", gammafil; 
+        "difference_eta",  eta-eta_gen;
+        "difference_beta", betafil-betafil_gen;
+        "difference_gamma", gammafil-gammafil_gen;
+        assert IsZero(eta-eta_gen);
+        assert IsZero(betafil-betafil_gen);
+        assert IsZero(gammafil-gammafil_gen);
+
     end if;
 
     Append(~valetas, minvalp(eta, p));
@@ -366,7 +377,10 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
      
     b0 := teichmueller_pt(bQ,data); 
     if pl gt 0 then printf  " Computing Frobenius structure for correspondence %o.\n", l; end if;
+    "b0", xy_coordinates(b0, data);    
     b0pt := [QQ!c : c in xy_coordinates(b0, data)]; // xy-coordinates of P
+
+"b0pt", b0pt;
     G, NG := frob_struc(data,Z,eta,b0pt : N:=Nhodge); 
     G_list := [**]; // evaluations of G at Teichmuellers of all good points (0 if bad)
     for i := 1 to numberofpoints do
@@ -471,6 +485,8 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
 
     end if; //#height_coeffs eq 0 or not use_log_basis then 
 
+    "gammafil", Parent(gammafil);
+    "gammafil", ChangeRing(gammafil,LaurentSeriesRing(BaseRing(gammafil)));
     // heights contains the list of heights of auxiliary points
     if #height_coeffs eq 0 then // Compute heights of auxiliary points.
       if #heights lt g then  // add E1_E2(P) to known subspace until dimension is g.
@@ -603,9 +619,11 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
 
     function valF(i) 
       // lower bound on valuations of coefficients in entries of F_list
+      // See Prop 2.19 of https://arxiv.org/abs/2501.07833. This corrects
+      // Lemma 4.7 of https://arxiv.org/abs/2101.01862.
       assert i ge i0;
       valgammafili := i le maxdeggammafils[k] select minvalgammafils[k] else 0;
-      return -2*Floor(log(p,i)) +c1s[k] + Min(c2,c3+2*minvalchangebasis);
+      return -2*Floor(log(p,i)) + c1s[k] + Min(c2, c1s[k]+c3+2*minvalchangebasis);
     end function;
 
     zero_list := [* *];
