@@ -216,8 +216,13 @@ frob_struc:=function(data,Z,eta,bpt : N:=0)
   G[2*g+2,2*g+2]:=p;
 
   // Estimate precision loss 
-  kappa_end := Min(&cat[&cat[[Valuation(c, p) : c in Coefficients(Eltseq(t)[i])] : i in [1..#Eltseq(t)]] : t in fendlist]);
-  kappa_inf := Min(&cat[&cat[[Valuation(c, p) : c in Coefficients(Eltseq(t)[i])] : i in [1..#Eltseq(t)]] : t in finflist]);
+  kappa_end := 0;
+  if #[t : t in fendlist | t ne 0] ne 0 then 
+    kappa_end := Min(&cat[&cat[[Valuation(c, p) : c in Coefficients(Eltseq(t)[i])] : i in [1..#Eltseq(t)]] : t in fendlist | t ne 0]);
+  end if;
+  if #[t : t in finflist | t ne 0] ne 0 then 
+    kappa_inf := Min(&cat[&cat[[Valuation(c, p) : c in Coefficients(Eltseq(t)[i])] : i in [1..#Eltseq(t)]] : t in finflist | t ne 0]);
+  end if;
   kappa1 := Min([kappa_inf, kappa_end]);
   kappa := Min([kappa1, kappa2, 0]);
   j := Nmax div 2;
