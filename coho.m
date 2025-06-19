@@ -395,7 +395,7 @@ res_inf:=function(w,Q,r,W0,Winf,Ginf,Jinf,Tinfinv)
 end function;
 
 
-basis_coho:=function(Q,p,r,W0,Winf,G0,Ginf,J0,Jinf,T0inv,Tinfinv,useU,basis0,basis1,basis2)
+basis_coho:=function(Q,p,r,W0,Winf,G0,Ginf,J0,Jinf,T0inv,Tinfinv,useU,useY,basis0,basis1,basis2)
   
   // Compute a basis for H^1(X).
 
@@ -584,10 +584,13 @@ basis_coho:=function(Q,p,r,W0,Winf,G0,Ginf,J0,Jinf,T0inv,Tinfinv,useU,basis0,bas
   
   b:=b0 cat b1 cat b2 cat b3 cat b4 cat b5;
 
+  dimH1Y:=#b0+#b1+#b2;
   dimH1U:=#b0+#b1+#b2+#b3;
 
   if useU then
     dim:=dimH1U;
+  elif useY then
+    dim:=dimH1Y;
   else
     dim:=dimH1X;
   end if;
