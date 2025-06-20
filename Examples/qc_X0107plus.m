@@ -33,7 +33,7 @@ qc_primes, groups , good_primes :=
                 find_qc_primes(X : mws_primes_bound := 10000, qc_primes_bound := 100, number_of_bad_disks := 1, inf_modp_allowed := false, ordinary := false, known_rat_pts := ptsX, printlevel :=1); 
 
 // Compute generators for the Mordell-Weil group using Stoll's MordellWeilGroupGenus2
-torsion_bas, torsion_orders, bas := generators(J);
+torsion_bas, torsion_orders, bas := generators_g2(J);
 printf "The rank is %o.\n", #bas; // rank = 2
 // This spares us the trouble of checking saturation in MW sieve computation.
 bas[2] := -bas[2];
