@@ -29,7 +29,7 @@ ptsX := Points(X:Bound:=100);
 
 // Compute generators for the full Mordell-Weil group using Stoll's MordellWeilGroupGenus2
 // This spares us the trouble of checking saturation in MW sieve computation.
-torsion_bas, torsion_orders, bas := generators(J);
+torsion_bas, torsion_orders, bas := generators_g2(J);
 assert #bas eq 2; // rank = 2
 bas[2] := -bas[2]; // This works better in this particular example.
 
