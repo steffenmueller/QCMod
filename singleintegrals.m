@@ -77,12 +77,12 @@ function h1_basis(Q,p,N)
  
   delta:=Floor(log(p,-(ord_0_mat(W)+1)*einf))+Floor(log(p,(Floor((2*g-2)/d)+1)*einf));
 
-  basis:=basis_coho(Q,p,r,W0,Winf,G0,Ginf,J0,Jinf,T0inv,Tinfinv,false,[],[],[]);
+  basis:=basis_coho(Q,p,r,W0,Winf,G0,Ginf,J0,Jinf,T0inv,Tinfinv,false,false,[],[],[]);
   return basis,g,r,W0;
 end function;
 
 
-coleman_data:=function(Q,p,N:useU:=false,basis0:=[],basis1:=[],basis2:=[],heights:=false)
+coleman_data:=function(Q,p,N:useU:=false,useY:=false,basis0:=[],basis1:=[],basis2:=[],heights:=false)
 
   // Takes a polynomial Q in two variables x,y over the rationals which is monic in y.
   // Returns the Coleman data of (the projective nonsingular model of) the curve defined
@@ -116,7 +116,7 @@ coleman_data:=function(Q,p,N:useU:=false,basis0:=[],basis1:=[],basis2:=[],height
  
   delta:=Floor(log(p,-(ord_0_mat(W)+1)*einf))+Floor(log(p,(Floor((2*g-2)/d)+1)*einf));
 
-  basis,integrals,quo_map:=basis_coho(Q,p,r,W0,Winf,G0,Ginf,J0,Jinf,T0inv,Tinfinv,useU,basis0,basis1,basis2);
+  basis,integrals,quo_map:=basis_coho(Q,p,r,W0,Winf,G0,Ginf,J0,Jinf,T0inv,Tinfinv,useU,useY,basis0,basis1,basis2);
   Nmax:=max_prec(Q,p,N,g,W0,Winf,e0,einf);
 
   frobmatb0r:=froblift(Q,p,Nmax-1,r,Delta,s,W0);
