@@ -297,7 +297,7 @@ function find_qc_primes(X : qc_primes_bound := 100, mws_primes_bound := 1000, or
 end function;
 
 
-function generators(J)
+function generators_g2(J)
   // Compute generators of the Mordell-Weil group of a genus 2 Jacobian
   // Uses Stoll's MordellWeilGroupGenus2
   A, psi, finite_index, proved := MordellWeilGroupGenus2(J);
