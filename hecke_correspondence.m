@@ -13,7 +13,9 @@ hecke_corr := function(data,q,N : basis0:=[],basis1:=[],printlevel:=1,use_polys:
   //
   // If basis0 and basis1 are given, we assume that they form a symplectic basis
   // of H^1_dR(X). If they aren't given, such a basis is computed along the way.
-  // if a list of rational polynomials [f1,...,fd] is given in use_polys, then the Zi returned will be 2*g*fi(Tq)-Trace(fi(Tq)).
+  // if a list of rational polynomials [f1,...,fd] is given in use_polys, then the Zi returned will be 
+  // Trace(f1(Tq))*fi(Tq) - Trace(fi(Tq))*Tr(f1(Tq)).
+  //
   Q:=data`Q; g:=data`g; d:=Degree(Q); p:=data`p; 
 
   C:=ZeroMatrix(RationalField(),2*g,2*g);
