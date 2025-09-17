@@ -5,15 +5,19 @@
 
 hecke_corr := function(data,q,N : basis0:=[],basis1:=[],printlevel:=1,use_polys:=[])
 
-  // For i=1,...,g-1, construct a nice correspondence Zi from the ith power of
-  // the Hecke operator Aq using Eichler-Shimura. 
-  // N is the precision for the q-adic computation. 
-  //
-  // Both Aq^i and Zi are encoded as matrices representing their action on H^1_dR(X)
-  //
-  // If basis0 and basis1 are given, we assume that they form a symplectic basis
-  // of H^1_dR(X). If they aren't given, such a basis is computed along the way.
-  // if a list of rational polynomials [f1,...,fd] is given in use_polys, then the Zi returned will be 2*g*fi(Tq)-Trace(fi(Tq)).
+ // For i=1,...,g-1, construct a nice correspondence Zi using
+ // Eichler--Shimura.
+ // Both Aq^i and Zi are encoded as matrices representing their action on H^1_dR(X).
+ //
+ // N is the precision for the q-adic computation. 
+ // We assume that basis0 and basis1 form a symplectic basis of H^1_dR(X). 
+ //
+ // If a list of rational polynomials [f1,...,fd] is given in use_polys, then 
+ // Zi = Trace(f1(Tq))*fi(Tq) - Trace(fi(Tq))*f1(Tq).
+ //
+ // Otherwise Zi = 2*g*Tq^(i-1)-Trace(Tq^(i-1))*Id
+ //
+   
   Q:=data`Q; g:=data`g; d:=Degree(Q); p:=data`p; 
 
   C:=ZeroMatrix(RationalField(),2*g,2*g);
@@ -119,6 +123,7 @@ hecke_corr := function(data,q,N : basis0:=[],basis1:=[],printlevel:=1,use_polys:
 
   return Zs, As[1], prec_loss_bd;
 end function;
+
 
 
 
