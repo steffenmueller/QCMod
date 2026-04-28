@@ -354,26 +354,26 @@ function is_saturated_at_p(bas, torsion_bas, p, AuxPrimes)
     // curr is the subgroup of MW/p*MW of potentially p-divisible elements
     count := 0;
     while count lt num do
-    repeat
+      repeat
         q := NextPrime(q);
         while IsDivisibleBy(disc, q) do q := NextPrime(q); end while;
         Jq := BaseChange(J, Bang(Rationals(), GF(q)));
         h := #Jq;
     //    "q=",q;
-    until IsDivisibleBy(h, p);
-    printf "Found relevant prime q = %o\n", q;
-    Gq, mGq := AbelianGroup(Jq);
-    Gqp, Gqmap := quo<Gq | [p*g : g in Generators(Gq)]>;
-    m := hom<curr -> Gqp
+      until IsDivisibleBy(h, p);
+      printf "Found relevant prime q = %o\n", q;
+      Gq, mGq := AbelianGroup(Jq);
+      Gqp, Gqmap := quo<Gq | [p*g : g in Generators(Gq)]>;
+      m := hom<curr -> Gqp
              | [Gqmap((Jq!mMW((MWp!g) @@ qmap)) @@ mGq)
                  : g in OrderedGenerators(curr)]>;
-    curr := Kernel(m);
-    printf "Dimension of remaining space is %o\n", Valuation(#curr, p);
-    if #curr eq 1 then
+      curr := Kernel(m);
+      printf "Dimension of remaining space is %o\n", Valuation(#curr, p);
+      if #curr eq 1 then
         // no potential p-divisible elements left
         return true;
-    end if;
-    count +:= 1;
+      end if;
+      count +:= 1;
     end while;
     "increase AuxPrimes!";
     return false;
