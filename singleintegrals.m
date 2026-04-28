@@ -56,16 +56,20 @@ function h1_basis(Q,p,N)
   d:=Degree(Q);
   g:=genus(Q,p);
   r,Delta,s:=auxpolys(Q);
-
-  W0:=mat_W0(Q);
-  W0inv:=W0^(-1);
-  Winf:=mat_Winf(Q);
-  Winfinv:=Winf^(-1);
-  W:=Winf*W0^(-1);
-
-  if (FiniteField(p)!LeadingCoefficient(Delta) eq 0) or (Degree(r) lt 1) or (not smooth(r,p)) or (not (is_integral(W0,p) and is_integral(W0inv,p) and is_integral(Winf,p) and is_integral(Winfinv,p))) then
+  if (FiniteField(p)!LeadingCoefficient(Delta) eq 0) or (Degree(r) lt 1) or (not smooth(r,p)) then 
     error "bad prime";
   end if;
+  W0:=mat_W0(Q);
+  W0inv:=W0^(-1);
+  if not (is_integral(W0,p) and is_integral(W0inv,p)) then
+    error "bad prime";
+  end if;
+  Winf:=mat_Winf(Q);
+  Winfinv:=Winf^(-1);
+  if not (is_integral(Winf,p) and is_integral(Winfinv,p)) then
+    error "bad prime";
+  end if;
+  W:=Winf*W0^(-1);
 
   G:=con_mat(Q,Delta,s);
   G0:=W0*Evaluate(G,Parent(W0[1,1]).1)*W0^(-1)+ddx_mat(W0)*W0^(-1);
@@ -74,7 +78,6 @@ function h1_basis(Q,p,N)
   Jinf,Tinf,Tinfinv:=jordan_inf(Ginf);
   J0,T0,T0inv:=jordan_0(r,G0);
   e0,einf:=ram(J0,Jinf);
- 
   delta:=Floor(log(p,-(ord_0_mat(W)+1)*einf))+Floor(log(p,(Floor((2*g-2)/d)+1)*einf));
 
   basis:=basis_coho(Q,p,r,W0,Winf,G0,Ginf,J0,Jinf,T0inv,Tinfinv,false,false,[],[],[]);
@@ -95,16 +98,20 @@ coleman_data:=function(Q,p,N:useU:=false,useY:=false,basis0:=[],basis1:=[],basis
   d:=Degree(Q);
   g:=genus(Q,p);
   r,Delta,s:=auxpolys(Q);
-
-  W0:=mat_W0(Q);
-  W0inv:=W0^(-1);
-  Winf:=mat_Winf(Q);
-  Winfinv:=Winf^(-1);
-  W:=Winf*W0^(-1);
-
-  if (FiniteField(p)!LeadingCoefficient(Delta) eq 0) or (Degree(r) lt 1) or (not smooth(r,p)) or (not (is_integral(W0,p) and is_integral(W0inv,p) and is_integral(Winf,p) and is_integral(Winfinv,p))) then
+  if (FiniteField(p)!LeadingCoefficient(Delta) eq 0) or (Degree(r) lt 1) or (not smooth(r,p)) then 
     error "bad prime";
   end if;
+  W0:=mat_W0(Q);
+  W0inv:=W0^(-1);
+  if not (is_integral(W0,p) and is_integral(W0inv,p)) then
+    error "bad prime";
+  end if;
+  Winf:=mat_Winf(Q);
+  Winfinv:=Winf^(-1);
+  if not (is_integral(Winf,p) and is_integral(Winfinv,p)) then
+    error "bad prime";
+  end if;
+  W:=Winf*W0^(-1);
 
   G:=con_mat(Q,Delta,s);
   G0:=W0*Evaluate(G,Parent(W0[1,1]).1)*W0^(-1)+ddx_mat(W0)*W0^(-1);
