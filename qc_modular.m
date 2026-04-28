@@ -148,7 +148,6 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
   if pl gt 1 then printf " Computed Coleman data at p=%o to precision %o.\n", p,N; end if;
 
   prec := Max([prec, 100, tadicprec(data, 1)]);
-
   S    := LaurentSeriesRing(Qp,prec);
   
 
