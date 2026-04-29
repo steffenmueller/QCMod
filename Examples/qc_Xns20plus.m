@@ -1,0 +1,21 @@
+SetLogFile("qc_Xns20plus.log");
+
+f := (x^8 - 6*x^7 + 7*x^6 + 2*x^5 - 2*x^3 + 7*x^2 + 6*x + 1);
+C := HyperellipticCurve(f);
+Points(C : Bound:=100);
+//C2 := RegularModel(C, 2);
+//C5 := RegularModel(C, 5);
+load "qc_modular.m";
+//Q := y^2 - (x^8 - 6*x^7 + 7*x^6 + 2*x^5 - 2*x^3 + 7*x^2 + 6*x + 1);
+//QCModAffine(Q, 3 : printlevel := 2);
+//Auts := Automorphisms(C);
+//Aut1 := AutomorphismGroup(C, [Auts[2]]);
+//Aut2 := AutomorphismGroup(C, [Auts[3]]);
+//Aut3 := AutomorphismGroup(C, [Auts[4]]);
+//C1, pi1 := CurveQuotient(Aut1);
+//C2, pi2 := CurveQuotient(Aut2);
+//C3, pi3 := CurveQuotient(Aut3);
+//A := RichelotIsogenousSurfaces(C3);
+f := 4*x^6 - 12*x^5 + 15*x^4 - 20*x^3 + 15*x^2 - 8*x + 4;
+Q := y^2 - f;
+QCModAffine(Q, 7 : printlevel := 2);

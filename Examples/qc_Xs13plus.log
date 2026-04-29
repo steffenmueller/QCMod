@@ -17,88 +17,27 @@ Loading "howe_zhu.m"
 
 *** Compute the rational points on X0(169)+ ***
 3
-[ 1.13550003379662676837731837782, 1.00608193252841146235676593604, 
-0.672484471946315117478906046905 ]
+[ 1.13550003379662676837731837782, 1.00608193252841146235676593604, 0.672484471946315117478906046905 ]
 Curve over Rational Field defined by
-x[1]^2*x[2]^2 + x[1]*x[2]^3 + x[1]^3*x[3] + x[1]^2*x[2]*x[3] + x[2]^3*x[3] + 
-    x[1]^2*x[3]^2 + x[1]*x[2]*x[3]^2 - 3*x[2]^2*x[3]^2 - x[1]*x[3]^3 + 
-    x[2]*x[3]^3
+x[1]^2*x[2]^2 + x[1]*x[2]^3 + x[1]^3*x[3] + x[1]^2*x[2]*x[3] + x[2]^3*x[3] + x[1]^2*x[3]^2 + x[1]*x[2]*x[3]^2 - 3*x[2]^2*x[3]^2 - x[1]*x[3]^3 + x[2]*x[3]^3
 y0^3 + y0^2*x0^2 + y0^2*x0 + y0^2 + y0*x0^3 + y0*x0 - y0 + x0^3 - 3*x0^2 + x0
-
- Starting quadratic Chabauty computation for the affine patch 
- y^3 + (x^2 + x + 1)*y^2 + (x^3 + x - 1)*y + x^3 - 3*x^2 + x = 0
- at the prime p = 3
-
  Computing Hodge filtration for correspondence 1.
+ eta =  (  -82 592/3    50).
+ beta_fil  =  (   0 -1/2 -7/2).
+ gamma_fil =  (-21/2*x + 5/3          -5/6             0             0).
+
  Computing Frobenius structure for correspondence 1.
  Computing Hodge filtration for correspondence 2.
+ eta =  (     66 -2516/9  -202/3).
+ beta_fil  =  (   0    1 14/3).
+ gamma_fil =  (14*x - 10/3         5/3           0           0).
+
  Computing Frobenius structure for correspondence 2.
- The quadratic Chabauty function for correspondence 1 is correct to precision 
-3^13.
- The quadratic Chabauty function for correspondence 2 is correct to precision 
-3^13.
- All roots of the quadratic Chabauty function(s) are correct to precision at 
-least 3^11.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
 
- The common roots of the quadratic Chabauty function(s) in this affine patch are
- [
-[ O(3^13), O(3^13) ],
-[ 2 + O(3^12), -2 + O(3^12) ],
-[ 797161 + O(3^13), -1 + O(3^13) ],
-[ 1 + O(3^13), -1 + O(3^13) ]
-] 
-
-
- Starting quadratic Chabauty computation for the affine patch 
- y^4 + (x + 6)*y^3 + (-4*x^2 - 20*x)*y^2 + (-32*x^2 - 112*x - 48)*y + 64*x^3 - 
-128*x - 64 = 0
- at the prime p = 3
-
- Computing Hodge filtration for correspondence 1.
- Computing Frobenius structure for correspondence 1.
- Computing Hodge filtration for correspondence 2.
- Computing Frobenius structure for correspondence 2.
- The quadratic Chabauty function for correspondence 1 is correct to precision 
-3^12.
- The quadratic Chabauty function for correspondence 2 is correct to precision 
-3^12.
- All roots of the quadratic Chabauty function(s) are correct to precision at 
-least 3^10.
-
- The common roots of the quadratic Chabauty function(s) in this affine patch are
- [
-[ O(3^12), -4 + O(3^12) ],
-[ 3 + O(3^12), -8 + O(3^12) ],
-[ O(3^12), -2 + O(3^12) ],
-[ -1 + O(3^12), O(3^12) ],
-[ -44287 + O(3^11), -2 + O(3^11) ],
-[ 88573 + O(3^11), -2 + O(3^11) ]
-] 
-
-Time: 75.740
-Rational points on Xns(13)+ [ (1 : -1 : 1), (2 : -2 : 1), (0 : 0 : 1), (-1/2 : 
--1 : 1), (-1 : 1 : 0), (1 : 0 : 0), (0 : 1 : 0) ]
-
-  For completeness, we include the quadratic Chabauty computation as
-  described in the paper `Explicit Chabauty-Kim for the split Cartan
-  curve of level 13`, using the prime p=17 and a hard-coded basis of 
-  H^1. 
-  We leave out the computation of the rational points
-  in the bad disk, since this is somewhat harder to incorporate into
-  our main function (see qc_C188.m for an examples where this is applied).
-
- Computing Hodge filtration for correspondence 1.
- Computing Frobenius structure for correspondence 1.
- Computing Hodge filtration for correspondence 2.
- Computing Frobenius structure for correspondence 2.
- The quadratic Chabauty function for correspondence 1 is correct to precision 
-17^13.
- The quadratic Chabauty function for correspondence 2 is correct to precision 
-17^13.
- All roots of the quadratic Chabauty function(s) are correct to precision at 
-least 17^11.
-
- The common roots of the quadratic Chabauty function(s) in this affine patch are
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
  [
 [ O(17^13), O(17^13) ],
 [ O(17^13), 2 + O(17^13) ],
@@ -107,25 +46,30 @@ least 17^11.
 ] 
 
 Good affine rational points on first patch: [
-    [ 0, 2 ],
-    [ 0, 0 ],
-    [ -3/2, 3/2 ],
-    [ 1/2, 1/2 ]
+[ 0, 2 ],
+[ 0, 0 ],
+[ -3/2, 3/2 ],
+[ 1/2, 1/2 ]
 ]
 
 Compute the rational points on second affine patch
  Computing Hodge filtration for correspondence 1.
+ eta =  (       0 -1212/35   -126/5).
+ beta_fil  =  (33/56     0 39/14).
+ gamma_fil =  (-114/35 -114/35       0       0).
+
  Computing Frobenius structure for correspondence 1.
  Computing Hodge filtration for correspondence 2.
- Computing Frobenius structure for correspondence 2.
- The quadratic Chabauty function for correspondence 1 is correct to precision 
-17^13.
- The quadratic Chabauty function for correspondence 2 is correct to precision 
-17^13.
- All roots of the quadratic Chabauty function(s) are correct to precision at 
-least 17^11.
+ eta =  (      0 5224/35     4/5).
+ beta_fil  =  (  -3/7      0 -43/14).
+ gamma_fil =  (144/35 144/35      0      0).
 
- The common roots of the quadratic Chabauty function(s) in this affine patch are
+ Computing Frobenius structure for correspondence 2.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
  [
 [ O(17^13), -1 + O(17^14) ],
 [ O(17^13), 1 + O(17^13) ],
@@ -134,10 +78,7389 @@ least 17^11.
 ] 
 
 Good affine rational points on second patch: [
-    [ 2, 1 ],
-    [ 0, 1 ],
-    [ 0, -1 ],
-    [ -2/3, -1 ]
+[ 2, 1 ],
+[ 0, 1 ],
+[ 0, -1 ],
+[ -2/3, -1 ]
 ]
 
-Total time: 664.970 seconds, Total memory usage: 214.53MB
+Total time: 88.540 seconds, Total memory usage: 146.78MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "misc.m"
+Loading "applications.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "howe_zhu.m"
+
+*** Compute the rational points on X0(169)+ ***
+3
+[ 1.13550003379662676837731837782, 1.00608193252841146235676593604, 0.672484471946315117478906046905 ]
+Curve over Rational Field defined by
+x[1]^2*x[2]^2 + x[1]*x[2]^3 + x[1]^3*x[3] + x[1]^2*x[2]*x[3] + x[2]^3*x[3] + x[1]^2*x[3]^2 + x[1]*x[2]*x[3]^2 - 3*x[2]^2*x[3]^2 - x[1]*x[3]^3 + x[2]*x[3]^3
+y0^3 + y0^2*x0^2 + y0^2*x0 + y0^2 + y0*x0^3 + y0*x0 - y0 + x0^3 - 3*x0^2 + x0
+ Computing Hodge filtration for correspondence 1.
+ eta =  (  -82 592/3    50).
+ beta_fil  =  (   0 -1/2 -7/2).
+ gamma_fil =  (-21/2*x + 5/3          -5/6             0             0).
+
+ Computing Frobenius structure for correspondence 1.
+#fendlist 9
+ Computing Hodge filtration for correspondence 2.
+ eta =  (     66 -2516/9  -202/3).
+ beta_fil  =  (   0    1 14/3).
+ gamma_fil =  (14*x - 10/3         5/3           0           0).
+
+ Computing Frobenius structure for correspondence 2.
+#fendlist 9
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
+ [
+[ O(17^13), O(17^13) ],
+[ O(17^13), 2 + O(17^13) ],
+[ -4952289016452968 + O(17^13), -4952289016452968 + O(17^13) ],
+[ 291311118614879 + O(17^12), -291311118614879 + O(17^12) ]
+] 
+
+Good affine rational points on first patch: [
+[ 0, 2 ],
+[ 0, 0 ],
+[ -3/2, 3/2 ],
+[ 1/2, 1/2 ]
+]
+
+Compute the rational points on second affine patch
+ Computing Hodge filtration for correspondence 1.
+ eta =  (       0 -1212/35   -126/5).
+ beta_fil  =  (33/56     0 39/14).
+ gamma_fil =  (-114/35 -114/35       0       0).
+
+ Computing Frobenius structure for correspondence 1.
+#fendlist 9
+ Computing Hodge filtration for correspondence 2.
+ eta =  (      0 5224/35     4/5).
+ beta_fil  =  (  -3/7      0 -43/14).
+ gamma_fil =  (144/35 144/35      0      0).
+
+ Computing Frobenius structure for correspondence 2.
+#fendlist 9
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
+ [
+[ O(17^13), -1 + O(17^14) ],
+[ O(17^13), 1 + O(17^13) ],
+[ -194207412409921 + O(17^12), -1 + O(17^12) ],
+[ 2 + O(17^13), 1 + O(17^13) ]
+] 
+
+Good affine rational points on second patch: [
+[ 2, 1 ],
+[ 0, 1 ],
+[ 0, -1 ],
+[ -2/3, -1 ]
+]
+
+Total time: 86.409 seconds, Total memory usage: 146.78MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "misc.m"
+Loading "applications.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+
+In file "frobenius.m", line 225, column 12:
+>>   if #[t : in finflist | t ne 0] ne 0 then ^M
+              ^
+User error: bad syntax
+
+Total time: 0.140 seconds, Total memory usage: 32.09MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "misc.m"
+Loading "applications.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "howe_zhu.m"
+
+*** Compute the rational points on X0(169)+ ***
+3
+[ 1.13550003379662676837731837782, 1.00608193252841146235676593604, 0.672484471946315117478906046905 ]
+Curve over Rational Field defined by
+x[1]^2*x[2]^2 + x[1]*x[2]^3 + x[1]^3*x[3] + x[1]^2*x[2]*x[3] + x[2]^3*x[3] + x[1]^2*x[3]^2 + x[1]*x[2]*x[3]^2 - 3*x[2]^2*x[3]^2 - x[1]*x[3]^3 + x[2]*x[3]^3
+y0^3 + y0^2*x0^2 + y0^2*x0 + y0^2 + y0*x0^3 + y0*x0 - y0 + x0^3 - 3*x0^2 + x0
+ Computing Hodge filtration for correspondence 1.
+ eta =  (  -82 592/3    50).
+ beta_fil  =  (   0 -1/2 -7/2).
+ gamma_fil =  (-21/2*x + 5/3          -5/6             0             0).
+
+ Computing Frobenius structure for correspondence 1.
+[
+(2299305915549290134450433761280*x   -6014616476947238284356910919680*x - 2803858958922020240837638942720   0   0),
+(-5531862826710552818459830824960*x   7459628070486306350852815728640*x + 1344129277532350624555259146240   0   0),
+(-8416410489842386962450430935040*x   -9432045875288382722691761090560*x - 6591704372846677919272906895360   0   0),
+(-6262850979078050248499933020160*x^2 - 8721581529223694862512946257920*x   -2604903044416132221570990407680*x - 11881222203114854320426225582080   -6036503726070790514674372198400   0),
+(-5936372058255020059926291763200*x^2 + 1228787704720766146992349798400*x   -6116177292040003221760992911360*x + 159771243615898347630754570240   11420413052089784439795804139520   0),
+(8267748087832364016890366689280*x^2 + 6603796158303235155430688686080*x   5823328134819571194595178557440*x + 8164317296170753084898188677120   -6487663502497607017204164116480   0),
+(-492724944571805654215766630400*x   10917049266448232757925205012480*x + 957622903247972879945421742080   0   0),
+(10771194374604303986887611023360*x   5912659030166349060148496076800*x + 11821402542505163974543069798400   0   0),
+(3021831820512343969790991564800*x   -4857409691334118415103398666240*x + 8394901035318443373107273748480   0   0)
+]
+[ false, false, false, false, false, false, false, false, false ]
+ Computing Hodge filtration for correspondence 2.
+ eta =  (     66 -2516/9  -202/3).
+ beta_fil  =  (   0    1 14/3).
+ gamma_fil =  (14*x - 10/3         5/3           0           0).
+
+ Computing Frobenius structure for correspondence 2.
+[
+(2299305915549290134450433761280*x   -6014616476947238284356910919680*x - 2803858958922020240837638942720   0   0),
+(-5531862826710552818459830824960*x   7459628070486306350852815728640*x + 1344129277532350624555259146240   0   0),
+(-8416410489842386962450430935040*x   -9432045875288382722691761090560*x - 6591704372846677919272906895360   0   0),
+(-6262850979078050248499933020160*x^2 - 8721581529223694862512946257920*x   -2604903044416132221570990407680*x - 11881222203114854320426225582080   -6036503726070790514674372198400   0),
+(-5936372058255020059926291763200*x^2 + 1228787704720766146992349798400*x   -6116177292040003221760992911360*x + 159771243615898347630754570240   11420413052089784439795804139520   0),
+(8267748087832364016890366689280*x^2 + 6603796158303235155430688686080*x   5823328134819571194595178557440*x + 8164317296170753084898188677120   -6487663502497607017204164116480   0),
+(-492724944571805654215766630400*x   10917049266448232757925205012480*x + 957622903247972879945421742080   0   0),
+(10771194374604303986887611023360*x   5912659030166349060148496076800*x + 11821402542505163974543069798400   0   0),
+(3021831820512343969790991564800*x   -4857409691334118415103398666240*x + 8394901035318443373107273748480   0   0)
+]
+[ false, false, false, false, false, false, false, false, false ]
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
+ [
+[ O(17^13), O(17^13) ],
+[ O(17^13), 2 + O(17^13) ],
+[ -4952289016452968 + O(17^13), -4952289016452968 + O(17^13) ],
+[ 291311118614879 + O(17^12), -291311118614879 + O(17^12) ]
+] 
+
+Good affine rational points on first patch: [
+[ 0, 2 ],
+[ 0, 0 ],
+[ -3/2, 3/2 ],
+[ 1/2, 1/2 ]
+]
+
+Compute the rational points on second affine patch
+ Computing Hodge filtration for correspondence 1.
+ eta =  (       0 -1212/35   -126/5).
+ beta_fil  =  (33/56     0 39/14).
+ gamma_fil =  (-114/35 -114/35       0       0).
+
+ Computing Frobenius structure for correspondence 1.
+[
+(-67764442027015315563269569773568*x   -43093931662182327625689387499520*x - 19902198135906062668423992180736   -25155784908778669173891238592512   0),
+(55528952938478696601836946194432*x   -27764476469239348300918473097216*x + 69338595101529846396377747161088   -20398700997384961317217992441856   0),
+(-32523130708152400707525300584448*x   -60714587321613785053561522094080*x + 28944779803888801703077780258816   44632520193761660992739883220992   0),
+(-40128345084152582826560960856064*x^2 + 75293672061820504066045603479552*x   28285961609967226682592946290688*x + 42974235476505205620018940346368   65009114856340937295950818050048   0),
+(65345956233331002522443446878208*x^2 + 16350187501212017941579645976576*x   41634979073969367045830155829248*x + 28314832717624685607286395633664   -35313382172418492795073908178944   0),
+(-69321200336170602421264244015104*x^2 + 37769279518389837132650694705152*x   -58626094043865083602347798691840*x + 37438308036233782345620261830656   13370008244905580418161505337344   0),
+(-40318459651187094661350780567552*x   20159229825593547330675390283776*x + 27925202197499908268690140561408   -41898097140291463818818788524032   0),
+(-47965243749205500994352311697408*x   23982621874602750497176155848704*x - 30474539600608863961915015823360   -27872240140728880723539033587712   0),
+(-10356684050240217112891629371392*x   -71797810650569876850878357700608*x + 62775323906043252946435833856000   -53350650840815355902927349743616   0)
+]
+[ false, false, false, false, false, false, false, false, false ]
+ Computing Hodge filtration for correspondence 2.
+ eta =  (      0 5224/35     4/5).
+ beta_fil  =  (  -3/7      0 -43/14).
+ gamma_fil =  (144/35 144/35      0      0).
+
+ Computing Frobenius structure for correspondence 2.
+[
+(-67764442027015315563269569773568*x   -43093931662182327625689387499520*x - 19902198135906062668423992180736   -25155784908778669173891238592512   0),
+(55528952938478696601836946194432*x   -27764476469239348300918473097216*x + 69338595101529846396377747161088   -20398700997384961317217992441856   0),
+(-32523130708152400707525300584448*x   -60714587321613785053561522094080*x + 28944779803888801703077780258816   44632520193761660992739883220992   0),
+(-40128345084152582826560960856064*x^2 + 75293672061820504066045603479552*x   28285961609967226682592946290688*x + 42974235476505205620018940346368   65009114856340937295950818050048   0),
+(65345956233331002522443446878208*x^2 + 16350187501212017941579645976576*x   41634979073969367045830155829248*x + 28314832717624685607286395633664   -35313382172418492795073908178944   0),
+(-69321200336170602421264244015104*x^2 + 37769279518389837132650694705152*x   -58626094043865083602347798691840*x + 37438308036233782345620261830656   13370008244905580418161505337344   0),
+(-40318459651187094661350780567552*x   20159229825593547330675390283776*x + 27925202197499908268690140561408   -41898097140291463818818788524032   0),
+(-47965243749205500994352311697408*x   23982621874602750497176155848704*x - 30474539600608863961915015823360   -27872240140728880723539033587712   0),
+(-10356684050240217112891629371392*x   -71797810650569876850878357700608*x + 62775323906043252946435833856000   -53350650840815355902927349743616   0)
+]
+[ false, false, false, false, false, false, false, false, false ]
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
+ [
+[ O(17^13), -1 + O(17^14) ],
+[ O(17^13), 1 + O(17^13) ],
+[ -194207412409921 + O(17^12), -1 + O(17^12) ],
+[ 2 + O(17^13), 1 + O(17^13) ]
+] 
+
+Good affine rational points on second patch: [
+[ 2, 1 ],
+[ 0, 1 ],
+[ 0, -1 ],
+[ -2/3, -1 ]
+]
+
+Total time: 90.390 seconds, Total memory usage: 146.78MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "misc.m"
+Loading "applications.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "howe_zhu.m"
+
+*** Compute the rational points on X0(169)+ ***
+3
+[ 1.13550003379662676837731837782, 1.00608193252841146235676593604, 0.672484471946315117478906046905 ]
+Curve over Rational Field defined by
+x[1]^2*x[2]^2 + x[1]*x[2]^3 + x[1]^3*x[3] + x[1]^2*x[2]*x[3] + x[2]^3*x[3] + x[1]^2*x[3]^2 + x[1]*x[2]*x[3]^2 - 3*x[2]^2*x[3]^2 - x[1]*x[3]^3 + x[2]*x[3]^3
+y0^3 + y0^2*x0^2 + y0^2*x0 + y0^2 + y0*x0^3 + y0*x0 - y0 + x0^3 - 3*x0^2 + x0
+ Computing Hodge filtration for correspondence 1.
+ eta =  (  -82 592/3    50).
+ beta_fil  =  (   0 -1/2 -7/2).
+ gamma_fil =  (-21/2*x + 5/3          -5/6             0             0).
+
+ Computing Frobenius structure for correspondence 1.
+ Computing Hodge filtration for correspondence 2.
+ eta =  (     66 -2516/9  -202/3).
+ beta_fil  =  (   0    1 14/3).
+ gamma_fil =  (14*x - 10/3         5/3           0           0).
+
+ Computing Frobenius structure for correspondence 2.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
+ [
+[ O(17^13), O(17^13) ],
+[ O(17^13), 2 + O(17^13) ],
+[ -4952289016452968 + O(17^13), -4952289016452968 + O(17^13) ],
+[ 291311118614879 + O(17^12), -291311118614879 + O(17^12) ]
+] 
+
+Good affine rational points on first patch: [
+[ 0, 2 ],
+[ 0, 0 ],
+[ -3/2, 3/2 ],
+[ 1/2, 1/2 ]
+]
+
+Compute the rational points on second affine patch
+ Computing Hodge filtration for correspondence 1.
+ eta =  (       0 -1212/35   -126/5).
+ beta_fil  =  (33/56     0 39/14).
+ gamma_fil =  (-114/35 -114/35       0       0).
+
+ Computing Frobenius structure for correspondence 1.
+ Computing Hodge filtration for correspondence 2.
+ eta =  (      0 5224/35     4/5).
+ beta_fil  =  (  -3/7      0 -43/14).
+ gamma_fil =  (144/35 144/35      0      0).
+
+ Computing Frobenius structure for correspondence 2.
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
+ [
+[ O(17^13), -1 + O(17^14) ],
+[ O(17^13), 1 + O(17^13) ],
+[ -194207412409921 + O(17^12), -1 + O(17^12) ],
+[ 2 + O(17^13), 1 + O(17^13) ]
+] 
+
+Good affine rational points on second patch: [
+[ 2, 1 ],
+[ 0, 1 ],
+[ 0, -1 ],
+[ -2/3, -1 ]
+]
+
+Total time: 88.329 seconds, Total memory usage: 146.78MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "misc.m"
+Loading "applications.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "howe_zhu.m"
+
+*** Compute the rational points on X0(169)+ ***
+3
+[ 1.13550003379662676837731837782, 1.00608193252841146235676593604, 0.672484471946315117478906046905 ]
+Curve over Rational Field defined by
+$.1^2*$.2^2 + $.1*$.2^3 + $.1^3*$.3 + $.1^2*$.2*$.3 + $.2^3*$.3 + $.1^2*$.3^2 + $.1*$.2*$.3^2 - 3*$.2^2*$.3^2 - $.1*$.3^3 + $.2*$.3^3
+y0^3 + y0^2*x0^2 + y0^2*x0 + y0^2 + y0*x0^3 + y0*x0 - y0 + x0^3 - 3*x0^2 + x0
+ Computing Hodge filtration for correspondence 1.
+ eta =  (  -82 592/3    50).
+ beta_fil  =  (   0 -1/2 -7/2).
+ gamma_fil =  (-21/2*x + 5/3          -5/6             0             0).
+
+ Computing Frobenius structure for correspondence 1.
+ Computing Hodge filtration for correspondence 2.
+ eta =  (     66 -2516/9  -202/3).
+ beta_fil  =  (   0    1 14/3).
+ gamma_fil =  (14*x - 10/3         5/3           0           0).
+
+ Computing Frobenius structure for correspondence 2.
+vals [ 0, 0, 0 ]
+i0_threshold 0
+i0 1
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+vals [ 0, 0, 0 ]
+i0_threshold 0
+i0 1
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
+ [
+[ O(17^13), O(17^13) ],
+[ O(17^13), 2 + O(17^13) ],
+[ -4952289016452968 + O(17^13), -4952289016452968 + O(17^13) ],
+[ 291311118614879 + O(17^12), -291311118614879 + O(17^12) ]
+] 
+
+Good affine rational points on first patch: [
+[ 0, 2 ],
+[ 0, 0 ],
+[ -3/2, 3/2 ],
+[ 1/2, 1/2 ]
+]
+
+Compute the rational points on second affine patch
+ Computing Hodge filtration for correspondence 1.
+ eta =  (       0 -1212/35   -126/5).
+ beta_fil  =  (33/56     0 39/14).
+ gamma_fil =  (-114/35 -114/35       0       0).
+
+ Computing Frobenius structure for correspondence 1.
+ Computing Hodge filtration for correspondence 2.
+ eta =  (      0 5224/35     4/5).
+ beta_fil  =  (  -3/7      0 -43/14).
+ gamma_fil =  (144/35 144/35      0      0).
+
+ Computing Frobenius structure for correspondence 2.
+vals [ 0, 0, 0 ]
+i0_threshold 0
+i0 1
+ The quadratic Chabauty function for correspondence 1 is correct to precision 17^13.
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+vals [ 0, 0, 0 ]
+i0_threshold 0
+i0 1
+ The quadratic Chabauty function for correspondence 2 is correct to precision 17^13.
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+lower bounds
+i 1
+i 2
+i 3
+i 4
+i 5
+i 6
+i 7
+i 8
+i 9
+i 10
+i 11
+i 12
+i 13
+i 14
+i 15
+i 16
+i 17
+i 18
+i 19
+i 20
+i 21
+i 22
+i 23
+i 24
+i 25
+i 26
+i 27
+i 28
+i 29
+i 30
+i 31
+i 32
+i 33
+i 34
+i 35
+i 36
+i 37
+i 38
+i 39
+i 40
+i 41
+i 42
+i 43
+i 44
+i 45
+i 46
+i 47
+i 48
+i 49
+i 50
+i 51
+i 52
+i 53
+i 54
+i 55
+i 56
+i 57
+i 58
+i 59
+i 60
+i 61
+i 62
+i 63
+i 64
+i 65
+i 66
+i 67
+i 68
+i 69
+i 70
+i 71
+i 72
+i 73
+i 74
+i 75
+i 76
+i 77
+i 78
+i 79
+i 80
+i 81
+i 82
+i 83
+i 84
+i 85
+i 86
+i 87
+i 88
+i 89
+i 90
+i 91
+i 92
+i 93
+i 94
+i 95
+i 96
+i 97
+i 98
+i 99
+precf 100
+root finding bound
+i 100
+i 100
+i 100
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 17^11.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
+ [
+[ O(17^13), -1 + O(17^14) ],
+[ O(17^13), 1 + O(17^13) ],
+[ -194207412409921 + O(17^12), -1 + O(17^12) ],
+[ 2 + O(17^13), 1 + O(17^13) ]
+] 
+
+Good affine rational points on second patch: [
+[ 2, 1 ],
+[ 0, 1 ],
+[ 0, -1 ],
+[ -2/3, -1 ]
+]
+
+Total time: 84.760 seconds, Total memory usage: 146.78MB
+Loading "qc_modular.m"
+Loading "coleman.m"
+Loading "auxpolys.m"
+Loading "coho.m"
+Loading "froblift.m"
+Loading "reductions.m"
+Loading "singleintegrals.m"
+Loading "misc.m"
+Loading "applications.m"
+Loading "symplectic_basis.m"
+Loading "hecke_correspondence.m"
+Loading "hodge.m"
+Loading "frobenius.m"
+Loading "heights.m"
+Loading "second_patch_quartic.m"
+Loading "howe_zhu.m"
+
+*** Compute the rational points on X0(169)+ ***
+3
+[ 1.13550003379662676837731837782, 1.00608193252841146235676593604, 0.672484471946315117478906046905 ]
+Curve over Rational Field defined by
+$.1^2*$.2^2 + $.1*$.2^3 + $.1^3*$.3 + $.1^2*$.2*$.3 + $.2^3*$.3 + $.1^2*$.3^2 + $.1*$.2*$.3^2 - 3*$.2^2*$.3^2 - $.1*$.3^3 + $.2*$.3^3
+y0^3 + y0^2*x0^2 + y0^2*x0 + y0^2 + y0*x0^3 + y0*x0 - y0 + x0^3 - 3*x0^2 + x0
+1
+11
+22
+2
+3
+4
+5
+6
+infplaces [ (1/x, 1/x*FF.1 - 1), (1/x, 1/x*FF.1 + (x + 1)/x), (1/x, 1/x^2*FF.1^2 - 5) ]
+Kinf Number Field with defining polynomial x^2 - x - 1 over the Rational Field
+
+[Interrupted]
+> Q;
+y^4 - 10*y^3 + (-6*x^2 + 10*x + 24)*y^2 + (26*x^2 - 40*x - 16)*y + 5*x^4 + 6*x^3 - 32*x^2 + 32*x
+> data := coleman_data(Q, 3, 10);
+> data`F;
+[      18156      -27936      -18309        5795   360839/27  -651731/27]
+[      11010      -13743      -17376    -22804/3     57842/3      -16711]
+[     -18423      -13644       11100      -16859   297872/27   355903/27]
+[      25392         471       16164   -117103/9   160576/81 -2306767/81]
+[      20931       22695       23193    191275/9 -2386207/81  1232746/81]
+[     -12693       16152      -13743   -140039/9  1946984/81 -1772864/81]
+> data := coleman_data(Q, 3, 10 : useU);
+> data`F;
+[18156 -27936 -18309 5795 360839/27 -651731/27 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[11010 -13743 -17376 -22804/3 57842/3 -16711 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[-18423 -13644 11100 -16859 297872/27 355903/27 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[25392 471 16164 -117103/9 160576/81 -2306767/81 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[20931 22695 23193 191275/9 -2386207/81 1232746/81 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[-12693 16152 -13743 -140039/9 1946984/81 -1772864/81 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[27171 -19335 24279 -41509/3 -634058/27 -605626/27 -2136 -15553 -12118 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[24225 -25191 12012 7267 -742111/27 -218435/27 -3288 8698 -17744 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[3351 6813 597 -19237 671542/27 269024/27 -28797 -25477 -6559 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[-16248 -20616 27396 68309/3 -118849/9 92041/9 -2772 -17953 2990 12324 -5670 -21108 -28785 8913 10881 -23535 -19251 15534 10560 9570 -11979 17484 -28452 -15186 216 1143 11307 17850 20202 -17940 -15468 -7296 17604 -22212 -21960 -26463 18990 -2529 11433 -17019 -8814 18468 -12447 5745 -20205]
+[-20745 13383 27891 -23557 -216101/9 114107/9 23481 27729 -21024 25605 27162 18801 19728 -12060 24147 -18207 -20835 -21609 -12618 15642 25443 20214 22707 -12105 -6192 15381 -7821 -13977 22977 -13320 -22257 20439 -16812 -21735 -17622 -8739 -7713 120 -25083 4779 10836 -17496 27063 -29016 4176]
+[-22086 -26046 -1566 -12452 -11657/9 -213817/9 -21366 21660 -9813 -5544 -6471 8253 4509 -3996 45 24084 29268 -8586 3042 16803 19305 -14958 -29313 -7578 -7452 -7560 -18009 13266 -5319 -10809 -12492 6858 5580 -12213 -19683 -21420 -14049 15444 20151 -4527 -20049 8973 4203 16758 -25560]
+[-17703 -21447 9108 11042 253963/9 -109060/9 2997 -19839 8151 9891 10971 6102 -4923 -9423 6462 -28629 12609 -28206 -18855 -12330 21906 -2304 13635 26532 -28728 22950 -21501 7767 17640 2160 -19242 -1440 -20070 8406 12024 -5274 -23976 22896 -12618 19557 -26730 -28431 14067 11460 -13401]
+[-6750 11043 19944 -8307 -103339/9 8593/9 -4167 -24561 2871 18333 -22653 -17271 8190 -20997 -17019 22329 21105 -2718 -23868 -2295 -25128 -2349 -1440 -22590 -7983 12789 8478 10251 -20502 6354 -28557 -14697 21753 -13257 11022 3843 7761 -14361 28575 -2787 15384 -6090 19977 26784 23637]
+[-23580 2673 24129 -28638 21544 6800 8361 -22917 12930 -29385 27738 -6912 -27117 9378 -8712 9972 10980 11817 4293 24471 -4356 7245 -1998 -4185 5886 -21123 -12132 8703 22059 11628 1935 8064 15660 -4842 29097 -23889 -1431 5418 -3336 4206 20778 -17214 -12900 17622 -18366]
+[-7767 18252 -2736 -20131 -43133/9 -16102/9 20475 -1506 -17463 -3825 -28890 -16083 -8676 15849 -8325 -1944 -11979 -1827 5904 -11052 -9207 -21852 13860 -28206 -21420 -19179 20322 -10845 14634 -23499 24489 25929 12456 -918 -13167 8151 24957 11901 3519 6327 -17754 -23043 -25149 -27375 27822]
+[-918 -1242 -6534 7020 18448/3 27878/3 21789 -23748 -24513 9342 6579 -13536 -26253 11664 3204 21987 16380 -8460 -144 5823 747 -20718 -28260 4689 -6615 -22680 -18981 5463 18477 28350 27891 3870 6399 -207 -27264 15486 27921 2985 -28260 29019 14967 1203 -20934 -2952 21870]
+[14256 -5004 6066 -1262 -225881/9 55010/9 -21231 9117 -21321 15318 -13869 -16146 12177 -28494 -27990 10656 -10314 45 -17586 21510 -19953 28602 -27576 -3447 16362 18855 -10818 25992 4203 -16965 -15795 26892 -18 -21240 17910 -3402 15579 22236 6756 -26349 23631 19611 -1950 9162 25467]
+[-11097 26478 -20025 -2388 -8422/9 158791/9 8235 27429 -24366 -24570 6723 19350 15516 1161 17091 -18576 24003 -13023 19044 -15066 -8073 -8406 28656 10656 -1143 1062 -17406 -28188 9693 -11961 -26550 -26640 18108 -13950 -29196 -18321 -18126 -2991 25521 -7965 18930 -12597 3816 5103 19269]
+[-15804 14616 6831 7867 -153878/9 173690/9 22329 15591 -16683 -20295 17604 -28224 25308 28611 -21987 -15471 14058 -3330 8055 13950 -27045 26199 -22284 -12429 -2484 -17793 -18414 -6660 -28278 28530 -585 9045 5706 27585 5031 -7848 9594 22248 -28464 19314 -13341 -18687 -6174 -789 -19302]
+[24789 13479 11280 -48043/3 634793/27 -30365/27 1206 14713 14713 -1617 12246 7260 11748 13041 27444 -17181 -26316 -18762 1101 -23373 29004 -10746 18390 5835 -15852 -2391 -7665 -11028 -4833 2229 -21528 2982 -15264 26346 2760 24351 -19095 -7896 -29004 2247 -5622 -8382 -18567 945 18147]
+[-8425 16321 7216 79714/9 7441/81 838634/81 23049 -21695 1111 10098 -9180 -20061 -24939 26649 17577 -20511 21006 -8892 -6021 -20871 27018 3456 -22095 10485 -26820 6993 15498 -1602 -9972 5526 -11403 7479 1404 11313 -14433 -22230 19542 2361 24543 11514 15591 21765 -5787 9531 14520]
+[-6123 -27315 -5277 22982 52604/3 48154/3 -2532 -6161 -16193 9405 -14775 24330 -28119 21672 18387 20853 11466 -6042 -20127 -28797 8811 -2544 14622 -18543 6828 -29226 -1131 -18828 9375 26154 13758 7407 -25764 28545 -14880 -24819 -26673 -12021 -12168 12282 14727 11892 22650 6459 -5163]
+[26616 -26103 18546 -28565/3 539387/27 715903/27 11535 -20565 -25020 -22797 174 -1197 18219 -21375 -26427 -24339 -16833 -20475 -22269 12675 15417 -8508 27561 -27345 5328 2976 28635 26910 -22233 288 -7638 21456 -28521 23850 -15504 8043 -26004 -10731 22479 -13374 13422 14337 28605 -8838 -5013]
+[-3177 -15330 22581 9809/3 141512/27 -49706/27 16962 -17306 2305 -10842 7890 16125 11121 -3084 26847 -7596 20061 24036 -5664 -7188 29412 -18192 534 -20580 -24132 -24312 14760 -29343 24432 -27510 -15885 5742 23139 -5367 24354 -9963 -3042 -6315 3633 5274 19695 24222 -10305 3042 4053]
+[28713 28614 23286 73736/3 60142/9 -95674/9 2565 -7527 17205 25758 441 -6213 -13551 -8763 -6678 25083 17898 -939 -3546 -2571 -5925 -12999 20943 -26037 15621 -18477 -20904 -14847 25050 27108 -19302 1458 -16593 9612 29289 9189 2595 -28407 22476 -25902 18513 5649 -11391 -5859 -7776]
+[2628 27303 -25683 70042/3 -689338/27 258289/27 -9333 23817 6558 -681 -12783 13572 -17481 3426 15978 7506 9810 28572 -18876 16647 -22494 -17445 -26574 -15408 22956 -18984 -23520 11946 -28158 -13776 26601 24177 28134 28287 29259 -18324 -13527 -10419 -23283 11166 -14460 26757 27315 9870 13266]
+[-23376 27564 23124 35441/3 -42175/9 -65786/9 7836 16029 -29124 5883 -18135 1758 3432 237 -29478 12648 -6363 6423 -29061 7701 24411 10785 6165 -24510 3459 1380 15363 23073 -7308 -2934 28968 10653 -23646 17229 18060 -10806 -900 10548 -13932 -9105 -9408 -13503 -17532 2598 5850]
+[15483 -24027 -5694 -51755/3 68137/9 16064/9 22995 9973 -23954 4899 25584 -16959 -792 -11244 -264 24507 -12849 19320 -29196 10677 11577 -12831 18888 6783 -23511 -6165 25854 -8181 27468 -20709 -21771 -22056 -15897 -26346 15768 -20217 1794 6804 -1428 -7164 20439 -15654 7278 13980 -27432]
+[-29235 -14886 8346 41168/3 195749/9 98383/9 -6492 -17351 -13829 13512 4383 -6039 1176 10452 2046 9042 -23193 4269 12372 -14112 -28671 20928 -5085 -20514 -14592 11319 -26472 16338 22038 26337 15300 567 -1158 -23625 -19233 26940 366 -16005 -22548 -12600 -16602 -20925 11688 -13998 17253]
+[11829 28674 3303 -22259 768266/27 -774560/27 -17754 -1832 1600 29082 13575 -14751 5682 3882 -6132 19476 17688 22137 -7005 25359 -822 -16704 5805 -16110 2937 25377 -9282 -27480 -27036 -23082 -21300 23376 20802 -5232 26394 17058 -10314 20385 13125 18357 14061 20220 18219 -19746 19149]
+[-7875 -7125 23460 -20662 -233689/27 653365/27 22356 25348 -5075 -8175 -5412 480 22116 5232 -5382 27258 -12177 -26184 -27189 2118 5142 22638 4584 -13722 -9213 23265 -11601 -13476 14121 22119 -1968 -23340 5172 -18600 -13695 -27615 -17583 21570 -13626 -13584 15204 19134 13998 16524 21870]
+[4713 4717 5558 10603 1385294/81 53983/81 19110 28532 4781 -25932 -1578 1668 27819 15255 16884 24423 -16254 25344 -18423 20856 8871 -17241 2961 20466 27003 28653 -20721 26565 -27435 9825 21600 7035 -25926 -21324 -28461 -9498 22416 8991 24585 26667 15036 -25518 -948 -22692 -2871]
+[-24550 17648 -16260 -64604/9 -48218/9 -14998 20679 25149 20514 -26550 -18294 24909 -13200 -24297 12066 -9510 11844 5082 -18957 -26595 -22809 23514 -11907 5154 -22950 20832 -4575 5256 29496 -2454 -28947 -6603 16401 27021 22968 -26139 1857 -153 -12441 23844 -4893 28392 -26241 17340 -27507]
+[-7158 23889 3360 75601/3 399452/27 -565694/27 -24468 -28723 -21925 6246 -4440 10794 9378 10914 -312 25389 -12279 4398 26010 25164 -4587 13452 -513 14412 -17373 -24042 7428 3627 23337 789 -29169 1815 -1017 -10893 -8157 19251 25239 26274 25977 26847 -552 1866 -22698 13062 -8487]
+[4281 -11811 -3054 12122/3 -313669/27 231523/27 26889 7601 -15772 28539 -5757 20985 -25110 -20298 22251 -10221 13434 -3546 -2184 -20439 19293 23286 1590 -16902 26952 15456 -2025 -3513 9639 13854 -24945 15693 -14829 -18225 18987 27135 -26547 -1089 19944 6999 -19974 -27687 -13593 -28686 1536]
+[17802 -19974 -9675 56329/3 157435/9 -91261/9 20529 -1429 14330 3630 -19239 -9639 15798 -12579 -9189 5784 -20127 -29475 11244 17400 27915 -19800 27123 -11349 -4686 -24030 -25419 9333 24861 16224 -24594 16290 -9972 -6048 -26322 -27420 23424 17991 6594 10074 -2385 15228 -27921 1176 1059]
+[-18423 19893 828 -12261 457522/27 108149/27 -2250 -21934 -9226 1143 -4557 -1197 -2211 26073 -9114 -25674 10770 -666 -24045 25836 8991 -25713 -22071 -27504 -14268 19347 -27762 -228 -8973 28983 -22458 -22122 26844 -13875 17691 -29217 -729 28620 -19926 -19005 -5763 10230 -1482 -29481 -23631]
+[10782 -7620 -18702 63638/3 12964/9 -264928/9 -1140 -5988 26955 -29361 20562 -19032 19443 -276 -15006 13968 27618 18285 11460 -12369 10782 -28149 13746 -17910 5205 -13209 -903 789 24747 7506 6717 2352 -5694 -25029 17367 -624 -23991 8085 22824 -3996 -1683 11592 -16737 1887 28086]
+[-9708 384 -2694 63929/3 759437/27 -57017/27 1404 27861 20103 -11058 -16482 13770 -1674 -5382 -13470 13104 15444 -15225 10434 28929 27480 -25152 -14091 -22311 -18582 -23604 -24324 7272 -23643 22620 18144 4824 4629 12573 -13239 -11340 -28680 -6933 -14370 18543 17622 -16260 12762 12483 6141]
+[13890 7845 21615 75118/3 274648/27 419381/27 -12876 -6224 9712 26532 2280 -13767 14529 6465 3522 23658 -3462 3183 12180 21444 -25773 -7626 -7788 11292 -9516 -20190 16116 -22530 2778 -3849 20880 -1572 -11229 -26970 8130 -19638 21009 18213 -8691 -1653 4782 23790 -27174 27240 2457]
+[-12858 26265 19635 -23144 -22501/3 55666/3 -4083 23159 560 -7815 -14346 -21492 20523 23364 2709 3369 -20655 26472 -17541 -19650 23073 -6492 -25992 -12867 3705 -27384 19665 -27567 -16059 29334 -26850 16086 3507 -10890 -7071 1287 -9048 7632 23076 25305 -20172 11550 -21423 -27192 -18246]
+[3882 -9084 -26226 -6386/3 682394/27 659881/27 9093 21093 25506 24036 3438 981 19740 -6612 1425 -1047 -18417 11217 528 -19536 -3765 -22161 -19686 24723 -15813 -12162 12522 26145 -23145 9168 -3909 -13662 25953 5031 26298 17019 -3606 10344 -27966 19080 15150 21483 22758 -9258 21807]
+[27440 23240 -702 153577/9 -759799/27 -134000/27 4896 -18838 18257 -22266 16326 21012 11766 -22896 -5835 15780 -27003 -966 -17454 -11970 8190 -10968 25446 -4497 -14442 -3768 20505 -480 -3642 2757 7596 -639 28707 5628 23610 12138 18279 19872 3726 -18237 -10986 -29517 22038 -26043 27285]
+[23816 -436 9099 -32590/9 1575404/81 -236432/81 -17772 19287 19065 -15288 -26835 -210 -19311 19623 -4542 -18855 -7899 -3027 4749 24912 -4794 -5250 -24534 16818 -2163 -12234 1464 26178 7149 11235 6798 -28743 -9429 1188 -10083 -9393 25230 16104 -7944 8583 -11919 19554 8685 19992 4194]
+> data := coleman_data(Q, 3, 10 : useY);
+> data`F;
+[18156 -27936 -18309 5795 360839/27 -651731/27 0 0 0]
+[11010 -13743 -17376 -22804/3 57842/3 -16711 0 0 0]
+[-18423 -13644 11100 -16859 297872/27 355903/27 0 0 0]
+[25392 471 16164 -117103/9 160576/81 -2306767/81 0 0 0]
+[20931 22695 23193 191275/9 -2386207/81 1232746/81 0 0 0]
+[-12693 16152 -13743 -140039/9 1946984/81 -1772864/81 0 0 0]
+[27171 -19335 24279 -41509/3 -634058/27 -605626/27 -2136 -15553 -12118]
+[24225 -25191 12012 7267 -742111/27 -218435/27 -3288 8698 -17744]
+[3351 6813 597 -19237 671542/27 269024/27 -28797 -25477 -6559]
+> data := coleman_data(Q, 3, 20 : useY);
+> data`F;
+[117407568 -292320486 -1645832037 -413894890 19506843695/27 511362148/27 0 0 0]
+[570660546 372113055 -780822303 1206151436/3 3833602028/3 807310694 0 0 0]
+[560592783 1036355355 569833950 1175031997 39282586073/27 21271695271/27 0 0 0]
+[-1347236592 -860756802 -1531301553 -8696145235/9 -41813144912/81 -55556609800/81 0 0 0]
+[436865433 -891144813 -1385561592 -12693985598/9 -122627436841/81 -120721081961/81 0 0 0]
+[-839748522 263906133 -1592329077 4945981348/9 -101568887455/81 38375766559/81 0 0 0]
+[-415087299 556635588 -351730614 3594881294/3 -3757036193/27 -34191570949/27 525711111 1588520645 -496259914]
+[1586316561 -678852495 765287052 -457517507 -597097645/27 590763640/27 1312478835 170069818 226789465]
+[395513553 1256038092 -737344266 -1043723434 15391360366/27 -33143088307/27 1725264885 -1388917006 -695780926]
+> -2136 mod 3^10;
+56913
+> -2136 mod 3^6;
+51
+> pAdicField(3,10)!-2136;
+-712*3 + O(3^11)
+> pAdicField(3,10)!-6559;
+-6559 + O(3^10)
+> data`basis;
+[
+(-29679/108544*x^10 + 1050759/1085440*x^9 + 6063707/542720*x^8 - 84921021/1085440*x^7 + 108986793/542720*x^6 - 314080233/1085440*x^5 + 58263265/217088*x^4 - 12270129/108544*x^3 + 1   275483/542720*x^9 - 1607427/217088*x^8 + 10124011/271360*x^7 - 89997903/1085440*x^6 + 12797717/135680*x^5 - 64092371/1085440*x^4 - 34178527/1085440*x^3 + 6625167/135680*x^2 + 59089/67840*x - 23463/6784   9893/108544*x^8 + 436233/1085440*x^7 - 4934453/542720*x^6 + 36905429/1085440*x^5 - 33143239/542720*x^4 + 79753093/1085440*x^3 - 44061197/1085440*x^2 + 237217/108544*x + 60073/33920   -63573/542720*x^7 + 1284143/1085440*x^6 - 34877/8480*x^5 + 1666763/217088*x^4 - 2463193/271360*x^3 + 1057571/217088*x^2 - 79877/217088*x - 25443/135680),
+(87/6784*x^10 - 31227/67840*x^9 + 123609/33920*x^8 - 1039707/67840*x^7 + 1162761/33920*x^6 - 3079591/67840*x^5 + 539283/13568*x^4 - 117051/6784*x^3 + x   3601/33920*x^9 - 19853/13568*x^8 + 110747/16960*x^7 - 946941/67840*x^6 + 255003/16960*x^5 - 475497/67840*x^4 - 395089/67840*x^3 + 17611/2120*x^2 - 7677/4240*x - 145/424   -29/6784*x^8 + 18051/67840*x^7 - 71611/33920*x^6 + 420283/67840*x^5 - 352423/33920*x^4 + 713091/67840*x^3 - 363079/67840*x^2 + 5615/6784*x + 551/2120   -831/33920*x^7 + 17641/67840*x^6 - 3307/4240*x^5 + 17977/13568*x^4 - 10853/8480*x^3 + 8097/13568*x^2 - 1211/13568*x - 261/8480),
+(-3/3392*x^10 - 1957/33920*x^9 + 11199/16960*x^8 - 107577/33920*x^7 + 130181/16960*x^6 - 374901/33920*x^5 + 72045/6784*x^4 - 19101/3392*x^3 + x^2   351/16960*x^9 - 1991/6784*x^8 + 11807/8480*x^7 - 107011/33920*x^6 + 15949/4240*x^5 - 78967/33920*x^4 - 25779/33920*x^3 + 7979/4240*x^2 - 1307/2120*x + 5/212   1/3392*x^8 + 1461/33920*x^7 - 6961/16960*x^6 + 45233/33920*x^5 - 40683/16960*x^4 + 92961/33920*x^3 - 57769/33920*x^2 + 1517/3392*x - 19/1060   -81/16960*x^7 + 1731/33920*x^6 - 44/265*x^5 + 2063/6784*x^4 - 2861/8480*x^3 + 1351/6784*x^2 - 353/6784*x + 9/4240),
+(-51939509914589103975547430205/221356768155673511304507910219*x^13 + 605865183811914013965889059904/221356768155673511304507910219*x^12 - 1584382520232771988592095303685/221356768155673511304507910219*x^11 + 9*x^8   -77903425001526318837895773120/221356768155673511304507910219*x^12 + 1044203955020912377058733855187/221356768155673511304507910219*x^11 - 3448610841598357159476180667144/221356768155673511304507910219*x^10 + 1206510044335631399839253708632/221356768155673511304507910219*x^9 + 3781015914698859264306287595085/221356768155673511304507910219*x^8 - 3823754226472995343085900209278/221356768155673511304507910219*x^7 + 6265721279684458614454531892067/221356768155673511304507910219*x^6 + 11554902899351772096660583682045/221356768155673511304507910219*x^5 - 16678525650081765297530459733201/221356768155673511304507910219*x^4 - 6362964476933397767782215143318/221356768155673511304507910219*x^3 + 7284430879003271858023390333980/221356768155673511304507910219*x^2 - 2737675548446881129353721860736/221356768155673511304507910219*x + 331437626053955956665634788736/221356768155673511304507910219   47066490607507706606463127855/221356768155673511304507910219*x^11 - 744187360533506095086528063024/221356768155673511304507910219*x^10 + 3729601215690903687279889860189/221356768155673511304507910219*x^9 - 5987108129477795984755116173998/221356768155673511304507910219*x^8 - 50620835704685013364119491686/221356768155673511304507910219*x^7 + 3012658206924747168210208398141/221356768155673511304507910219*x^6 - 9325924392732063849307636204540/221356768155673511304507910219*x^5 - 1934840306888252579796004275232/221356768155673511304507910219*x^4 + 21812487911858276851231854015808/221356768155673511304507910219*x^3 - 13296290754470804889352208575406/221356768155673511304507910219*x^2 + 3953410490514677390503849509984/221356768155673511304507910219*x - 429362844553501600511619613376/221356768155673511304507910219   15879012485836319576046266990/221356768155673511304507910219*x^10 - 202730813558375650664459169663/221356768155673511304507910219*x^9 + 571928382455286731555128777512/221356768155673511304507910219*x^8 - 149600946531206093639595991762/221356768155673511304507910219*x^7 + 31330173208065055902419226641/221356768155673511304507910219*x^6 + 1091825607456544657960572885154/221356768155673511304507910219*x^5 - 437805122061565961836528937787/221356768155673511304507910219*x^4 - 1957753674844049052971882049821/221356768155673511304507910219*x^3 + 1315823153530902091667977177581/221356768155673511304507910219*x^2 - 412405596773304312121702446384/221356768155673511304507910219*x + 46077636716810348832131759904/221356768155673511304507910219),
+(-428254093314586634600908467750/221356768155673511304507910219*x^13 + 5282564373789541646386872033170/221356768155673511304507910219*x^12 - 15243994984521065434574516906254/221356768155673511304507910219*x^11 + 81*x^9   -360483481082431090673719059495/221356768155673511304507910219*x^12 + 4080801494456320162186999807217/221356768155673511304507910219*x^11 - 5854347048981858015067792933163/221356768155673511304507910219*x^10 - 29768666746933196513503710404848/221356768155673511304507910219*x^9 + 42737806756926863622228845012234/221356768155673511304507910219*x^8 + 10422802239000311399530112046813/221356768155673511304507910219*x^7 - 589410275512237804867064130921/221356768155673511304507910219*x^6 + 52831757160669061139739391444933/221356768155673511304507910219*x^5 - 20312887035372888577851401149977/221356768155673511304507910219*x^4 - 127008503009725321796472329571418/221356768155673511304507910219*x^3 + 84274777193657674355964121820496/221356768155673511304507910219*x^2 - 26440417863169322723473998889280/221356768155673511304507910219*x + 2962765451093804400019167793664/221356768155673511304507910219   332807296704357948135055965680/221356768155673511304507910219*x^11 - 5261716092142450901610198504474/221356768155673511304507910219*x^10 + 25740123896263968122690513302266/221356768155673511304507910219*x^9 - 37321692233257823169080819955218/221356768155673511304507910219*x^8 - 9697459496874911647625671292657/221356768155673511304507910219*x^7 + 18153792136787309201693715234468/221356768155673511304507910219*x^6 - 54519767044770805977280028504276/221356768155673511304507910219*x^5 - 7556673283407755406470960346224/221356768155673511304507910219*x^4 + 139353854604486899548309335455312/221356768155673511304507910219*x^3 - 86136653413515743143662704191258/221356768155673511304507910219*x^2 + 25920628727930312941598696946720/221356768155673511304507910219*x - 2837979493742357886161544430144/221356768155673511304507910219   103111408810309358102215924825/221356768155673511304507910219*x^10 - 1253324087149495971787952832621/221356768155673511304507910219*x^9 + 3065136814594919213742405408519/221356768155673511304507910219*x^8 + 350851891943684732081587377658/221356768155673511304507910219*x^7 + 1276710087379605630411570795328/221356768155673511304507910219*x^6 + 5747731967629983814955457711539/221356768155673511304507910219*x^5 - 4516723809563109181011166749327/221356768155673511304507910219*x^4 - 11093068861332157844890164745333/221356768155673511304507910219*x^3 + 7908378450007254364797210325641/221356768155673511304507910219*x^2 - 2566777050711138626783306517744/221356768155673511304507910219*x + 292499232338922329211544448160/221356768155673511304507910219),
+(-338825722029492177606219531645/221356768155673511304507910219*x^13 + 4730353845632045339235893713751/221356768155673511304507910219*x^12 - 17969514772640782644510741717850/221356768155673511304507910219*x^11 + 81*x^10   -48240066816280221376984293180/221356768155673511304507910219*x^12 - 546892937563400946592577213512/221356768155673511304507910219*x^11 + 13708056737644276676839979191720/221356768155673511304507910219*x^10 - 54625291771135937464813525514920/221356768155673511304507910219*x^9 + 45729718262210449465986552125402/221356768155673511304507910219*x^8 + 36278181090178287265297064504028/221356768155673511304507910219*x^7 - 57681810779781290762169976339686/221356768155673511304507910219*x^6 + 13358024607233056497622795794865/221356768155673511304507910219*x^5 + 119315593126650198207971390710062/221356768155673511304507910219*x^4 - 201742055445620551488770203913392/221356768155673511304507910219*x^3 + 103733878286692239829839091637538/221356768155673511304507910219*x^2 - 27850394280141320611786959052448/221356768155673511304507910219*x + 2854295001372530486235407759168/221356768155673511304507910219   191283847839522627873993353135/221356768155673511304507910219*x^11 - 3162097281599695683457475575263/221356768155673511304507910219*x^10 + 15925963023736573221894385212132/221356768155673511304507910219*x^9 - 23549142289327223484631513151873/221356768155673511304507910219*x^8 - 6456387947371595400115896774038/221356768155673511304507910219*x^7 + 9753470866264333413149515963464/221356768155673511304507910219*x^6 - 23537463466549182900716198988188/221356768155673511304507910219*x^5 - 972800318751759500026869022850/221356768155673511304507910219*x^4 + 65155206048277212187147985288642/221356768155673511304507910219*x^3 - 40867306936668454785367761298096/221356768155673511304507910219*x^2 + 12455427290061746631740833230912/221356768155673511304507910219*x - 1375497913716755927940392899072/221356768155673511304507910219   71273164271639774611614922720/221356768155673511304507910219*x^10 - 826043467505022713480316963840/221356768155673511304507910219*x^9 + 1873513901284326748031148800742/221356768155673511304507910219*x^8 + 608725607979624503207205327130/221356768155673511304507910219*x^7 + 1011817576060173083263002443386/221356768155673511304507910219*x^6 + 1742678164046206997509783373912/221356768155673511304507910219*x^5 - 3197245694876921844980551521702/221356768155673511304507910219*x^4 - 3822039693563543006483622260575/221356768155673511304507910219*x^3 + 3082954402118196327078458441346/221356768155673511304507910219*x^2 - 1067074049331387713297765859840/221356768155673511304507910219*x + 125811764828405577924309370176/221356768155673511304507910219),
+(91902173919/1446602397628*x^11 - 2559921413111/3616505994070*x^10 + 4590785538242/1808252997035*x^9 - 76268216352219/14466023976280*x^8 + 6272689839457/850942586840*x^7 - 71623468082577/14466023976280*x^6 + x^3   41087584358/1808252997035*x^10 - 923965027067/2893204795256*x^9 + 8831922971913/7233011988140*x^8 - 599963354519/212735646710*x^7 + 37063420613699/14466023976280*x^6 + 7862278249049/3616505994070*x^5 - 46039826564923/14466023976280*x^4 + 284116248507/176414926540*x^3 - 3028354723288/1808252997035*x^2 + 137571602584/361650599407*x - 17123470832/361650599407   -30634057973/1446602397628*x^9 + 1536890925271/7233011988140*x^8 - 5427188756407/7233011988140*x^7 + 22223353962461/14466023976280*x^6 - 35337481077207/14466023976280*x^5 + 4486708119927/14466023976280*x^4 + 4558789126283/3616505994070*x^3 - 154481094381/1446602397628*x^2 + 50994719473/1808252997035*x + 2994899912/361650599407   -6544678848/1808252997035*x^8 + 956143665677/14466023976280*x^7 - 399376165373/1808252997035*x^6 + 515352798385/1446602397628*x^5 - 242615331433/14466023976280*x^4 - 333389968599/1446602397628*x^3 + 176090568771/2893204795256*x^2 - 56026129889/3616505994070*x + 47255832/361650599407),
+(85188382023/723301198814*x^11 - 2411004570132/1808252997035*x^10 + 9311176473163/1808252997035*x^9 - 84579055691163/7233011988140*x^8 + 7508720151729/425471293420*x^7 - 92484362246409/7233011988140*x^6 + 3*x^4   70008627862/1808252997035*x^10 - 882744486979/1446602397628*x^9 + 10091100152731/3616505994070*x^8 - 725341845688/106367823355*x^7 + 45710868346123/7233011988140*x^6 + 8551094133328/1808252997035*x^5 - 65683600548031/7233011988140*x^4 + 366932101549/88207463270*x^3 - 3913917772312/1808252997035*x^2 + 186075556224/361650599407*x - 19160127232/361650599407   -28396127341/723301198814*x^9 + 1393209765517/3616505994070*x^8 - 5151970577129/3616505994070*x^7 + 24894944631157/7233011988140*x^6 - 42170324997519/7233011988140*x^5 + 10699376947239/7233011988140*x^4 + 5871268960291/1808252997035*x^3 - 1115736576187/723301198814*x^2 + 726176030232/1808252997035*x - 12619629008/361650599407   -8187578022/1808252997035*x^8 + 817696228349/7233011988140*x^7 - 870809635037/1808252997035*x^6 + 614901879647/723301198814*x^5 - 1021389745881/7233011988140*x^4 - 409557407953/723301198814*x^3 + 421715036599/1446602397628*x^2 - 140245589888/1808252997035*x + 2584823112/361650599407),
+(16004931825/361650599407*x^11 - 189266949705/361650599407*x^10 + 795543470692/361650599407*x^9 - 4055586306201/723301198814*x^8 + 401808827217/42547129342*x^7 - 6150663129639/723301198814*x^6 + 3*x^5   7217409250/361650599407*x^10 - 228752119489/723301198814*x^9 + 552580702235/361650599407*x^8 - 78933439879/21273564671*x^7 + 2668906799567/723301198814*x^6 + 446906699893/361650599407*x^5 - 2987881910801/723301198814*x^4 + 20132762129/8820746327*x^3 - 306960714592/361650599407*x^2 + 62213802912/361650599407*x - 5322483200/361650599407   -5334977275/361650599407*x^9 + 56567737610/361650599407*x^8 - 238459164511/361650599407*x^7 + 1278637412219/723301198814*x^6 - 2227093205871/723301198814*x^5 + 1063937362437/723301198814*x^4 + 319876183609/361650599407*x^3 - 239210781841/361650599407*x^2 + 72298928400/361650599407*x - 7537612192/361650599407   -986457750/361650599407*x^8 + 40280546359/723301198814*x^7 - 86748600146/361650599407*x^6 + 157698401342/361650599407*x^5 - 119668305885/723301198814*x^4 - 64694260666/361650599407*x^3 + 88739733925/723301198814*x^2 - 13073561240/361650599407*x + 1357258128/361650599407)
+]
+> data := coleman_data(Q, 3, 20 : useY);
+> data := coleman_data(Q, 3, 20 : useY);
+> data := coleman_data(Q, 3, 6 : useY);
+> data`basis;
+[
+(-29679/108544*x^10 + 1050759/1085440*x^9 + 6063707/542720*x^8 - 84921021/1085440*x^7 + 108986793/542720*x^6 - 314080233/1085440*x^5 + 58263265/217088*x^4 - 12270129/108544*x^3 + 1   275483/542720*x^9 - 1607427/217088*x^8 + 10124011/271360*x^7 - 89997903/1085440*x^6 + 12797717/135680*x^5 - 64092371/1085440*x^4 - 34178527/1085440*x^3 + 6625167/135680*x^2 + 59089/67840*x - 23463/6784   9893/108544*x^8 + 436233/1085440*x^7 - 4934453/542720*x^6 + 36905429/1085440*x^5 - 33143239/542720*x^4 + 79753093/1085440*x^3 - 44061197/1085440*x^2 + 237217/108544*x + 60073/33920   -63573/542720*x^7 + 1284143/1085440*x^6 - 34877/8480*x^5 + 1666763/217088*x^4 - 2463193/271360*x^3 + 1057571/217088*x^2 - 79877/217088*x - 25443/135680),
+(87/6784*x^10 - 31227/67840*x^9 + 123609/33920*x^8 - 1039707/67840*x^7 + 1162761/33920*x^6 - 3079591/67840*x^5 + 539283/13568*x^4 - 117051/6784*x^3 + x   3601/33920*x^9 - 19853/13568*x^8 + 110747/16960*x^7 - 946941/67840*x^6 + 255003/16960*x^5 - 475497/67840*x^4 - 395089/67840*x^3 + 17611/2120*x^2 - 7677/4240*x - 145/424   -29/6784*x^8 + 18051/67840*x^7 - 71611/33920*x^6 + 420283/67840*x^5 - 352423/33920*x^4 + 713091/67840*x^3 - 363079/67840*x^2 + 5615/6784*x + 551/2120   -831/33920*x^7 + 17641/67840*x^6 - 3307/4240*x^5 + 17977/13568*x^4 - 10853/8480*x^3 + 8097/13568*x^2 - 1211/13568*x - 261/8480),
+(-3/3392*x^10 - 1957/33920*x^9 + 11199/16960*x^8 - 107577/33920*x^7 + 130181/16960*x^6 - 374901/33920*x^5 + 72045/6784*x^4 - 19101/3392*x^3 + x^2   351/16960*x^9 - 1991/6784*x^8 + 11807/8480*x^7 - 107011/33920*x^6 + 15949/4240*x^5 - 78967/33920*x^4 - 25779/33920*x^3 + 7979/4240*x^2 - 1307/2120*x + 5/212   1/3392*x^8 + 1461/33920*x^7 - 6961/16960*x^6 + 45233/33920*x^5 - 40683/16960*x^4 + 92961/33920*x^3 - 57769/33920*x^2 + 1517/3392*x - 19/1060   -81/16960*x^7 + 1731/33920*x^6 - 44/265*x^5 + 2063/6784*x^4 - 2861/8480*x^3 + 1351/6784*x^2 - 353/6784*x + 9/4240),
+(-51939509914589103975547430205/221356768155673511304507910219*x^13 + 605865183811914013965889059904/221356768155673511304507910219*x^12 - 1584382520232771988592095303685/221356768155673511304507910219*x^11 + 9*x^8   -77903425001526318837895773120/221356768155673511304507910219*x^12 + 1044203955020912377058733855187/221356768155673511304507910219*x^11 - 3448610841598357159476180667144/221356768155673511304507910219*x^10 + 1206510044335631399839253708632/221356768155673511304507910219*x^9 + 3781015914698859264306287595085/221356768155673511304507910219*x^8 - 3823754226472995343085900209278/221356768155673511304507910219*x^7 + 6265721279684458614454531892067/221356768155673511304507910219*x^6 + 11554902899351772096660583682045/221356768155673511304507910219*x^5 - 16678525650081765297530459733201/221356768155673511304507910219*x^4 - 6362964476933397767782215143318/221356768155673511304507910219*x^3 + 7284430879003271858023390333980/221356768155673511304507910219*x^2 - 2737675548446881129353721860736/221356768155673511304507910219*x + 331437626053955956665634788736/221356768155673511304507910219   47066490607507706606463127855/221356768155673511304507910219*x^11 - 744187360533506095086528063024/221356768155673511304507910219*x^10 + 3729601215690903687279889860189/221356768155673511304507910219*x^9 - 5987108129477795984755116173998/221356768155673511304507910219*x^8 - 50620835704685013364119491686/221356768155673511304507910219*x^7 + 3012658206924747168210208398141/221356768155673511304507910219*x^6 - 9325924392732063849307636204540/221356768155673511304507910219*x^5 - 1934840306888252579796004275232/221356768155673511304507910219*x^4 + 21812487911858276851231854015808/221356768155673511304507910219*x^3 - 13296290754470804889352208575406/221356768155673511304507910219*x^2 + 3953410490514677390503849509984/221356768155673511304507910219*x - 429362844553501600511619613376/221356768155673511304507910219   15879012485836319576046266990/221356768155673511304507910219*x^10 - 202730813558375650664459169663/221356768155673511304507910219*x^9 + 571928382455286731555128777512/221356768155673511304507910219*x^8 - 149600946531206093639595991762/221356768155673511304507910219*x^7 + 31330173208065055902419226641/221356768155673511304507910219*x^6 + 1091825607456544657960572885154/221356768155673511304507910219*x^5 - 437805122061565961836528937787/221356768155673511304507910219*x^4 - 1957753674844049052971882049821/221356768155673511304507910219*x^3 + 1315823153530902091667977177581/221356768155673511304507910219*x^2 - 412405596773304312121702446384/221356768155673511304507910219*x + 46077636716810348832131759904/221356768155673511304507910219),
+(-428254093314586634600908467750/221356768155673511304507910219*x^13 + 5282564373789541646386872033170/221356768155673511304507910219*x^12 - 15243994984521065434574516906254/221356768155673511304507910219*x^11 + 81*x^9   -360483481082431090673719059495/221356768155673511304507910219*x^12 + 4080801494456320162186999807217/221356768155673511304507910219*x^11 - 5854347048981858015067792933163/221356768155673511304507910219*x^10 - 29768666746933196513503710404848/221356768155673511304507910219*x^9 + 42737806756926863622228845012234/221356768155673511304507910219*x^8 + 10422802239000311399530112046813/221356768155673511304507910219*x^7 - 589410275512237804867064130921/221356768155673511304507910219*x^6 + 52831757160669061139739391444933/221356768155673511304507910219*x^5 - 20312887035372888577851401149977/221356768155673511304507910219*x^4 - 127008503009725321796472329571418/221356768155673511304507910219*x^3 + 84274777193657674355964121820496/221356768155673511304507910219*x^2 - 26440417863169322723473998889280/221356768155673511304507910219*x + 2962765451093804400019167793664/221356768155673511304507910219   332807296704357948135055965680/221356768155673511304507910219*x^11 - 5261716092142450901610198504474/221356768155673511304507910219*x^10 + 25740123896263968122690513302266/221356768155673511304507910219*x^9 - 37321692233257823169080819955218/221356768155673511304507910219*x^8 - 9697459496874911647625671292657/221356768155673511304507910219*x^7 + 18153792136787309201693715234468/221356768155673511304507910219*x^6 - 54519767044770805977280028504276/221356768155673511304507910219*x^5 - 7556673283407755406470960346224/221356768155673511304507910219*x^4 + 139353854604486899548309335455312/221356768155673511304507910219*x^3 - 86136653413515743143662704191258/221356768155673511304507910219*x^2 + 25920628727930312941598696946720/221356768155673511304507910219*x - 2837979493742357886161544430144/221356768155673511304507910219   103111408810309358102215924825/221356768155673511304507910219*x^10 - 1253324087149495971787952832621/221356768155673511304507910219*x^9 + 3065136814594919213742405408519/221356768155673511304507910219*x^8 + 350851891943684732081587377658/221356768155673511304507910219*x^7 + 1276710087379605630411570795328/221356768155673511304507910219*x^6 + 5747731967629983814955457711539/221356768155673511304507910219*x^5 - 4516723809563109181011166749327/221356768155673511304507910219*x^4 - 11093068861332157844890164745333/221356768155673511304507910219*x^3 + 7908378450007254364797210325641/221356768155673511304507910219*x^2 - 2566777050711138626783306517744/221356768155673511304507910219*x + 292499232338922329211544448160/221356768155673511304507910219),
+(-338825722029492177606219531645/221356768155673511304507910219*x^13 + 4730353845632045339235893713751/221356768155673511304507910219*x^12 - 17969514772640782644510741717850/221356768155673511304507910219*x^11 + 81*x^10   -48240066816280221376984293180/221356768155673511304507910219*x^12 - 546892937563400946592577213512/221356768155673511304507910219*x^11 + 13708056737644276676839979191720/221356768155673511304507910219*x^10 - 54625291771135937464813525514920/221356768155673511304507910219*x^9 + 45729718262210449465986552125402/221356768155673511304507910219*x^8 + 36278181090178287265297064504028/221356768155673511304507910219*x^7 - 57681810779781290762169976339686/221356768155673511304507910219*x^6 + 13358024607233056497622795794865/221356768155673511304507910219*x^5 + 119315593126650198207971390710062/221356768155673511304507910219*x^4 - 201742055445620551488770203913392/221356768155673511304507910219*x^3 + 103733878286692239829839091637538/221356768155673511304507910219*x^2 - 27850394280141320611786959052448/221356768155673511304507910219*x + 2854295001372530486235407759168/221356768155673511304507910219   191283847839522627873993353135/221356768155673511304507910219*x^11 - 3162097281599695683457475575263/221356768155673511304507910219*x^10 + 15925963023736573221894385212132/221356768155673511304507910219*x^9 - 23549142289327223484631513151873/221356768155673511304507910219*x^8 - 6456387947371595400115896774038/221356768155673511304507910219*x^7 + 9753470866264333413149515963464/221356768155673511304507910219*x^6 - 23537463466549182900716198988188/221356768155673511304507910219*x^5 - 972800318751759500026869022850/221356768155673511304507910219*x^4 + 65155206048277212187147985288642/221356768155673511304507910219*x^3 - 40867306936668454785367761298096/221356768155673511304507910219*x^2 + 12455427290061746631740833230912/221356768155673511304507910219*x - 1375497913716755927940392899072/221356768155673511304507910219   71273164271639774611614922720/221356768155673511304507910219*x^10 - 826043467505022713480316963840/221356768155673511304507910219*x^9 + 1873513901284326748031148800742/221356768155673511304507910219*x^8 + 608725607979624503207205327130/221356768155673511304507910219*x^7 + 1011817576060173083263002443386/221356768155673511304507910219*x^6 + 1742678164046206997509783373912/221356768155673511304507910219*x^5 - 3197245694876921844980551521702/221356768155673511304507910219*x^4 - 3822039693563543006483622260575/221356768155673511304507910219*x^3 + 3082954402118196327078458441346/221356768155673511304507910219*x^2 - 1067074049331387713297765859840/221356768155673511304507910219*x + 125811764828405577924309370176/221356768155673511304507910219),
+(91902173919/1446602397628*x^11 - 2559921413111/3616505994070*x^10 + 4590785538242/1808252997035*x^9 - 76268216352219/14466023976280*x^8 + 6272689839457/850942586840*x^7 - 71623468082577/14466023976280*x^6 + x^3   41087584358/1808252997035*x^10 - 923965027067/2893204795256*x^9 + 8831922971913/7233011988140*x^8 - 599963354519/212735646710*x^7 + 37063420613699/14466023976280*x^6 + 7862278249049/3616505994070*x^5 - 46039826564923/14466023976280*x^4 + 284116248507/176414926540*x^3 - 3028354723288/1808252997035*x^2 + 137571602584/361650599407*x - 17123470832/361650599407   -30634057973/1446602397628*x^9 + 1536890925271/7233011988140*x^8 - 5427188756407/7233011988140*x^7 + 22223353962461/14466023976280*x^6 - 35337481077207/14466023976280*x^5 + 4486708119927/14466023976280*x^4 + 4558789126283/3616505994070*x^3 - 154481094381/1446602397628*x^2 + 50994719473/1808252997035*x + 2994899912/361650599407   -6544678848/1808252997035*x^8 + 956143665677/14466023976280*x^7 - 399376165373/1808252997035*x^6 + 515352798385/1446602397628*x^5 - 242615331433/14466023976280*x^4 - 333389968599/1446602397628*x^3 + 176090568771/2893204795256*x^2 - 56026129889/3616505994070*x + 47255832/361650599407),
+(85188382023/723301198814*x^11 - 2411004570132/1808252997035*x^10 + 9311176473163/1808252997035*x^9 - 84579055691163/7233011988140*x^8 + 7508720151729/425471293420*x^7 - 92484362246409/7233011988140*x^6 + 3*x^4   70008627862/1808252997035*x^10 - 882744486979/1446602397628*x^9 + 10091100152731/3616505994070*x^8 - 725341845688/106367823355*x^7 + 45710868346123/7233011988140*x^6 + 8551094133328/1808252997035*x^5 - 65683600548031/7233011988140*x^4 + 366932101549/88207463270*x^3 - 3913917772312/1808252997035*x^2 + 186075556224/361650599407*x - 19160127232/361650599407   -28396127341/723301198814*x^9 + 1393209765517/3616505994070*x^8 - 5151970577129/3616505994070*x^7 + 24894944631157/7233011988140*x^6 - 42170324997519/7233011988140*x^5 + 10699376947239/7233011988140*x^4 + 5871268960291/1808252997035*x^3 - 1115736576187/723301198814*x^2 + 726176030232/1808252997035*x - 12619629008/361650599407   -8187578022/1808252997035*x^8 + 817696228349/7233011988140*x^7 - 870809635037/1808252997035*x^6 + 614901879647/723301198814*x^5 - 1021389745881/7233011988140*x^4 - 409557407953/723301198814*x^3 + 421715036599/1446602397628*x^2 - 140245589888/1808252997035*x + 2584823112/361650599407),
+(16004931825/361650599407*x^11 - 189266949705/361650599407*x^10 + 795543470692/361650599407*x^9 - 4055586306201/723301198814*x^8 + 401808827217/42547129342*x^7 - 6150663129639/723301198814*x^6 + 3*x^5   7217409250/361650599407*x^10 - 228752119489/723301198814*x^9 + 552580702235/361650599407*x^8 - 78933439879/21273564671*x^7 + 2668906799567/723301198814*x^6 + 446906699893/361650599407*x^5 - 2987881910801/723301198814*x^4 + 20132762129/8820746327*x^3 - 306960714592/361650599407*x^2 + 62213802912/361650599407*x - 5322483200/361650599407   -5334977275/361650599407*x^9 + 56567737610/361650599407*x^8 - 238459164511/361650599407*x^7 + 1278637412219/723301198814*x^6 - 2227093205871/723301198814*x^5 + 1063937362437/723301198814*x^4 + 319876183609/361650599407*x^3 - 239210781841/361650599407*x^2 + 72298928400/361650599407*x - 7537612192/361650599407   -986457750/361650599407*x^8 + 40280546359/723301198814*x^7 - 86748600146/361650599407*x^6 + 157698401342/361650599407*x^5 - 119668305885/723301198814*x^4 - 64694260666/361650599407*x^3 + 88739733925/723301198814*x^2 - 13073561240/361650599407*x + 1357258128/361650599407)
+]
+> #data`basis;
+9
+> data`basis[1]
+> ;
+(-29679/108544*x^10 + 1050759/1085440*x^9 + 6063707/542720*x^8 - 84921021/1085440*x^7 + 108986793/542720*x^6 - 314080233/1085440*x^5 + 58263265/217088*x^4 - 12270129/108544*x^3 + 1   275483/542720*x^9 - 1607427/217088*x^8 + 10124011/271360*x^7 - 89997903/1085440*x^6 + 12797717/135680*x^5 - 64092371/1085440*x^4 - 34178527/1085440*x^3 + 6625167/135680*x^2 + 59089/67840*x - 23463/6784   9893/108544*x^8 + 436233/1085440*x^7 - 4934453/542720*x^6 + 36905429/1085440*x^5 - 33143239/542720*x^4 + 79753093/1085440*x^3 - 44061197/1085440*x^2 + 237217/108544*x + 60073/33920   -63573/542720*x^7 + 1284143/1085440*x^6 - 34877/8480*x^5 + 1666763/217088*x^4 - 2463193/271360*x^3 + 1057571/217088*x^2 - 79877/217088*x - 25443/135680)
+> data`basis[7];
+(91902173919/1446602397628*x^11 - 2559921413111/3616505994070*x^10 + 4590785538242/1808252997035*x^9 - 76268216352219/14466023976280*x^8 + 6272689839457/850942586840*x^7 - 71623468082577/14466023976280*x^6 + x^3   41087584358/1808252997035*x^10 - 923965027067/2893204795256*x^9 + 8831922971913/7233011988140*x^8 - 599963354519/212735646710*x^7 + 37063420613699/14466023976280*x^6 + 7862278249049/3616505994070*x^5 - 46039826564923/14466023976280*x^4 + 284116248507/176414926540*x^3 - 3028354723288/1808252997035*x^2 + 137571602584/361650599407*x - 17123470832/361650599407   -30634057973/1446602397628*x^9 + 1536890925271/7233011988140*x^8 - 5427188756407/7233011988140*x^7 + 22223353962461/14466023976280*x^6 - 35337481077207/14466023976280*x^5 + 4486708119927/14466023976280*x^4 + 4558789126283/3616505994070*x^3 - 154481094381/1446602397628*x^2 + 50994719473/1808252997035*x + 2994899912/361650599407   -6544678848/1808252997035*x^8 + 956143665677/14466023976280*x^7 - 399376165373/1808252997035*x^6 + 515352798385/1446602397628*x^5 - 242615331433/14466023976280*x^4 - 333389968599/1446602397628*x^3 + 176090568771/2893204795256*x^2 - 56026129889/3616505994070*x + 47255832/361650599407)
+> Q;
+y^4 - 10*y^3 + (-6*x^2 + 10*x + 24)*y^2 + (26*x^2 - 40*x - 16)*y + 5*x^4 + 6*x^3 - 32*x^2 + 32*x
+>   Qpoints  := Q_points(data,search_bound); // small Q-rational points
+
+>>   Qpoints  := Q_points(data,search_bound); // small Q-rational points
+                               ^
+User error: Identifier 'search_bound' has not been declared or assigned
+>   Qpoints  := Q_points(data,1000);
+> Qpoints;
+[
+rec<recformat<x, b, inf, xt, bt, index> | 
+x := 0,
+b := [ 1 + O(3^6), 2 + O(3^6), 4 + O(3^6), 8 + O(3^6) ],
+inf := false>,
+rec<recformat<x, b, inf, xt, bt, index> | 
+x := 0,
+b := [ 1 + O(3^6), 0, 0, 0 ],
+inf := false>,
+rec<recformat<x, b, inf, xt, bt, index> | 
+x := 364*3 + O(3^7),
+b := [ 1 + O(3^6), -364*3 + O(3^7), -182*3^2 + O(3^8), -91*3^3 + O(3^9) ],
+inf := false>,
+rec<recformat<x, b, inf, xt, bt, index> | 
+x := 1 + O(3^6),
+b := [ 1 + O(3^6), 1 + O(3^6), 1 + O(3^6), 1 + O(3^6) ],
+inf := false>,
+rec<recformat<x, b, inf, xt, bt, index> | 
+x := -364 + O(3^6),
+b := [ 1 + O(3^6), -364 + O(3^6), -182 + O(3^6), -91 + O(3^6) ],
+inf := false>,
+rec<recformat<x, b, inf, xt, bt, index> | 
+x := 0,
+b := [ 1 + O(3^6), 1 + O(3^6), 1 + O(3^6), 1 + O(3^6) ],
+inf := true>,
+rec<recformat<x, b, inf, xt, bt, index> | 
+x := 0,
+b := [ 1 + O(3^6), -1 + O(3^6), 1 + O(3^6), -1 + O(3^6) ],
+inf := true>
+]
+> P;=Qpoints[7];
+
+>> P;=Qpoints[7];
+   ^
+User error: Identifier 'P' has not been declared or assigned
+
+>> P;=Qpoints[7];
+     ^
+User error: bad syntax
+> P:=Qpoints[7];
+> P;
+rec<recformat<x, b, inf, xt, bt, index> | 
+x := 0,
+b := [ 1 + O(3^6), -1 + O(3^6), 1 + O(3^6), -1 + O(3^6) ],
+inf := true>
+> local_coord;
+function(P, prec, data) ... end function
+> t:=local_coord(P, 10, data);
+> t;
+t + O(t^10)
+> a:=local_coord(P, 10, data);
+> a;
+t + O(t^10)
+> a:=local_coord(P, 20, data);
+> a;
+t + O(t^20)
+> Q;
+y^4 - 10*y^3 + (-6*x^2 + 10*x + 24)*y^2 + (26*x^2 - 40*x - 16)*y + 5*x^4 + 6*x^3 - 32*x^2 + 32*x
+> data`basis;
+[
+(-29679/108544*x^10 + 1050759/1085440*x^9 + 6063707/542720*x^8 - 84921021/1085440*x^7 + 108986793/542720*x^6 - 314080233/1085440*x^5 + 58263265/217088*x^4 - 12270129/108544*x^3 + 1   275483/542720*x^9 - 1607427/217088*x^8 + 10124011/271360*x^7 - 89997903/1085440*x^6 + 12797717/135680*x^5 - 64092371/1085440*x^4 - 34178527/1085440*x^3 + 6625167/135680*x^2 + 59089/67840*x - 23463/6784   9893/108544*x^8 + 436233/1085440*x^7 - 4934453/542720*x^6 + 36905429/1085440*x^5 - 33143239/542720*x^4 + 79753093/1085440*x^3 - 44061197/1085440*x^2 + 237217/108544*x + 60073/33920   -63573/542720*x^7 + 1284143/1085440*x^6 - 34877/8480*x^5 + 1666763/217088*x^4 - 2463193/271360*x^3 + 1057571/217088*x^2 - 79877/217088*x - 25443/135680),
+(87/6784*x^10 - 31227/67840*x^9 + 123609/33920*x^8 - 1039707/67840*x^7 + 1162761/33920*x^6 - 3079591/67840*x^5 + 539283/13568*x^4 - 117051/6784*x^3 + x   3601/33920*x^9 - 19853/13568*x^8 + 110747/16960*x^7 - 946941/67840*x^6 + 255003/16960*x^5 - 475497/67840*x^4 - 395089/67840*x^3 + 17611/2120*x^2 - 7677/4240*x - 145/424   -29/6784*x^8 + 18051/67840*x^7 - 71611/33920*x^6 + 420283/67840*x^5 - 352423/33920*x^4 + 713091/67840*x^3 - 363079/67840*x^2 + 5615/6784*x + 551/2120   -831/33920*x^7 + 17641/67840*x^6 - 3307/4240*x^5 + 17977/13568*x^4 - 10853/8480*x^3 + 8097/13568*x^2 - 1211/13568*x - 261/8480),
+(-3/3392*x^10 - 1957/33920*x^9 + 11199/16960*x^8 - 107577/33920*x^7 + 130181/16960*x^6 - 374901/33920*x^5 + 72045/6784*x^4 - 19101/3392*x^3 + x^2   351/16960*x^9 - 1991/6784*x^8 + 11807/8480*x^7 - 107011/33920*x^6 + 15949/4240*x^5 - 78967/33920*x^4 - 25779/33920*x^3 + 7979/4240*x^2 - 1307/2120*x + 5/212   1/3392*x^8 + 1461/33920*x^7 - 6961/16960*x^6 + 45233/33920*x^5 - 40683/16960*x^4 + 92961/33920*x^3 - 57769/33920*x^2 + 1517/3392*x - 19/1060   -81/16960*x^7 + 1731/33920*x^6 - 44/265*x^5 + 2063/6784*x^4 - 2861/8480*x^3 + 1351/6784*x^2 - 353/6784*x + 9/4240),
+(-51939509914589103975547430205/221356768155673511304507910219*x^13 + 605865183811914013965889059904/221356768155673511304507910219*x^12 - 1584382520232771988592095303685/221356768155673511304507910219*x^11 + 9*x^8   -77903425001526318837895773120/221356768155673511304507910219*x^12 + 1044203955020912377058733855187/221356768155673511304507910219*x^11 - 3448610841598357159476180667144/221356768155673511304507910219*x^10 + 1206510044335631399839253708632/221356768155673511304507910219*x^9 + 3781015914698859264306287595085/221356768155673511304507910219*x^8 - 3823754226472995343085900209278/221356768155673511304507910219*x^7 + 6265721279684458614454531892067/221356768155673511304507910219*x^6 + 11554902899351772096660583682045/221356768155673511304507910219*x^5 - 16678525650081765297530459733201/221356768155673511304507910219*x^4 - 6362964476933397767782215143318/221356768155673511304507910219*x^3 + 7284430879003271858023390333980/221356768155673511304507910219*x^2 - 2737675548446881129353721860736/221356768155673511304507910219*x + 331437626053955956665634788736/221356768155673511304507910219   47066490607507706606463127855/221356768155673511304507910219*x^11 - 744187360533506095086528063024/221356768155673511304507910219*x^10 + 3729601215690903687279889860189/221356768155673511304507910219*x^9 - 5987108129477795984755116173998/221356768155673511304507910219*x^8 - 50620835704685013364119491686/221356768155673511304507910219*x^7 + 3012658206924747168210208398141/221356768155673511304507910219*x^6 - 9325924392732063849307636204540/221356768155673511304507910219*x^5 - 1934840306888252579796004275232/221356768155673511304507910219*x^4 + 21812487911858276851231854015808/221356768155673511304507910219*x^3 - 13296290754470804889352208575406/221356768155673511304507910219*x^2 + 3953410490514677390503849509984/221356768155673511304507910219*x - 429362844553501600511619613376/221356768155673511304507910219   15879012485836319576046266990/221356768155673511304507910219*x^10 - 202730813558375650664459169663/221356768155673511304507910219*x^9 + 571928382455286731555128777512/221356768155673511304507910219*x^8 - 149600946531206093639595991762/221356768155673511304507910219*x^7 + 31330173208065055902419226641/221356768155673511304507910219*x^6 + 1091825607456544657960572885154/221356768155673511304507910219*x^5 - 437805122061565961836528937787/221356768155673511304507910219*x^4 - 1957753674844049052971882049821/221356768155673511304507910219*x^3 + 1315823153530902091667977177581/221356768155673511304507910219*x^2 - 412405596773304312121702446384/221356768155673511304507910219*x + 46077636716810348832131759904/221356768155673511304507910219),
+(-428254093314586634600908467750/221356768155673511304507910219*x^13 + 5282564373789541646386872033170/221356768155673511304507910219*x^12 - 15243994984521065434574516906254/221356768155673511304507910219*x^11 + 81*x^9   -360483481082431090673719059495/221356768155673511304507910219*x^12 + 4080801494456320162186999807217/221356768155673511304507910219*x^11 - 5854347048981858015067792933163/221356768155673511304507910219*x^10 - 29768666746933196513503710404848/221356768155673511304507910219*x^9 + 42737806756926863622228845012234/221356768155673511304507910219*x^8 + 10422802239000311399530112046813/221356768155673511304507910219*x^7 - 589410275512237804867064130921/221356768155673511304507910219*x^6 + 52831757160669061139739391444933/221356768155673511304507910219*x^5 - 20312887035372888577851401149977/221356768155673511304507910219*x^4 - 127008503009725321796472329571418/221356768155673511304507910219*x^3 + 84274777193657674355964121820496/221356768155673511304507910219*x^2 - 26440417863169322723473998889280/221356768155673511304507910219*x + 2962765451093804400019167793664/221356768155673511304507910219   332807296704357948135055965680/221356768155673511304507910219*x^11 - 5261716092142450901610198504474/221356768155673511304507910219*x^10 + 25740123896263968122690513302266/221356768155673511304507910219*x^9 - 37321692233257823169080819955218/221356768155673511304507910219*x^8 - 9697459496874911647625671292657/221356768155673511304507910219*x^7 + 18153792136787309201693715234468/221356768155673511304507910219*x^6 - 54519767044770805977280028504276/221356768155673511304507910219*x^5 - 7556673283407755406470960346224/221356768155673511304507910219*x^4 + 139353854604486899548309335455312/221356768155673511304507910219*x^3 - 86136653413515743143662704191258/221356768155673511304507910219*x^2 + 25920628727930312941598696946720/221356768155673511304507910219*x - 2837979493742357886161544430144/221356768155673511304507910219   103111408810309358102215924825/221356768155673511304507910219*x^10 - 1253324087149495971787952832621/221356768155673511304507910219*x^9 + 3065136814594919213742405408519/221356768155673511304507910219*x^8 + 350851891943684732081587377658/221356768155673511304507910219*x^7 + 1276710087379605630411570795328/221356768155673511304507910219*x^6 + 5747731967629983814955457711539/221356768155673511304507910219*x^5 - 4516723809563109181011166749327/221356768155673511304507910219*x^4 - 11093068861332157844890164745333/221356768155673511304507910219*x^3 + 7908378450007254364797210325641/221356768155673511304507910219*x^2 - 2566777050711138626783306517744/221356768155673511304507910219*x + 292499232338922329211544448160/221356768155673511304507910219),
+(-338825722029492177606219531645/221356768155673511304507910219*x^13 + 4730353845632045339235893713751/221356768155673511304507910219*x^12 - 17969514772640782644510741717850/221356768155673511304507910219*x^11 + 81*x^10   -48240066816280221376984293180/221356768155673511304507910219*x^12 - 546892937563400946592577213512/221356768155673511304507910219*x^11 + 13708056737644276676839979191720/221356768155673511304507910219*x^10 - 54625291771135937464813525514920/221356768155673511304507910219*x^9 + 45729718262210449465986552125402/221356768155673511304507910219*x^8 + 36278181090178287265297064504028/221356768155673511304507910219*x^7 - 57681810779781290762169976339686/221356768155673511304507910219*x^6 + 13358024607233056497622795794865/221356768155673511304507910219*x^5 + 119315593126650198207971390710062/221356768155673511304507910219*x^4 - 201742055445620551488770203913392/221356768155673511304507910219*x^3 + 103733878286692239829839091637538/221356768155673511304507910219*x^2 - 27850394280141320611786959052448/221356768155673511304507910219*x + 2854295001372530486235407759168/221356768155673511304507910219   191283847839522627873993353135/221356768155673511304507910219*x^11 - 3162097281599695683457475575263/221356768155673511304507910219*x^10 + 15925963023736573221894385212132/221356768155673511304507910219*x^9 - 23549142289327223484631513151873/221356768155673511304507910219*x^8 - 6456387947371595400115896774038/221356768155673511304507910219*x^7 + 9753470866264333413149515963464/221356768155673511304507910219*x^6 - 23537463466549182900716198988188/221356768155673511304507910219*x^5 - 972800318751759500026869022850/221356768155673511304507910219*x^4 + 65155206048277212187147985288642/221356768155673511304507910219*x^3 - 40867306936668454785367761298096/221356768155673511304507910219*x^2 + 12455427290061746631740833230912/221356768155673511304507910219*x - 1375497913716755927940392899072/221356768155673511304507910219   71273164271639774611614922720/221356768155673511304507910219*x^10 - 826043467505022713480316963840/221356768155673511304507910219*x^9 + 1873513901284326748031148800742/221356768155673511304507910219*x^8 + 608725607979624503207205327130/221356768155673511304507910219*x^7 + 1011817576060173083263002443386/221356768155673511304507910219*x^6 + 1742678164046206997509783373912/221356768155673511304507910219*x^5 - 3197245694876921844980551521702/221356768155673511304507910219*x^4 - 3822039693563543006483622260575/221356768155673511304507910219*x^3 + 3082954402118196327078458441346/221356768155673511304507910219*x^2 - 1067074049331387713297765859840/221356768155673511304507910219*x + 125811764828405577924309370176/221356768155673511304507910219),
+(91902173919/1446602397628*x^11 - 2559921413111/3616505994070*x^10 + 4590785538242/1808252997035*x^9 - 76268216352219/14466023976280*x^8 + 6272689839457/850942586840*x^7 - 71623468082577/14466023976280*x^6 + x^3   41087584358/1808252997035*x^10 - 923965027067/2893204795256*x^9 + 8831922971913/7233011988140*x^8 - 599963354519/212735646710*x^7 + 37063420613699/14466023976280*x^6 + 7862278249049/3616505994070*x^5 - 46039826564923/14466023976280*x^4 + 284116248507/176414926540*x^3 - 3028354723288/1808252997035*x^2 + 137571602584/361650599407*x - 17123470832/361650599407   -30634057973/1446602397628*x^9 + 1536890925271/7233011988140*x^8 - 5427188756407/7233011988140*x^7 + 22223353962461/14466023976280*x^6 - 35337481077207/14466023976280*x^5 + 4486708119927/14466023976280*x^4 + 4558789126283/3616505994070*x^3 - 154481094381/1446602397628*x^2 + 50994719473/1808252997035*x + 2994899912/361650599407   -6544678848/1808252997035*x^8 + 956143665677/14466023976280*x^7 - 399376165373/1808252997035*x^6 + 515352798385/1446602397628*x^5 - 242615331433/14466023976280*x^4 - 333389968599/1446602397628*x^3 + 176090568771/2893204795256*x^2 - 56026129889/3616505994070*x + 47255832/361650599407),
+(85188382023/723301198814*x^11 - 2411004570132/1808252997035*x^10 + 9311176473163/1808252997035*x^9 - 84579055691163/7233011988140*x^8 + 7508720151729/425471293420*x^7 - 92484362246409/7233011988140*x^6 + 3*x^4   70008627862/1808252997035*x^10 - 882744486979/1446602397628*x^9 + 10091100152731/3616505994070*x^8 - 725341845688/106367823355*x^7 + 45710868346123/7233011988140*x^6 + 8551094133328/1808252997035*x^5 - 65683600548031/7233011988140*x^4 + 366932101549/88207463270*x^3 - 3913917772312/1808252997035*x^2 + 186075556224/361650599407*x - 19160127232/361650599407   -28396127341/723301198814*x^9 + 1393209765517/3616505994070*x^8 - 5151970577129/3616505994070*x^7 + 24894944631157/7233011988140*x^6 - 42170324997519/7233011988140*x^5 + 10699376947239/7233011988140*x^4 + 5871268960291/1808252997035*x^3 - 1115736576187/723301198814*x^2 + 726176030232/1808252997035*x - 12619629008/361650599407   -8187578022/1808252997035*x^8 + 817696228349/7233011988140*x^7 - 870809635037/1808252997035*x^6 + 614901879647/723301198814*x^5 - 1021389745881/7233011988140*x^4 - 409557407953/723301198814*x^3 + 421715036599/1446602397628*x^2 - 140245589888/1808252997035*x + 2584823112/361650599407),
+(16004931825/361650599407*x^11 - 189266949705/361650599407*x^10 + 795543470692/361650599407*x^9 - 4055586306201/723301198814*x^8 + 401808827217/42547129342*x^7 - 6150663129639/723301198814*x^6 + 3*x^5   7217409250/361650599407*x^10 - 228752119489/723301198814*x^9 + 552580702235/361650599407*x^8 - 78933439879/21273564671*x^7 + 2668906799567/723301198814*x^6 + 446906699893/361650599407*x^5 - 2987881910801/723301198814*x^4 + 20132762129/8820746327*x^3 - 306960714592/361650599407*x^2 + 62213802912/361650599407*x - 5322483200/361650599407   -5334977275/361650599407*x^9 + 56567737610/361650599407*x^8 - 238459164511/361650599407*x^7 + 1278637412219/723301198814*x^6 - 2227093205871/723301198814*x^5 + 1063937362437/723301198814*x^4 + 319876183609/361650599407*x^3 - 239210781841/361650599407*x^2 + 72298928400/361650599407*x - 7537612192/361650599407   -986457750/361650599407*x^8 + 40280546359/723301198814*x^7 - 86748600146/361650599407*x^6 + 157698401342/361650599407*x^5 - 119668305885/723301198814*x^4 - 64694260666/361650599407*x^3 + 88739733925/723301198814*x^2 - 13073561240/361650599407*x + 1357258128/361650599407)
+]
+> Q;
+y^4 - 10*y^3 + (-6*x^2 + 10*x + 24)*y^2 + (26*x^2 - 40*x - 16)*y + 5*x^4 + 6*x^3 - 32*x^2 + 32*x
+> Q := y^2-x*y-x^4-1;
+> data := coleman_data(Q, 3, 6 : useY);
+Runtime error: bad prime
+> data := coleman_data(Q, 5, 6 : useY);
+> data`F;
+[ 2785  3725     0]
+[-1853 -2787     0]
+[    0     0     5]
+> Q := y^4-x*y-x^4-1;
+> data := coleman_data(Q, 5, 6 : useY);
+Runtime error: bad prime
+> data := coleman_data(Q, 7, 6 : useY);
+> data`F;
+[     0      0  56616 -24857      0      0      0      0      0]
+[     0 -19173      0      0      0 -25333      0      0      0]
+[ 55419      0      0      0 -18046      0      0      0      0]
+[ 41843      0      0      0  -6385      0      0      0      0]
+[     0      0  20568  -7561      0      0      0      0      0]
+[     0  55636      0      0      0  19169      0      0      0]
+[     0      0      0      0      0      0 -13097 -18837      0]
+[     0      0      0      0      0      0 -52276  13097      0]
+[     0 -46655      0      0      0  46501      0      0      7]
+> data`g;
+3
+> Q := y^3-x*y-x^3-1;
+> data := coleman_data(Q, 7, 6 : useY);
+> data`F;
+[-16597  -9786      0      0]
+[ 53237  16596      0      0]
+[     0      0      7      0]
+[     0      0      0      7]
+> Q := y^3-x^2*y-x^3-1;
+> data := coleman_data(Q, 7, 6 : useY);
+> data`F;
+[ 34965      0      0      0]
+[     0 -34970      0      0]
+[     0      0  44723 -53746]
+[     0      0 -28980 -44723]
+> data`g;
+1
+> a:=pAdicField(7,6)!-13097;
+> lindepQp;
+function(a) ... end function
+> lindepQp(a);
+-224/9
+> Q := y^3-x*y^2-x^3-1;
+> data := coleman_data(Q, 7, 6 : useY);
+> data`F;
+[ 47712      0      0      0]
+[     0 -47716      0      0]
+[     0      0 -48069  22463]
+[     0      0 -46389  48062]
+
+Total time: 6.849 seconds, Total memory usage: 64.12MB

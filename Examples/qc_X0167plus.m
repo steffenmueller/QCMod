@@ -29,7 +29,7 @@ ptsX := Points(X:Bound:=100);
 
 // Compute generators for the full Mordell-Weil group using Stoll's MordellWeilGroupGenus2
 // This spares us the trouble of checking saturation in MW sieve computation.
-torsion_bas, torsion_orders, bas := generators(J);
+torsion_bas, torsion_orders, bas := generators_g2(J);
 assert #bas eq 2; // rank = 2
 bas[2] := -bas[2]; // This works better in this particular example.
 
@@ -71,7 +71,7 @@ odd_data_divisors_inv := [
 ];
 odd_data`ordinary := true;
 odd_data`cpm := -cup_product_matrix(odd_data`basis, odd_data`Q, 2, odd_data`r, odd_data`W0);
-
+/*
 printf "\nStart computation of local height at %o between first pair of divisors\n", p;
 time ht1, D1_data := local_height_divisors_p(odd_data_divisors[1], odd_data_divisors_inv[1],odd_data);
 "Time for first height";
@@ -82,9 +82,9 @@ printf "Start computation of local height at %o between third pair of divisors\n
 time ht3 := local_height_divisors_p(odd_data_divisors_inv[2], odd_data_divisors[2], odd_data);
 "Time for third height";
 local_CG_hts := [-ht1, ht2, -ht3]; 
+*/
 // hti is known to be correct to precision Prec(hti)
-// local_CG_hts := [ 3193723114452456*61,  -3780937538333965*61 ,
-// -1947858636859455*61 ];
+ local_CG_hts := [ 2875116849*7, -4661563260*7, -4045515024*7 ];
 //
 
 "local heights", local_CG_hts;
@@ -154,5 +154,5 @@ mws_primes_p := [7,11,19,233,283,331,467,983,1049,1667,10861,25771];
 printf "starting MW-sieve to exclude rational points in bad and infinite disks at p=%o\n", p;
 time done_bad := MWSieve(J, mws_primes_p, modulus, bas cat torsion_bas, X!base_pt, coeffs_mod_Mp : special_p_points := [<p, bad_pts_p>], printlevel := 0 ); 
 assert done_bad;
-printf "There are no rational points in bad or infinite disks for p=%o", p;
+printf "There are no rational points in bad or infinite disks for p=%o.", p;
 

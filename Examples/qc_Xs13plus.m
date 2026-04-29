@@ -16,10 +16,11 @@ X := X0NQuotient(169, [169]); X;
 X1 := AffinePatch(X, 1);
 A2<y0, x0> := AmbientSpace(X1); Equation(X1);
 //
+/*
 Q := y^3 + y^2*x^2 + y^2*x + y^2 + y*x^3 + y*x - y + x^3 - 3*x^2 + x;
 time success, Cpts, p, Q_inf := QCModQuartic(Q, S : N := 25, printlevel := 1);
 assert success;
-"Rational points on Xns(13)+", Cpts;
+"Rational points on X0(13^2)+", Cpts;
 
 
 "
@@ -32,6 +33,7 @@ assert success;
   our main function (see qc_C188.m for an examples where this is applied).
 ";
 
+*/
 
 Q := y^4 + 5*x^4 - 6*x^2*y^2 + 6*x^3 + 26*x^2*y + 10*x*y^2 - 10*y^3 - 32*x^2 -40*x*y + 24*y^2 + 32*x - 16*y; 
 // put in a basis omega[i]dx/z for H^1(Y) by hand:

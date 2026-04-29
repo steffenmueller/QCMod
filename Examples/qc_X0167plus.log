@@ -17,65 +17,53 @@ Loading "divisor_heights.m"
 Loading "qc_init_g2.m"
 Loading "mws_qc.m"
 Loading "howe_zhu.m"
-Compute the rational points on  Hyperelliptic Curve defined by y^2 = 1881*x^6 - 
-    3328*x^5 + 2418*x^4 - 926*x^3 + 197*x^2 - 22*x + 1 over Rational Field
+Compute the rational points on  Hyperelliptic Curve defined by y^2 = 1881*x^6 - 3328*x^5 + 2418*x^4 - 926*x^3 + 197*x^2 - 22*x + 1 over Rational Field
 The Jacobian is absolutely simple
 Small points:  {@ (0 : -1 : 1), (0 : 1 : 1), (1 : -1 : 2), (1 : 1 : 2) @}
-
-Start computation of local height at 7 between first pair of divisors
-Time: 35.420
-Time for first height
-Start computation of local height at 7 between second pair of divisors
-Time: 13.800
-Time for second height
-Start computation of local height at 7 between third pair of divisors
-Time: 35.090
-Time for third height
-local heights [ 2875116849*7 + O(7^13), -4661563260*7 + O(7^13), -4045515024*7 +
-O(7^13) ]
+local heights [ 20125817943, -32630942820, -28318605168 ]
 
 Starting quadratic Chabauty for p = 7.
  Computing Hodge filtration for correspondence 1.
- Computing Frobenius structure for correspondence 1.
- The quadratic Chabauty function for correspondence 1 is correct to precision 
-7^11.
- All roots of the quadratic Chabauty function(s) are correct to precision at 
-least 7^9.
+ eta =  (0).
+ beta_fil  =  (0 0).
+ gamma_fil =  (-44*x     0).
 
- The common roots of the quadratic Chabauty function(s) in this affine patch are
+ Computing Frobenius structure for correspondence 1.
+[
+(0 0),
+(0 0),
+(0 0),
+(0 0),
+(0 0)
+]
+[ true, true, true, true, true ]
+ The quadratic Chabauty function for correspondence 1 is correct to precision 7^12.
+ All roots of the quadratic Chabauty function(s) are correct to precision at least 7^10.
+
+ The common roots of the quadratic Chabauty function(s) in this affine patch are 
  [
-[ 27920895*7 + O(7^11), -126216007 + O(7^11) ],
-[ O(7^11), -1 + O(7^11) ],
-[ 27920895*7 + O(7^11), 126216007 + O(7^11) ],
-[ O(7^11), 1 + O(7^11) ],
-[ -878895102 + O(7^11), -847000038 + O(7^11) ],
-[ -947703373 + O(7^11), -776147249 + O(7^11) ],
-[ -878895102 + O(7^11), 847000038 + O(7^11) ],
-[ -947703373 + O(7^11), 776147249 + O(7^11) ],
-[ -141237624 + O(7^10), 35309406 + O(7^10) ],
-[ -9945848 + O(7^10), -111001703 + O(7^10) ],
-[ -141237624 + O(7^10), -35309406 + O(7^10) ],
-[ -9945848 + O(7^10), 111001703 + O(7^10) ]
+[ 27920895*7 + O(7^12), -2103542750 + O(7^12) ],
+[ O(7^12), -1 + O(7^12) ],
+[ 27920895*7 + O(7^12), 2103542750 + O(7^12) ],
+[ O(7^12), 1 + O(7^12) ],
+[ -4833548588 + O(7^12), -4801653524 + O(7^12) ],
+[ -947703373 + O(7^12), -2753473992 + O(7^12) ],
+[ -4833548588 + O(7^12), 4801653524 + O(7^12) ],
+[ -947703373 + O(7^12), 2753473992 + O(7^12) ],
+[ -988663371 + O(7^11), -247165843 + O(7^11) ],
+[ -9945848 + O(7^11), -393476952 + O(7^11) ],
+[ -988663371 + O(7^11), 247165843 + O(7^11) ],
+[ -9945848 + O(7^11), 393476952 + O(7^11) ]
 ] 
 
-Time: 11.360
+Time: 2.860
 
-Use the Mordell-Weil sieve to show that the additional solutions aren't 
-rational.
+Use the Mordell-Weil sieve to show that the additional solutions aren't rational.
 generating cosets
 Time: 0.000
 number of cosets 8
 adding information modulo 1045
-  4 cosets eliminated at v = 67217
-        0 cosets remaining after v=67217
-Time: 445.750
-> 
-> "done with the MW sieve?", done_fake;
-done with the MW sieve? true
-> assert done_fake;
-
-Total time: 1125.710 seconds, Total memory usage: 4128.94MB
-Time: 111.390
+Time: 23.890
 number of cosets 8736200
 starting Mordell Weil sieve
   6437200 cosets eliminated at v = 3
@@ -106,42 +94,7 @@ starting Mordell Weil sieve
         12 cosets remaining after v=3847
   8 cosets eliminated at v = 4957
         4 cosets remaining after v=4957
-  4 cosets eliminated at v = 67217
-        0 cosets remaining after v=67217
-Time: 422.620
-done with the MW sieve? true
-No additional solutions are rational
 
-Use the Mordell-Weil sieve to show that there are no rational points in bad or 
-infinite disks
-auxiliary integer = 60
-  42379200 cosets eliminated at v = 7
-number of cosets 392400
-starting MW-sieve to exclude rational points in bad and infinite disks at p=7
-        392400 cosets remaining after v=7
-  348800 cosets eliminated at v = 11
-        43600 cosets remaining after v=11
-  8720 cosets eliminated at v = 19
-        34880 cosets remaining after v=19
-  13080 cosets eliminated at v = 233
-        21800 cosets remaining after v=233
-  12208 cosets eliminated at v = 283
-        9592 cosets remaining after v=283
-  8552 cosets eliminated at v = 331
-        1040 cosets remaining after v=331
-  80 cosets eliminated at v = 467
-        960 cosets remaining after v=467
-  112 cosets eliminated at v = 983
-        848 cosets remaining after v=983
-  796 cosets eliminated at v = 1049
-        52 cosets remaining after v=1049
-  32 cosets eliminated at v = 1667
-        20 cosets remaining after v=1667
-  14 cosets eliminated at v = 10861
-        6 cosets remaining after v=10861
-  6 cosets eliminated at v = 25771
-        0 cosets remaining after v=25771
-Time: 122.550
-There are no rational points in bad or infinite disks for p=7
+[Interrupted]
 
-Total time: 977.990 seconds, Total memory usage: 2436.12MB
+Total time: 98.760 seconds, Total memory usage: 2434.94MB

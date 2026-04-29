@@ -748,7 +748,7 @@ good_rat_pts_affine := good_affine_rat_pts_xy;
 
 base_pt := [1/4,209/64];
 J := Jacobian(X);
-torsion_bas, torsion_orders, bas := generators(J);
+torsion_bas, torsion_orders, bas := generators_g2(J);
 assert #bas eq 2; // rank = 2
 divisors := [* [* [[-1,1]],[[1,7]]*],    [* [[1/2,-35/2^3]], [[1/4,209/4^3]] *]*];
 P1 := X![-1,1]-X![1,7];

@@ -32,7 +32,7 @@ ptsX := Points(X:Bound:=100);
                 //find_qc_primes(X : mws_primes_bound := 80000, qc_primes_bound := 100, number_of_bad_disks := 1, inf_modp_allowed := false, ordinary := false, known_rat_pts := ptsX, printlevel :=1); 
 
 // Compute generators for the Mordell-Weil group using Stoll's MordellWeilGroupGenus2
-torsion_bas, torsion_orders, bas1 := generators(J);
+torsion_bas, torsion_orders, bas1 := generators_g2(J);
 assert #bas1 eq 2; // rank = 2
 bas := [ J![x^2 - x, 2*x - 1], J![x^2 - x, 1] ];
 assert Abs(Regulator(bas)-Regulator(bas1)) lt 10^-6; 

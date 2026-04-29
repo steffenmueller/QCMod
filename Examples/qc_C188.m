@@ -1448,7 +1448,7 @@ assert &and[P in Xpts : P in small_pts];
 "Run the Mordell-Weil sieve to show there are no additional rational points in affine disks.";
 base_pt := [1,1];
 J := Jacobian(X);
-torsion_bas, torsion_orders, bas := generators(J);
+torsion_bas, torsion_orders, bas := generators_g2(J);
 assert #bas eq 2; // rank = 2
 divisors := [* [* [[1,1]],[[0,1]]*],    [* [[1,-1]], [[4,29]] *]*];
 P1:=X![1,1]-X![0,1];
