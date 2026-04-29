@@ -355,16 +355,25 @@ function is_saturated_at_p(bas, torsion_bas, p, AuxPrimes)
     count := 0;
     while count lt num do
       repeat
+<<<<<<< HEAD
           q := NextPrime(q);
           while IsDivisibleBy(disc, q) do q := NextPrime(q); end while;
           Jq := BaseChange(J, Bang(Rationals(), GF(q)));
           h := #Jq;
       //    "q=",q;
+=======
+        q := NextPrime(q);
+        while IsDivisibleBy(disc, q) do q := NextPrime(q); end while;
+        Jq := BaseChange(J, Bang(Rationals(), GF(q)));
+        h := #Jq;
+    //    "q=",q;
+>>>>>>> 90add6fe61e98502c14f377382a6d7b3be9d349d
       until IsDivisibleBy(h, p);
       printf "Found relevant prime q = %o\n", q;
       Gq, mGq := AbelianGroup(Jq);
       Gqp, Gqmap := quo<Gq | [p*g : g in Generators(Gq)]>;
       m := hom<curr -> Gqp
+<<<<<<< HEAD
                | [Gqmap((Jq!mMW((MWp!g) @@ qmap)) @@ mGq)
                    : g in OrderedGenerators(curr)]>;
       curr := Kernel(m);
@@ -372,6 +381,15 @@ function is_saturated_at_p(bas, torsion_bas, p, AuxPrimes)
       if #curr eq 1 then
           // no potential p-divisible elements left
           return true;
+=======
+             | [Gqmap((Jq!mMW((MWp!g) @@ qmap)) @@ mGq)
+                 : g in OrderedGenerators(curr)]>;
+      curr := Kernel(m);
+      printf "Dimension of remaining space is %o\n", Valuation(#curr, p);
+      if #curr eq 1 then
+        // no potential p-divisible elements left
+        return true;
+>>>>>>> 90add6fe61e98502c14f377382a6d7b3be9d349d
       end if;
       count +:= 1;
     end while;
