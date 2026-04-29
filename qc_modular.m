@@ -3,7 +3,6 @@ load "coleman.m";
 load "symplectic_basis.m";
 load "hecke_correspondence.m";
 load "hodge.m";
-//load "hodge_nonsplit.m";
 load "frobenius.m"; 
 load "heights.m";
 load "second_patch_quartic.m";
@@ -143,7 +142,6 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
     basis0 := [[sympl_basis[i,j] : j in [1..Degree(Q)]] : i in [1..g]]; // basis of regular differentials
     basis1 := [[sympl_basis[i,j] : j in [1..Degree(Q)]] : i in [g+1..2*g]];  // basis of complementary subspace
   end if;
-  // Changed useU to useY, since that's all we need. 
   data := coleman_data(Q,p,N : useY:=true,  basis0 := basis0, basis1 := basis1, basis2 := basis2);
   if pl gt 1 then printf " Computed Coleman data at p=%o to precision %o.\n", p,N; end if;
 
@@ -282,7 +280,6 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
       split := Transpose(Matrix(Solution(W_lower, W_upper_minus)));
       eqsplit := BlockMatrix(2, 1, [IdentityMatrix(Rationals(),g), split]);
     else 
-      //eqsplit := eq_split(Tq); // Bug with X0*(303)
       eqsplit := equivariant_splitting(Tq);
     end if; // unit_root_splitting
   end if; // IsZero(eqsplit)
@@ -292,7 +289,6 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
   check_equiv := ChangeRing((big_split*Transpose(Tq) - Transpose(Tq)*big_split), pAdicField(p, N-2));     
   min_val_check_equiv := Min([Min([Valuation(check_equiv[i,j]) : j in [1..g]]): i in [1..2*g]]);
   assert min_val_check_equiv ge N-3; 
-  //assert IsZero(big_split*Transpose(Tq) - Transpose(Tq)*big_split);     // Test equivariance
   if pl gt 1 then printf "\n equivariant splitting:\n%o\n", eqsplit; end if;
   minvaleqsplit := minvalp(eqsplit, p);
 
@@ -335,7 +331,6 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
     repeat
       try
         eta,betafil,gammafil,hodge_loss := hodge_data(data,Z,bpt: prec := hodge_prec);
-//        eta_gen,betafil_gen,gammafil_gen,hodge_loss := hodge_data_generic(data,Z,bpt: prec := hodge_prec);
       catch e;
         hodge_prec +:= 5;
       end try;
@@ -343,17 +338,10 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
 
     Nhodge := Ncorr + Min(0, hodge_loss);
 
-    if pl gt 0 then 
+    if pl gt 1 then 
       printf  " eta =  %o.\n", eta; 
       printf  " beta_fil  =  %o.\n", betafil; 
       printf  " gamma_fil =  %o.\n\n", gammafil; 
-//        "difference_eta",  eta-eta_gen;
-//       "difference_beta", betafil-betafil_gen;
-//       "difference_gamma", gammafil-gammafil_gen;
-//        assert IsZero(eta-eta_gen);
-//        assert IsZero(betafil-betafil_gen);
-//        assert IsZero(gammafil-gammafil_gen);
-
     end if;
 
     Append(~valetas, minvalp(eta, p));
@@ -788,7 +776,6 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
       len := #solutions[i];
       include := [1..len];
       for j := 1 to len do // solutions for first correspondence
-        //"i,j", i,j; solutions[i];
         pt1 := solutions[i,j,1];  
         for l := 2 to number_of_correspondences do // correspondences
           matched := false;
@@ -805,7 +792,6 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
           end if;
         end for;
       end for;
-      //"include", include;
       solutions[i] := [solutions[i,j] : j in include];
     end if; // not IsEmpty(solutions[i]) then
   end for; // i in [1..#Qppoints] 
@@ -820,7 +806,6 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
   recovered_rat_pts_count := 0;
   number_of_known_rat_pts := #good_affine_rat_pts_xy;
   for i := 1 to #sols do
-//    P := [lindepQp(sols[i,1]), lindepQp(sols[i,2])];
     known_rational := false;
     sol := sols[i,1];
     multiple := sols[i,2];
@@ -839,7 +824,6 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
     end for;
     if not known_rational then
       P := [lindepQp(K!sols[i,1,1]), lindepQp(K!sols[i,1,2])];
-      //if pl gt 0 then printf "Rational reconstruction of point %o is \%o ", i,P; end if;
       if IsZero(eval_Q(Q, P[1], P[2])) then
         if pl gt 1 then " Found unknown rational point P", P; end if;
         if multiple then 

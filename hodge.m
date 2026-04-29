@@ -38,7 +38,6 @@ function hodge_data_generic(data, Z, bpt : prec:=5)
   FFKinfs :=[];
   for rt in rts do
     subfield, embedding := sub<split | rt>;
-    // K(rt), K(rt) c-> split
     Append(~subfields, <subfield, embedding>);
     Kinf := subfield;
     Kinfx := RationalFunctionField(Kinf);
@@ -72,7 +71,6 @@ function hodge_data_generic(data, Z, bpt : prec:=5)
     dxdt:=Derivative(xfunx[i]);
     
     rx := ChangeRing(r, Kinf);
-    //Evaluate(r,Kinfx.1); Parent(Evaluate(rx,Kinfx.1));
     zinv:=Expand(LeadingCoefficient(rx)/(FFKinf!Evaluate(rx,Kinfx.1)),P : RelPrec:=prec+3);
 
     b0funKinf:=[]; // functions b^0 (finite integral basis)
@@ -120,7 +118,6 @@ function hodge_data_generic(data, Z, bpt : prec:=5)
     omegaZOmegaP:=Kinf!0;
     for j:=1 to 2*g do
       for k:=1 to 2*g do
-//Parent(omegax[i][j]); Parent(Z[j,k]); Parent(Kinf!(Z[j,k])); Parent(Omegax[i][k]);
         omegaZOmegaP +:= omegax[i][j]*Kinf!(Z[j,k])*Omegax[i][k];
       end for;
     end for;
@@ -280,10 +277,9 @@ hodge_data:=function(data, Z, bpt: prec:=5)
   // prec is the relative precision to be used for the expansions
 
   try 
-    // Check if the Galois action 
     // When the Galois action on the places at infinity is maximal, can
     // work over the ground field. If this isn't satisfied,
-    // hodge_data_maximal throws an error
+    // hodge_data_generic throws an error
     eta, beta, gamma, poleorder := hodge_data_generic(data, Z, bpt : prec:=prec);
     return eta, beta, gamma, poleorder;
   catch e;  
@@ -463,7 +459,6 @@ hodge_data:=function(data, Z, bpt: prec:=5)
           v[cnt]:=Coefficient(gx[i],j);
         end for;
       end for;
-  //"#v", #Eltseq(v);
 
       rows:=[];
 
