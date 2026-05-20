@@ -2,6 +2,7 @@
 load "coleman.m";
 load "symplectic_basis.m";
 load "hecke_correspondence.m";
+load "hecke_correspondence_new.m";
 load "hodge.m";
 load "frobenius.m"; 
 load "heights.m";
@@ -226,7 +227,12 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
   // Want rho-1 independent `nice` correspondences.
   // Construct them using powers of Hecke operator
   q := IsZero(hecke_prime) select p else hecke_prime;
-  correspondences, Tq, corr_loss := hecke_corr(data,q,N : basis0:=basis0,basis1:=basis1,printlevel:=pl,use_polys:=use_polys);
+  if #use_polys ne 0 then  // backwards compatibility, use old code if use_polys is given.
+    correspondences, Tq, corr_loss := hecke_corr(data,q, N: printlevel:=pl,use_polys:=use_polys);
+  else 
+    correspondences, Tq, corr_loss := hecke_corr_new(data,q : printlevel:=pl);
+  end if;
+
 
   Ncorr := N + Min(corr_loss, 0);
   // correspondences and Tq are provably correct to O(p^Ncorr), at least if q = p. We
@@ -234,7 +240,7 @@ function QCModAffine(Q, p : N := 15, prec := 2*N, basis0 := [], basis1 := [], ba
   //
   Qpcorr := pAdicField(p, Ncorr);
   mat_space := KMatrixSpace(Qpcorr, 2*g, 2*g);
-  if pl gt 1 then printf "\nHecke operator at %o acting on H^1:\n%o\n", q, Tq; end if;
+  if pl gt -1 then printf "\nHecke operator at %o acting on H^1:\n%o\n", q, Tq; end if;
   if IsDiagonal(Tq) or Degree(CharacteristicPolynomial(Tq)) lt 2*g then
     error "p-Adic approximation of Hecke operator does not generate the endomorphism algebra. Please pick a different prime. ";
   end if;
