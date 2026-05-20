@@ -5,19 +5,19 @@
 
 hecke_corr_new := function(data,q : N := 0, basis0:=[],basis1:=[],printlevel:=1,polys:=[])
 
-  // For i=1,...,g-1, construct a nice correspondence Zi from the ith power of
-  // the Hecke operator Aq using Eichler-Shimura. 
+  // For i=1,...,g-1, construct trace 0 correspondences from powers of the Hecke operator Aq. 
+  // The correspondences are given by polynomials in Aq. 
+  // We compute Hecke operator Aq using Eichler-Shimura. 
   // N is the precision for the q-adic computation. 
   //
   // Both Aq^i and Zi are encoded as matrices representing their action on H^1_dR(X)
-  //
   //
   Q:=data`Q; g:=data`g; d:=Degree(Q); p:=data`p; 
   if IsZero(N) then N := data`N; end if;
   if #basis0 eq 0 then basis0 := [data`basis[i] : i in [1..g]]; end if;
   if #basis1 eq 0 then basis1 := [data`basis[i] : i in [g+1..2*g]]; end if;
 
-  C:=ZeroMatrix(RationalField(),2*g,2*g);
+  C:=ZeroMatrix(RationalField(),2*g,2*g); // standard symplectic matrix
   for i:=1 to g do
     C[i,g+i]:=1; C[g+i,i]:=-1; 
   end for;
