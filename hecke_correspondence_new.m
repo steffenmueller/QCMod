@@ -67,10 +67,10 @@ hecke_corr_new := function(data,q : N := 0, basis0:=[],basis1:=[],printlevel:=1,
       A[j,k] := lindepQp(pAdicField(q, N-1)!(D*Aq[j,k]))/D_rat;    // recognition of integer in Zp via LLL
     end for;
   end for;
-  As := [A^i : i in [1..g-1]];
-  traces := [Trace(Ai) : Ai in As];
 
   if #polys eq 0 then
+    s := [A^i : i in [1..g-1]];
+    traces := [Trace(Ai) : Ai in As];
     polys := [2*g*x^i-traces[i]: i in [1..g-1]];
   end if;
 
